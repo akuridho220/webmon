@@ -2,7 +2,7 @@ import Sidebar from '../../../components/Sidebar'
 import Header from '../../../components/Header'
 import bg from '../../../../public/img/pattern/pattern2-trs.png';
 
-export default function Riset() {
+export default function DaftarListing() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
             <div className="w-full items-center justify-between flex flex-row h-screen">
