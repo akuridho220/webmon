@@ -59,7 +59,7 @@ export default function Sidebar() {
                                 toggleAccordion={()=>toggleAccordion(riset.key)}
                             />
                         ))} */}
-                        <Link href="/monitoring" className="flex items-center py-4 pl-6 nav-item">
+                        <Link href="/monitoring-pcl" className="flex items-center py-4 pl-6 nav-item">
                             <div className="grow-0 pr-4">
                                 <Icon.MapPin />
                             </div>
