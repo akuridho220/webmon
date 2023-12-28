@@ -1,59 +1,67 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import * as Icon from 'react-feather';
-import { useState } from 'react';
 import AccordionChild from './AccordionChild';
+import Link from 'next/link';
 
-export default function Accordion(props) { 
-    const [risets, setRisets] = useState([
-        {
-            key: 1,
-            title: 'Daftar',
-            isOpen: false
-        },
-        {
-            key: 2,
-            title: 'Progres',
-            isOpen: false
-        }
-    ]);
+export default function Accordion() {
+    const [accordionOpen, setAccordionOpen] = useState(false)
 
-    const toggleAccordion = (accordionkey) => { 
-        const updatedAccordions = risets.map((accord) => { 
-            if (accord.key === accordionkey) { 
-                return { ...accord, isOpen: !accord.isOpen }; 
-            } else { 
-                return { ...accord, isOpen: false }; 
-            } 
-        }); 
-        setRisets(updatedAccordions); 
-    };
-	return ( 
-		<div className="flex flex-col items-center py-4 pl-6 nav-item"> 
-			<button 
-				className="w-full text-left bg-[#951A2E] transition duration-300 flex"
-				onClick={props.toggleAccordion} 
-			>
-                <div className="grow-0 pr-4">
-                    <Icon.FileText />
+    useEffect(() => {
+        setAccordionOpen(false)
+    }, [])
+
+    return (
+        <div className="py-2 hover:bg-[#8d2b3c]">
+            <h2>
+                <button
+                className="flex items-center justify-between w-full text-left font-semibold py-2 "
+                onClick={(e) => { e.preventDefault(); setAccordionOpen(!accordionOpen); }}
+                aria-expanded={accordionOpen}
+                aria-controls={`accordion-text-01`}
+                >
+                    <div className='flex items-center pl-6'>
+                        <div className="grow-0 pr-4">
+                            <Icon.FileText />
+                        </div>
+                        <span>Riset</span>
+                    </div>
+                </button>        
+            </h2>
+            <div
+                id={`accordion-text-01`}
+                role="region"
+                aria-labelledby={`accordion-title-01`}
+                className={`grid text-base text-white overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+            >
+                <div className="overflow-hidden">
+                    <AccordionChild title={'Daftar'} active={false}>
+                        <Link href="/riset/daftar/daftar-listing" className="flex items-center py-4 pl-14 nav-item">
+                            <Icon.ChevronRight/>
+                            <span className='pl-4'>Daftar Listing</span>
+                        </Link>
+                        <Link href="/riset/daftar/daftar-sampel" className="flex items-center py-4 pl-14 nav-item">
+                            <Icon.ChevronRight/>
+                            <span className='pl-4'>Daftar Sampel</span>
+                        </Link>
+                        <Link href="/riset/daftar/daftar-pertim" className="flex items-center py-4 pl-14 nav-item">
+                            <Icon.ChevronRight/>
+                            <span className='pl-4'>Daftar Per Tim</span>
+                        </Link>
+                    </AccordionChild>
+                    <AccordionChild title={'Progres'} active={false}>
+                        <Link href="/riset/progres/progres-wilayah" className="flex items-center py-4 pl-14 nav-item">
+                            <Icon.ChevronRight/>
+                            <span className='pl-4'>Progres Wilayah</span>
+                        </Link>
+                        <Link href="/riset/progres/progres-tim" className="flex items-center py-4 pl-14      nav-item">
+                            <Icon.ChevronRight/>
+                            <span className='pl-4'>Progres Per Tim</span>
+                        </Link>
+                    </AccordionChild>
                 </div>
-				{props.title} 
-				{/* <span className={`float-right transform ${props.isOpen ? 
-								'rotate-180' : 'rotate-0'} 
-								transition-transform duration-300`}> 
-					&#9660; 
-				</span>  */}
-			</button> 
-			{props.isOpen && ( 
-				<div className="bg-[#951A2E]"> 
-					{risets.map((riset) => (
-                            <AccordionChild
-                                key={riset.key}
-                                title={riset.title}
-                                isOpen={riset.isOpen}
-                                toggleAccordion={()=>toggleAccordion(riset.key)}
-                            />
-                        ))}
-				</div> 
-			)} 
-		</div> 
-	); 
-}; 
+            </div>
+        </div>
+    )
+}
