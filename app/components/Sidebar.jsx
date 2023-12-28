@@ -28,7 +28,7 @@ export default function Sidebar() {
                             <Icon.MapPin/>
                             <span className='pl-4'>Lokasi PCL</span>
                         </Link>
-                        <Link href="faq" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
+                        <Link href="/pusat-bantuan/faq" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
                             <Icon.HelpCircle/>
                             <span className='pl-4'>FAQ</span>
                         </Link>
