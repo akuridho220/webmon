@@ -1,4 +1,4 @@
-import logo from '../../public/img/logo/logo-icon.png'
+import * as Icon from 'react-feather';
 
 export default function Sidebar() {
     return (
@@ -14,28 +14,28 @@ export default function Sidebar() {
                     </div>
                 </div>
                 <div>
-                    <nav className="text-white text-sm font-semibold">
+                    <nav className="text-white text-lg font-semibold">
                         <a href="" className="flex items-center py-4 pl-6 nav-item">
-                            <div className="grow-0">
-                                <i>icon </i>
+                            <div className="grow-0 pr-4">
+                                <Icon.Home />
                             </div>
                             Dashboard
                         </a>
                         <a href="" className="flex items-center py-4 pl-6 nav-item">
-                            <div className="grow-0">
-                                <i>icon </i>
+                            <div className="grow-0 pr-4">
+                                <Icon.FileText />
                             </div>
                             Riset
                         </a>
                         <a href="" className="flex items-center py-4 pl-6 nav-item">
-                            <div className="grow-0">
-                                <i>icon </i>
+                            <div className="grow-0 pr-4">
+                                <Icon.MapPin />
                             </div>
                             Lokasi PPL
                         </a>
                         <a href="" className="flex items-center py-4 pl-6 nav-item">
-                            <div className="grow-0">
-                                <i>icon </i>
+                            <div className="grow-0 pr-4">
+                                <Icon.Search />
                             </div>
                             FAQ
                         </a>
@@ -43,16 +43,16 @@ export default function Sidebar() {
                 </div>
             </div>
             <div className="pb-4">
-                <nav className="text-white text-sm font-semibold">
+                <nav className="text-white text-lg font-semibold">
                     <a href="" className="flex items-center py-4 pl-6 nav-item">
-                        <div className="grow-0">
-                            <i>icon </i>
+                        <div className="grow-0 pr-4">
+                            <Icon.User />
                         </div>
                     Profil Saya
                     </a>
                     <a href="" className="flex items-center py-4 pl-6 nav-item">
-                        <div className="grow-0">
-                            <i>icon </i>
+                        <div className="grow-0 pr-4">
+                            <Icon.LogOut />
                         </div>
                         Logout
                     </a>
