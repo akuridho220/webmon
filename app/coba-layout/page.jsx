@@ -1,6 +1,6 @@
-import Layout from '@/app/layout/layout';
+import Layout from "../layout/layout"
 
-export default function Dashboard() {
+export default function CobaLayout(){
     return(
         <>
             <Layout>

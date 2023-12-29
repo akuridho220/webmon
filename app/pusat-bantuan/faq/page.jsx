@@ -1,7 +1,5 @@
-import Sidebar from '../../components/Sidebar'
-import Header from '../../components/Header'
-import bg from '../../../public/img/pattern/pattern2-trs.png';
 import AccordionFaq from './component/AccordionFaq';
+import Layout from '@/app/layout/layout';
 
 export default function Faq() {
     const faqs = [
@@ -27,40 +25,34 @@ export default function Faq() {
         }
     ]
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between">
-            <div className="w-full items-center justify-between flex flex-row h-screen">
-                <Sidebar />
-                <div className='flex flex-col w-4/5 items-center border-b-2 fixed right-0 justify-between'>
-                    <Header />
-                    <div className="hero flex flex-col items-center w-full h-screen pt-20" style={{backgroundImage: `url(${bg.src})`}}>
-                        <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
-                            <div className='flex text-white px-4'>
-                                <p className='pr-4'>FAQ</p>
-                                <span>|</span>
-                                <p className='pl-4'>Pusat Bantuan - FAQ</p>
-                            </div>
+        <>
+            <Layout>
+                <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
+                    <div className='flex text-white px-4'>
+                        <p className='pr-4'>FAQ</p>
+                        <span>|</span>
+                        <p className='pl-4'>Pusat Bantuan - FAQ</p>
+                    </div>
+                </div>
+                <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
+                    <div className='flex flex-col text-white items-center'>
+                        <div className='flex flex-col items-center'>
+                            <p className='font-bold text-xl'>Frequently Asked Question</p>
+                            <p className='text-sm'>Pertanyaan seputar Web Monitoring</p>
                         </div>
-                        <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
-                            <div className='flex flex-col text-white items-center'>
-                                <div className='flex flex-col items-center'>
-                                    <p className='font-bold text-xl'>Frequently Asked Question</p>
-                                    <p className='text-sm'>Pertanyaan seputar Web Monitoring</p>
-                                </div>
-                                <div className='mt-5 text-black font-base'>
-                                    { faqs.map((faq, index) => (
-                                        <AccordionFaq 
-                                            key={index}
-                                            title={faq.title}
-                                            id={`faqs-${index}`}
-                                            active={faq.active} 
-                                        >{faq.text}</AccordionFaq>
-                                    ))}
-                                </div>
-                            </div>
+                        <div className='mt-5 text-black font-base'>
+                            { faqs.map((faq, index) => (
+                                <AccordionFaq 
+                                    key={index}
+                                    title={faq.title}
+                                    id={`faqs-${index}`}
+                                    active={faq.active} 
+                                >{faq.text}</AccordionFaq>
+                            ))}
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </Layout>
+        </>
     )
 }
