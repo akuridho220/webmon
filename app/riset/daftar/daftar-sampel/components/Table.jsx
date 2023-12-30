@@ -5,6 +5,7 @@ import {
     flexRender, 
     getPaginationRowModel } from "@tanstack/react-table";
 import { useState } from "react";
+import * as Icon from 'react-feather';
 
 const datas = [
     {
@@ -33,25 +34,49 @@ const datas = [
     },
     {
         kodeBS: '3507040001013B',
-        pencacah: 'Tya',
+        pencacah: 'Agus',
         jumlahSampel: '10',
         jumlahListing: '86',
     },
     {
         kodeBS: '3507040001023B',
-        pencacah: 'Tya',
+        pencacah: 'Agus',
         jumlahSampel: '10',
         jumlahListing: '81',
     },
     {
         kodeBS: '3507040001025B',
-        pencacah: 'Tya',
+        pencacah: 'Agus',
         jumlahSampel: '10',
         jumlahListing: '90',
     },
     {
         kodeBS: '3507040001027B',
-        pencacah: 'Tya',
+        pencacah: 'Agus',
+        jumlahSampel: '10',
+        jumlahListing: '78',
+    },
+    {
+        kodeBS: '3507040001013B',
+        pencacah: 'Alif',
+        jumlahSampel: '10',
+        jumlahListing: '86',
+    },
+    {
+        kodeBS: '3507040001023B',
+        pencacah: 'Alif',
+        jumlahSampel: '10',
+        jumlahListing: '81',
+    },
+    {
+        kodeBS: '3507040001025B',
+        pencacah: 'Alif',
+        jumlahSampel: '10',
+        jumlahListing: '90',
+    },
+    {
+        kodeBS: '3507040001027B',
+        pencacah: 'Alif',
         jumlahSampel: '10',
         jumlahListing: '78',
     },
@@ -86,19 +111,20 @@ const Table = () => {
         getPaginationRowModel: getPaginationRowModel()
     });
 
+
     return(
         <div className="flex flex-col my-2">
             <div className="-my-2 overflow-x-auto sm:-mx-6">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6">
-                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <div className="shadow overflow-hidden border-b border-gray-200 rounded-lg">
                         <div className="flex justify-between bg-gray-100">
                             <div className="flex items-center text-sm p-4 ">
                                 <p className="">Show</p>
-                                <select className="p-2 border bg-white rounded-lg mx-2" id="select-progres-w">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
+                                <select id='filterSize' className="p-2 border bg-white rounded-lg mx-2" onChange={() => table.setPageSize(parseInt(event.target.value))}>
+                                    <option value="10" >10</option>
+                                    <option value="25" >25</option>
+                                    <option value="50" >50</option>
+                                    <option value="100" >100</option>
                                 </select>
                                 <p className="">entries</p>
                             </div>
@@ -131,6 +157,23 @@ const Table = () => {
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                    <div className="flex text-white py-2 justify-end">
+                        <Icon.ChevronsLeft 
+                            onClick={() => table.setPageIndex(0)} 
+                            className="cursor-pointer"/>
+                        <Icon.ChevronLeft 
+                            aria-disabled={!table.getCanPreviousPage()} 
+                            onClick={() => table.previousPage()}
+                            className="cursor-pointer"/>
+                        <p className="px-4">{table.getState().pagination.pageIndex + 1} / {table.getPageCount()}</p>
+                        <Icon.ChevronRight 
+                            aria-disabled={!table.getCanNextPage()} 
+                            onClick={() => table.nextPage()}
+                            className="cursor-pointer"/>
+                        <Icon.ChevronsRight 
+                            onClick={() => table.setPageIndex(table.getPageCount() - 1)} 
+                            className="cursor-pointer"/>
                     </div>
                 </div>
             </div>
