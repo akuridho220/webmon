@@ -1,4 +1,4 @@
-import AccordionFaq from './component/AccordionFaq';
+import AccordionFaq from './components/AccordionFaq';
 import Layout from '@/app/layout/layout';
 
 export default function Faq() {

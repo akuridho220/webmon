@@ -1,8 +1,8 @@
 export default function Header(){
     return (
         <>
-            <header className="w-4/5 items-center bg-[#C4314E] h-20 px-6 flex fixed top-0 right-0 justify-between">
-                <div className="searchBar w-2/3">
+            <header className="w-full items-center bg-[#C4314E] h-20 pr-6 pl-64 flex fixed top-0 right-0 justify-between">
+                <div className="searchBar w-2/3 ml-8">
                     <form>   
                         {/* <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label> */}
                         <div className="relative">

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Sidebar() {
     return (
-        <aside className="flex flex-col justify-between items-stretch w-1/5 fixed top-0 left-0 bg-[#951A2E] h-screen shadow-xl">
+        <aside className="flex flex-col justify-between items-stretch w-64 fixed top-0 left-0 bg-primary-900 h-screen shadow-xl z-10">
             <div className="">
                 <div className="flex flex-row items-center h-auto w-full px-4">
                     <div className="p-2 flex">
