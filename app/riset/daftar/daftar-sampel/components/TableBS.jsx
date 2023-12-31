@@ -92,6 +92,19 @@ const columns = [
         accessorKey: 'jumlahListing',
         header: 'Jumlah Terlisting'
     },
+    {
+        id: 'actions',
+        header: 'Aksi',
+        cell: ({row}) => {
+            const data = row.original
+            return (
+                <div className="bg-white flex justify-center">
+                    <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeBS)}>Detail</button>
+                </div>
+            )
+        }
+
+    }
 ]
 
 const TableBS = () => {

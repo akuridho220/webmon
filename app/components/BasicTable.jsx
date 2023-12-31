@@ -6,7 +6,7 @@ import {
     getPaginationRowModel,
     getSortedRowModel,
     getFilteredRowModel } from "@tanstack/react-table";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import * as Icon from 'react-feather';
 
 
