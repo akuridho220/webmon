@@ -4,22 +4,23 @@ import {
     useReactTable, 
     flexRender, 
     getPaginationRowModel,
-    getSortedRowModel } from "@tanstack/react-table";
-import { useState } from "react";
+    getSortedRowModel,
+    getFilteredRowModel } from "@tanstack/react-table";
+import { useState, useMemo } from "react";
 import * as Icon from 'react-feather';
 
 const datas = [
     {
-        kodeBS: '3507040001013B',
+        kodeBS: "3507040001013B",
         pencacah: 'Ridho',
-        jumlahSampel: '10',
-        jumlahListing: '86',
+        jumlahSampel: "10",
+        jumlahListing: "86",
     },
     {
         kodeBS: '3507040001023B',
         pencacah: 'Ridho',
-        jumlahSampel: '10',
-        jumlahListing: '81',
+        jumlahSampel: "10",
+        jumlahListing: "81",
     },
     {
         kodeBS: '3507040001025B',
@@ -30,56 +31,56 @@ const datas = [
     {
         kodeBS: '3507040001027B',
         pencacah: 'Ridho',
-        jumlahSampel: '10',
-        jumlahListing: '78',
+        jumlahSampel: "10",
+        jumlahListing: "78",
     },
     {
         kodeBS: '3507040001013B',
         pencacah: 'Agus',
-        jumlahSampel: '10',
-        jumlahListing: '86',
+        jumlahSampel: "10",
+        jumlahListing: "86",
     },
     {
         kodeBS: '3507040001023B',
         pencacah: 'Agus',
-        jumlahSampel: '10',
-        jumlahListing: '81',
+        jumlahSampel: "10",
+        jumlahListing: "81",
     },
     {
         kodeBS: '3507040001025B',
         pencacah: 'Agus',
-        jumlahSampel: '10',
-        jumlahListing: '90',
+        jumlahSampel: "10",
+        jumlahListing: "90",
     },
     {
         kodeBS: '3507040001027B',
         pencacah: 'Agus',
-        jumlahSampel: '10',
-        jumlahListing: '78',
+        jumlahSampel: "10",
+        jumlahListing: "78",
     },
     {
         kodeBS: '3507040001013B',
         pencacah: 'Alif',
-        jumlahSampel: '10',
-        jumlahListing: '86',
+        jumlahSampel: "10",
+        jumlahListing: "86",
     },
     {
         kodeBS: '3507040001023B',
         pencacah: 'Alif',
-        jumlahSampel: '10',
-        jumlahListing: '81',
+        jumlahSampel: "10",
+        jumlahListing: "81",
     },
     {
         kodeBS: '3507040001025B',
         pencacah: 'Alif',
-        jumlahSampel: '10',
-        jumlahListing: '90',
+        jumlahSampel: "10",
+        jumlahListing: "90",
     },
     {
         kodeBS: '3507040001027B',
         pencacah: 'Alif',
-        jumlahSampel: '10',
-        jumlahListing: '78',
+        jumlahSampel: "10",
+        jumlahListing: "78",
     },
 ]
 
@@ -106,9 +107,10 @@ const columns = [
 
 
 const Table = () => {
-    const [data, setData] = useState(datas)
+    const data = useMemo(() => datas, [])
 
     const[sorting, setSorting] = useState([])
+    const[filtering, setFiltering] = useState('')
 
     const table = useReactTable({
         data,
@@ -116,12 +118,15 @@ const Table = () => {
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
         state: {
-            sorting: sorting
+            sorting: sorting,
+            globalFilter: filtering
         },
-        onSortingChange: setSorting
-    });
+        onSortingChange: setSorting,
+        onGlobalFilterChange: setFiltering
 
+    })
     return(
         <div className="flex flex-col my-2">
             <div className="-my-2 overflow-x-auto sm:-mx-6">
@@ -130,7 +135,7 @@ const Table = () => {
                         <div className="flex justify-between bg-gray-100">
                             <div className="flex items-center text-sm p-4 ">
                                 <p className="">Show</p>
-                                <select id='filterSize' className="p-2 border bg-white rounded-lg mx-2" onChange={() => table.setPageSize(parseInt(event.target.value))}>
+                                <select id='filterSize' className="p-2 border bg-white rounded-lg mx-2" onChange={(event) => table.setPageSize(parseInt(event.target.value))}>
                                     <option value="10" >10</option>
                                     <option value="25" >25</option>
                                     <option value="50" >50</option>
@@ -140,7 +145,7 @@ const Table = () => {
                             </div>
                             <div className="flex items-center text-sm p-4">
                                 <p className="px-2">Search :</p>
-                                <input type="text" className="p-2 border rounded"/>
+                                <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)}/>
                             </div>
                         </div>
                         <table className="min-w-full divide-y divide-gray-200">
