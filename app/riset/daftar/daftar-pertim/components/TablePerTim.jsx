@@ -79,40 +79,40 @@ const datas = [
   },
 ];
 
-const columns = [
-  {
-    accessorKey: "kodeBS",
-    header: "Kode BS",
-  },
-  {
-    accessorKey: "pencacah",
-    header: "Pencacah",
-  },
-  {
-    accessorKey: "jumlahSampel",
-    header: "Jumlah Sampel",
-  },
-  {
-    accessorKey: "jumlahListing",
-    header: "Jumlah Terlisting",
-  },
-  {
-    accessorKey: "aksi",
-    header: "Aksi",
-    render: (row) => (
-      <button
-        onClick={() => handleDetailButtonClick(row.original)}
-        className="text-blue-500 hover:underline"
-      >
-        Detail
-      </button>
-    ),
-  },
-];
-
 const TableTim = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+
+  const columns = [
+    {
+      accessorKey: "kodeBS",
+      header: "Kode BS",
+    },
+    {
+      accessorKey: "pencacah",
+      header: "Pencacah",
+    },
+    {
+      accessorKey: "jumlahSampel",
+      header: "Jumlah Sampel",
+    },
+    {
+      accessorKey: "jumlahListing",
+      header: "Jumlah Terlisting",
+    },
+    {
+      accessorKey: "aksi",
+      header: "Aksi",
+      cell: ({ cell }) => (
+        <button
+          onClick={() => handleDetailButtonClick(cell.row.original)}
+          className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300"
+        >
+          Detail
+        </button>
+      ),
+    },
+  ];
 
   const handleDetailButtonClick = (row) => {
     setSelectedRow(row);
@@ -122,16 +122,19 @@ const TableTim = () => {
   const handleCloseDetailModal = () => {
     setIsOpen(false);
   };
+
   return (
     <>
-      <BasicTable data={datas} columns={columns} />
-      {selectedRow && (
-        <DetailModal
-          isOpen={isOpen}
-          onClose={handleCloseDetailModal}
-          data={selectedRow}
-        />
-      )}
+      <BasicTable columns={columns} data={datas} />
+      <div className="w-[90%] bg-[#d93f57] bg-opacity-50">
+        {selectedRow && (
+          <DetailModal
+            isOpen={isOpen}
+            onClose={handleCloseDetailModal}
+            data={selectedRow}
+          />
+        )}
+      </div>
     </>
   );
 };

@@ -6,12 +6,12 @@ const ButtonTim = () => {
 
   const changeColor = (button) => {
     if (activeButton) {
-      activeButton.classList.remove("opacity-90");
+      activeButton.classList.remove("opacity-100");
       activeButton.classList.add("opacity-50");
     }
 
     button.classList.remove("opacity-50");
-    button.classList.add("opacity-90");
+    button.classList.add("opacity-100");
 
     setActiveButton(button);
   };

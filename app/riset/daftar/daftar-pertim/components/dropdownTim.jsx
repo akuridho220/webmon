@@ -22,13 +22,12 @@ const TimDropdown = ({ onSelect }) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: "rgba(217, 63, 87, 0.5)",
       borderRadius: "0.5rem",
-      color: "#FFFF",
+      color: "#000",
     }),
     input: (provided) => ({
       ...provided,
-      color: "#FFFF",
+      color: "#000",
     }),
     option: (provided, state) => ({
       ...provided,

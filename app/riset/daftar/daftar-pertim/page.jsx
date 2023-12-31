@@ -7,11 +7,11 @@ import * as Icon from "react-feather";
 export default function DaftarPerTim() {
   return (
     <>
-      <Layout>
+      <Layout className="w-full min-h-screen overflow-x-hidden">
         <div className="flex flex-col w-[95%] rounded-xl bg-[#d93f57] bg-opacity-50 mt-10 p-6">
-          <div className="flex flex-col w-90 rounded-xl bg-[#d93f57] mt-10 p-6">
+          <div className="flex flex-col w-90 rounded-xl bg-primary-600 mt-10 p-6">
             <div className="flex items-center text-white px-4">
-              <p className="mx-auto">Monitoring Tim Petugas</p>
+              <p className="mx-auto font-medium">Monitoring Tim Petugas</p>
             </div>
           </div>
           <ButtonTim />

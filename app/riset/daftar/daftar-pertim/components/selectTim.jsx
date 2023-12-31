@@ -7,7 +7,7 @@ const TimSelect = ({ onSelect }) => {
   return (
     <>
       <div className="mt-4">
-        <p className="">Monitoring PPL berdasarkan tim</p>
+        <p className="font-small">Monitoring PPL berdasarkan tim</p>
         <div className="w-[40%]">
           <TimDropdown onSelect={handleTimSelect} />
         </div>
