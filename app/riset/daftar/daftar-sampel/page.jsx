@@ -1,38 +1,10 @@
 import Layout from '@/app/layout/layout';
 import Box from './components/Box';
-import TableBs from './components/TableBS';
+import TableBS from './components/TableBS';
 import Table from './components/Table';
 import * as Icon from 'react-feather';
 
 export default function DaftarSampel() {
-    const datas = [
-        {
-            kodeRuta:'xxx',
-            nim:'222112319',
-            namaPPl:'Ridho',
-            kodeBs:'3507100014021B',
-            bs:'01',
-            bf:'01',
-            noUrutRuta:'024',
-            kodeKot:'3507',
-            namaKot:'Gianyar',
-            kodeKec:'3507100',
-            namaKec:'Suatu Kec',
-            kodeDes:'2507100014',
-            namaDes:'Bantur',
-            namaKrt:'Suditono',
-            alamat:'Jalan Sm Km',
-            jmlArt:'4',
-            jmlArtGenZ:'2',
-            noHp:'087123456789',
-            kodeEligible:'2',
-            latitude:'-8.04747969',
-            longitude:'112.80824719',
-            akurasi:'6',
-            status:'',
-            time:'25 January 2023 11:31:25'
-        }
-    ]
     return(
         <>
             <Layout className='w-full min-h-screen overflow-x-hidden'>
@@ -56,7 +28,7 @@ export default function DaftarSampel() {
                             <button className=' pl-4'>Export</button>
                         </div>
                     </div>
-                    <Table/>
+                    <TableBS/>
                 </div>
             </Layout>
         </>
