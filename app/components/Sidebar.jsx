@@ -9,10 +9,10 @@ export default function Sidebar() {
         <aside className="flex flex-col justify-between items-stretch w-64 fixed top-0 left-0 bg-primary-900 h-screen shadow-xl z-10">
             <div className="">
                 <div className="flex flex-row items-center h-auto w-full px-4">
-                    <div className="p-2 flex">
-                        <img src="/img/logo/logo-icon.png" alt="logo sidebar" width={72} height={70}/>
+                    <div className="py-2 pr-2 flex">
+                        <img src="/img/logo/logo-icon.png" alt="logo sidebar" width={54} />
                     </div>
-                    <div className="p-2">
+                    <div className="py-2">
                         <p className="text-lg text-white font-bold">Web Monitoring</p>
                         <p className="text-white text-sm">PKL 63</p>
                     </div>

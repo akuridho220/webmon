@@ -28,7 +28,7 @@ export default function AccordionChild({
 			>
 				<div className='flex items-center pl-10'>
                     <div className="grow-0 pr-4">
-                        <Icon.Circle />
+                        <Icon.Circle size={16} fill='white'/>
                     </div>
                     <span>{title}</span>
                 </div>

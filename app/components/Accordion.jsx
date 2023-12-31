@@ -38,25 +38,25 @@ export default function Accordion() {
                 <div className="overflow-hidden">
                     <AccordionChild title={'Daftar'} active={false}>
                         <Link href="/riset/daftar/daftar-listing" className="flex items-center py-4 pl-14 nav-item">
-                            <Icon.ChevronRight/>
+                            <Icon.ChevronRight size={12}/>
                             <span className='pl-4'>Daftar Listing</span>
                         </Link>
                         <Link href="/riset/daftar/daftar-sampel" className="flex items-center py-4 pl-14 nav-item">
-                            <Icon.ChevronRight/>
+                            <Icon.ChevronRight size={12}/>
                             <span className='pl-4'>Daftar Sampel</span>
                         </Link>
                         <Link href="/riset/daftar/daftar-pertim" className="flex items-center py-4 pl-14 nav-item">
-                            <Icon.ChevronRight/>
+                            <Icon.ChevronRight size={12}/>
                             <span className='pl-4'>Daftar Per Tim</span>
                         </Link>
                     </AccordionChild>
                     <AccordionChild title={'Progres'} active={false}>
                         <Link href="/riset/progres/progres-wilayah" className="flex items-center py-4 pl-14 nav-item">
-                            <Icon.ChevronRight/>
+                            <Icon.ChevronRight size={12}/>
                             <span className='pl-4'>Progres Wilayah</span>
                         </Link>
                         <Link href="/riset/progres/progres-tim" className="flex items-center py-4 pl-14      nav-item">
-                            <Icon.ChevronRight/>
+                            <Icon.ChevronRight size={12}/>
                             <span className='pl-4'>Progres Per Tim</span>
                         </Link>
                     </AccordionChild>

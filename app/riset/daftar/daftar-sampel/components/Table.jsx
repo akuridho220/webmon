@@ -3,7 +3,8 @@ import {
     getCoreRowModel, 
     useReactTable, 
     flexRender, 
-    getPaginationRowModel } from "@tanstack/react-table";
+    getPaginationRowModel,
+    getSortedRowModel } from "@tanstack/react-table";
 import { useState } from "react";
 import * as Icon from 'react-feather';
 
@@ -102,15 +103,24 @@ const columns = [
 
 ]
 
+
+
 const Table = () => {
     const [data, setData] = useState(datas)
+
+    const[sorting, setSorting] = useState([])
+
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
-        getPaginationRowModel: getPaginationRowModel()
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        state: {
+            sorting: sorting
+        },
+        onSortingChange: setSorting
     });
-
 
     return(
         <div className="flex flex-col my-2">
@@ -138,8 +148,11 @@ const Table = () => {
                                 {table.getHeaderGroups().map(headerGroup => (
                                     <tr key={headerGroup.id}>
                                         {headerGroup.headers.map(header => (
-                                            <th key={header.id} scope="col" className="px-6 py-3">
-                                                {flexRender(header.column.columnDef.header, header.getContext())}
+                                            <th key={header.id} scope="col" className="px-6 py-3 cursor-pointer text-center" onClick={header.column.getToggleSortingHandler()}>
+                                                <div className="flex items-center justify-center">
+                                                    {flexRender(header.column.columnDef.header, header.getContext())}
+                                                    {{asc: <Icon.ChevronUp size={16}/>, desc:<Icon.ChevronDown size={16}/>}[header.column.getIsSorted() ?? '      ']}
+                                                </div>
                                             </th>
                                         ))}
                                     </tr>
@@ -149,7 +162,7 @@ const Table = () => {
                                 {table.getRowModel().rows.map(row => (
                                     <tr key={row.id}>
                                         {row.getVisibleCells().map(cell => (
-                                            <td key={cell.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 text-center">
+                                            <td key={cell.id} className="px-6 py-3 whitespace-nowrap text-sm text-gray-600 text-center">
                                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                             </td>
                                         ))}
