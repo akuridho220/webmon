@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const { default: BasicTable } = require("@/app/components/BasicTable")
 
 const datas = [
@@ -99,11 +101,12 @@ const columns = [
             const data = row.original
             return (
                 <div className="bg-white flex justify-center">
-                    <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeBS)}>Detail</button>
+                    <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeBS)}>
+                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/${data.kodeBS}`}>Detail</Link>
+                    </button>
                 </div>
             )
         }
-
     }
 ]
 
