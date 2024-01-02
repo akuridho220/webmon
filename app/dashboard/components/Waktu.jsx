@@ -1,7 +1,7 @@
 // Contoh penggunaan di dalam komponen React atau halaman Next.js
 import React from 'react';
 import * as Icon from 'react-feather';
-import Box from './box';
+import Box from './Box';
 
 const Waktu = () => {
   const today = new Date();
