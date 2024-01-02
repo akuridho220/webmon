@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import localFont from 'next/font/local';
+import localFont from '@next/font/local';
 
 const madeMountain = localFont({
   src: [
