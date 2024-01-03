@@ -15,13 +15,13 @@ const Waktu = () => {
   const formattedDate = today.toLocaleDateString('id-ID', options);
 
   return (
-    <div className="flex justify-between bg-[#D9D9D9] rounded-md py-2 px-4 items-center shadow-md">
+    <div className="md:flex block justify-between bg-[#D9D9D9] rounded-md py-2 px-4 items-center shadow-md">
       <p className="font-sdr text-2xl">{formattedDate}</p>
       <div className="flex">
         <p className="text-primary-900 font-semibold">Tersisa</p>
         <Icon.ArrowRight className="text-primary-900" />
       </div>
-      <div className="flex space-x-4">
+      <div className=" max-md:w-full flex flex-wrap space-x-4">
         <Box text="Hari" angka="10" />
         <Box text="Jam" angka="10" />
         <Box text="Menit" angka="10" />

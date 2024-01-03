@@ -5,11 +5,13 @@ import bg from '../../public/img/pattern/pattern2-trs.png';
 export default function Layout({ children }) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="w-full min-h-screen items-center justify-between flex flex-row">
-        <Sidebar />
-        <div className="flex flex-col w-full border-b-2 pl-64 justify-between min-h-screen">
-          <Header />
-          <div className="hero flex flex-col items-center w-full min-h-screen mt-20" style={{ backgroundImage: `url(${bg.src})` }}>
+      <div className="w-full min-h-screen items-center justify-between flex flex-row ">
+        <Header />
+        <div className="flex flex-wrap w-full">
+          <div className="lg:w-64 fixed top-0 left-0 max-lg:w-0 hidden lg:flex z-20 ">
+            <Sidebar />
+          </div>
+          <div className="hero flex flex-col lg:pl-64 items-center  w-full min-h-screen mt-20" style={{ backgroundImage: `url(${bg.src})` }}>
             {children}
           </div>
         </div>
