@@ -69,11 +69,10 @@ export default function Header() {
       {/* Header Mobile */}
 
       {/* Mobile Navigation Menu */}
-      {isMobileNavVisible && (
-        <div className="fixed left-0 h-screen top-0 w-64 bg-primary-800 z-[5] transform transition-all translate-x-0">
-          <Sidebar />
-        </div>
-      )}
+
+      <div className={`fixed left-0 h-screen top-0 w-64 bg-primary-800 z-[5] ${isMobileNavVisible ? `navOpen` : `navClose`}`}>
+        <Sidebar />
+      </div>
     </>
   );
 }

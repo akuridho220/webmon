@@ -20,6 +20,38 @@ body {
   font-family: var(--font-poppins);
 }
 
+.navOpen {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-name: slideright;
+  animation-fill-mode: both;
+}
+
+@keyframes slideright {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+.navClose {
+  animation-delay: 0s;
+  animation-duration: 0.75s;
+  animation-name: slideleft;
+  animation-fill-mode: both;
+}
+
+@keyframes slideleft {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
 // COLOR
 .bg-primary-1 {
   background: #951a2e;
