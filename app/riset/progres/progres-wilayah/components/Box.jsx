@@ -8,7 +8,7 @@ export default function Box(){
                     <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />
                 </div>
                 <div className="flex-1 flex items-center justify-center">
-                    <h1 className="text-3xl font-sdr font-bold text-white">Progres Per Wilayah</h1>
+                    <h1 className="text-3xl font-sdr font-bold text-white">Progres Pencacahan Wilayah</h1>
                 </div>
                 <div className="flex-1 pr-2 flex items-center justify-center">
                     <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />

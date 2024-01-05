@@ -7,91 +7,75 @@ const { default: BasicTable } = require("@/app/components/BasicTable");
 
 const datas = [
   {
-    kodeBS: "3507040001013B",
-    pencacah: "Ridho",
+    namaKecamatan: "Kecamatan A",
     sampelSelesai: 10,
     jumlahSampel: 86,
   },
   {
-    kodeBS: "3507040001023B",
-    pencacah: "Ridho",
+    namaKecamatan: "Kecamatan B",
     sampelSelesai: 27,
     jumlahSampel: 81,
   },
   {
-    kodeBS: "3507040001025B",
-    pencacah: "Ridho",
+    namaKecamatan: "Kecamatan C",
     sampelSelesai: 77,
     jumlahSampel: 90,
   },
   {
-    kodeBS: "3507040001027B",
-    pencacah: "Ridho",
+    namaKecamatan: "Kecamatan D",
     sampelSelesai: 67,
     jumlahSampel: 78,
   },
   {
-    kodeBS: "3507040001013B",
-    pencacah: "Agus",
+    namaKecamatan: "Kecamatan E",
     sampelSelesai: 54,
     jumlahSampel: 86,
   },
   {
-    kodeBS: "3507040001023B",
-    pencacah: "Agus",
+    namaKecamatan: "Kecamatan F",
     sampelSelesai: 65,
     jumlahSampel: 81,
   },
   {
-    kodeBS: "3507040001025B",
-    pencacah: "Agus",
+    namaKecamatan: "Kecamatan G",
     sampelSelesai: 77,
     jumlahSampel: 90,
   },
   {
-    kodeBS: "3507040001027B",
-    pencacah: "Agus",
+    namaKecamatan: "Kecamatan H",
     sampelSelesai: 45,
     jumlahSampel: 78,
   },
   {
-    kodeBS: "3507040001013B",
-    pencacah: "Alif",
+    namaKecamatan: "Kecamatan I",
     sampelSelesai: 22,
     jumlahSampel: 86,
   },
   {
-    kodeBS: "3507040001023B",
-    pencacah: "Alif",
+    namaKecamatan: "Kecamatan J",
     sampelSelesai: 80,
     jumlahSampel: 81,
   },
   {
-    kodeBS: "3507040001025B",
-    pencacah: "Alif",
+    namaKecamatan: "Kecamatan K",
     sampelSelesai: 25,
     jumlahSampel: 90,
   },
   {
-    kodeBS: "3507040001027B",
-    pencacah: "Alif",
+    namaKecamatan: "Kecamatan L",
     sampelSelesai: 31,
     jumlahSampel: 78,
   },
 ];
 
-const TableTim = () => {
+const TableWilayah = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
-      accessorKey: "kodeBS",
-      header: "Kode BS",
-    },
-    {
-      accessorKey: "pencacah",
-      header: "Pencacah",
+      accessorKey: "namaKecamatan",
+      header: "Nama Kecamatan",
     },
     {
       accessorKey: "sampelSelesai",
@@ -139,4 +123,4 @@ const TableTim = () => {
   );
 };
 
-export default TableTim;
+export default TableWilayah;
