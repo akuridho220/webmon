@@ -1,10 +1,15 @@
+'use client';
 import Layout from "@/app/layout/layout";
 import ButtonTim from "./components/buttonTim";
 import TimSelect from "./components/selectTim";
-import TableTim from "./components/TablePerTim";
-import * as Icon from "react-feather";
+import Table from "./components/TableSelect";
+import { useState } from "react";
 
 export default function DaftarPerTim() {
+  const [table, setTable] = useState();
+  const handleTableChange = (selected) => {
+    setTable(selected);
+  }
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
@@ -14,15 +19,12 @@ export default function DaftarPerTim() {
               <p className="mx-auto font-medium">Monitoring Tim Petugas</p>
             </div>
           </div>
-          <ButtonTim />
+          <ButtonTim onSelect={handleTableChange}/>
           <TimSelect />
           <div className="w-[10%] ml-auto">
-            <div className="flex items-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
-              <Icon.Download size={18} />
-              <button className=" pl-4">Export</button>
-            </div>
+            
           </div>
-          <TableTim />
+          <Table selectedCategory={table}/>
         </div>
       </Layout>
     </>
