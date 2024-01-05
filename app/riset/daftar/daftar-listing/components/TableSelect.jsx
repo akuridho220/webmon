@@ -3,6 +3,7 @@ import TableBlokSensus from './TableBlokSensus';
 import TableDesaKelurahan from './TableDesa';
 import TableKecamatan from './TableKecamatan';
 import TableKeseluruhan from './TableKeseluruhan';
+import TableKabupaten from './TableKabupaten';
 
 const TableSelect = ({ selectedCategory }) => {
   const renderTable = () => {
@@ -13,6 +14,8 @@ const TableSelect = ({ selectedCategory }) => {
         return <TableDesaKelurahan />;
       case 'kecamatan':
         return <TableKecamatan />;
+      case 'kabupaten':
+        return <TableKabupaten />;
       case 'keseluruhan':
         return <TableKeseluruhan />;
       default:
