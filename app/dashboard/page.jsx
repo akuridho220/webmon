@@ -24,7 +24,7 @@ export default function Dashboard() {
           </div>
           <Summary totalListing={3000} totalEligible={4000} totalSampelEligible={2000} />
           <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
-          <div className="  static bottom-0 flex justify-between h-8 ">
+          <div className="static bottom-0 flex justify-between h-8 ">
             <Image src="/img/elements/pura.png" width={200} height={300} alt="maskot2" className="float-end" />
             <Image src="/img/elements/candi.png" width={200} height={300} alt="maskot2" className="float-end" />
           </div>
