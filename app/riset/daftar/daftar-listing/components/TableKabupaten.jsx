@@ -6,39 +6,39 @@ const { default: BasicTable } = require('@/app/components/BasicTable');
 
 const datas = [
   {
-    NamaKecamatan: 'Denpasar',
+    NamaKabupaten: 'Denpasar',
     jumlahListing: '86',
   },
   {
-    NamaKecamatan: 'Karangasem',
+    NamaKabupaten: 'Karangasem',
     jumlahListing: '81',
   },
   {
-    NamaKecamatan: 'Badung',
+    NamaKabupaten: 'Badung',
     jumlahListing: '90',
   },
   {
-    NamaKecamatan: 'Gianyar',
+    NamaKabupaten: 'Gianyar',
     jumlahListing: '78',
   },
   {
-    NamaKecamatan: 'Bangli',
+    NamaKabupaten: 'Bangli',
     jumlahListing: '86',
   },
   {
-    NamaKecamatan: 'Jembrana',
+    NamaKabupaten: 'Jembrana',
     jumlahListing: '81',
   },
   {
-    NamaKecamatan: 'Tabanan',
+    NamaKabupaten: 'Tabanan',
     jumlahListing: '90',
   },
   {
-    NamaKecamatan: 'Buleleng',
+    NamaKabupaten: 'Buleleng',
     jumlahListing: '78',
   },
   {
-    NamaKecamatan: 'Klungkung',
+    NamaKabupaten: 'Klungkung',
     jumlahListing: '86',
   },
 ];
@@ -46,8 +46,8 @@ const datas = [
 const TableKecamatan = () => {
   const columns = [
     {
-      accessorKey: 'NamaKecamatan',
-      header: 'Nama Kecamatan',
+      accessorKey: 'NamaKabupaten',
+      header: 'Nama Kabupaten/Kota',
     },
     {
       accessorKey: 'jumlahListing',

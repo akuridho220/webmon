@@ -30,7 +30,7 @@ export default function Dashboard() {
             <Image src="/img/elements/pura.png" width={150} height={200} alt="maskot2" className="float-end" />
             <Image src="/img/elements/candi.png" width={150} height={200} alt="maskot2" className="float-end" />
           </div> */}
-          <div className="h-32 flex items-center">
+          <div className="h-20 flex items-center">
             <Footer />
           </div>
         </div>

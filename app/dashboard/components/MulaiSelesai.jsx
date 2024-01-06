@@ -11,7 +11,7 @@ const MulaiSelesai = ({ text, tanggal, waDom, wa }) => {
         </div>
       </div>
       <div className={` ${wa} py-2 px-2`}>
-        <div className="flex items-center space-x-2 pl-4 md:text-base text-sm">
+        <div className="flex items-center space-x-2 pl-4 md:text-base text-sm rounded-r-md">
           <p>{tanggal}</p>
         </div>
       </div>
