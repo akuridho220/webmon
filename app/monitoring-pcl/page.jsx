@@ -261,7 +261,7 @@ export default function Monitoring() {
                         &#x203B; Posisi petugas diperbarui 5 menit sekali dan ketika petugas berpindah lokasi
                         lebih dari 200 meter. Silakan <i>refresh</i> halaman untuk melihat lokasi terbaru.
                     </p>
-                    <div className='w-full mb-4 flex items-center justify-stretch gap-3'>
+                    <div className='w-full mb-4 xl:flex items-center justify-stretch gap-3'>
                         <div className='w-full'>
                             <label for='select-lokus' className='text-white font-bold'>
                                 Posisi petugas berdasarkan lokus
@@ -277,7 +277,7 @@ export default function Monitoring() {
                                 />
                             </div>
                         </div>
-                        <div className='w-full'>
+                        <div className='w-full mt-3 xl:mt-0'>
                             <label for='select-nama' className='text-white font-bold'>
                                 Posisi petugas berdasarkan nama
                             </label>
