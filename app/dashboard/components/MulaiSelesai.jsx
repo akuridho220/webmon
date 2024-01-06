@@ -3,7 +3,7 @@ import React from 'react';
 
 const MulaiSelesai = ({ text, tanggal, waDom, wa }) => {
   return (
-    <div className={`${waDom} rounded-md shadow-md text-white flex text-lg font-semibold w-full]`}>
+    <div className={`${waDom} rounded-md shadow-md text-white flex justify-between md:text-lg text-base  font-semibold w-full]`}>
       <div className="w-fit py-2 px-2">
         <div className="flex items-center justify-start space-x-2 pl-4">
           <Icon.Calendar className="text-white" />
@@ -11,7 +11,7 @@ const MulaiSelesai = ({ text, tanggal, waDom, wa }) => {
         </div>
       </div>
       <div className={` ${wa} py-2 px-2`}>
-        <div className="flex items-center space-x-2 pl-4">
+        <div className="flex items-center space-x-2 pl-4 md:text-base text-sm">
           <p>{tanggal}</p>
         </div>
       </div>

@@ -23,12 +23,16 @@ export default function Dashboard() {
             <MulaiSelesai text="Selesai" tanggal="Senin, 25 Oktober 2024" waDom={mainSelesai} wa={secSelesai} />
           </div>
           <Summary totalListing={3000} totalEligible={4000} totalSampelEligible={2000} />
-          <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
-          <div className="static bottom-0 flex justify-between h-8 ">
-            <Image src="/img/elements/pura.png" width={200} height={300} alt="maskot2" className="float-end" />
-            <Image src="/img/elements/candi.png" width={200} height={300} alt="maskot2" className="float-end" />
+          <div className="z-20">
+            <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
           </div>
-          <Footer />
+          {/* <div className="absolute -bottom-[28rem] z-10 flex justify-between lg:w-[72%] w-[90%] h-80">
+            <Image src="/img/elements/pura.png" width={150} height={200} alt="maskot2" className="float-end" />
+            <Image src="/img/elements/candi.png" width={150} height={200} alt="maskot2" className="float-end" />
+          </div> */}
+          <div className="h-32 flex items-center">
+            <Footer />
+          </div>
         </div>
       </Layout>
     </>

@@ -42,11 +42,11 @@ export default function Header() {
       {/* Header Dekstop */}
 
       {/* Header Mobile */}
-      <header className="w-full items-center bg-[#C4314E] h-20 flex fixed top-0 right-0 justify-between z-10 lg:hidden">
+      <header className="w-full items-center bg-[#C4314E] h-16 flex fixed top-0 right-0 justify-between z-10 lg:hidden">
         <div className="w-fit text-white flex justify-start">
           <div className="ml-6">{isMobileNavVisible ? <Icon.X onClick={toggleMobileNav} /> : <Icon.AlignJustify onClick={toggleMobileNav} />}</div>
         </div>
-        <div className="searchBar w-2/3 ml-8">
+        <div className="searchBar w-2/3 ml-4">
           <form>
             {/* <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label> */}
             <div className="relative">

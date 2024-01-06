@@ -1,10 +1,10 @@
-import React, { use } from 'react';
+import React from 'react';
 
-const Footer = ({ angka, text }) => {
+const Footer = () => {
   return (
     <footer className="w-full">
       <div className="flex justify-center">
-        <p className="text-center text-gray-700  ">© Copyright 2023 | Tim Webmon PKL DIV 63</p>
+        <p className="text-center text-gray-700  sm:text-base text-xs">© Copyright 2023 | Tim Webmon PKL DIV 63</p>
       </div>
     </footer>
   );
