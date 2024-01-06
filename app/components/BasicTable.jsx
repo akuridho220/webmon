@@ -7,7 +7,6 @@ function BasicTable({ data, columns }) {
   const [sorting, setSorting] = useState([]);
   const [filtering, setFiltering] = useState('');
 
-
   const table = useReactTable({
     data,
     columns,

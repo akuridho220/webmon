@@ -92,25 +92,25 @@ const datas = [
   },
 ];
 
-const TableBlokSensus = ({data}) => {
+const TableBlokSensus = () => {
   const columns = [
     {
-      accessorKey: 'kode_bs',
+      accessorKey: 'kodeBS',
       header: 'Kode BS',
     },
     {
-      accessorKey: 'nama_pcl',
+      accessorKey: 'pencacah',
       header: 'Pencacah',
     },
     {
-      accessorKey: 'jumlah_listing',
+      accessorKey: 'jumlahListing',
       header: 'Jumlah Terlisting',
     },
     {
       accessorKey: 'aksi',
       header: 'Aksi',
       cell: ({ row }) => (
-        <Link href={`/riset/daftar/daftar-listing/detail-listing/${row.kode_bs}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+        <Link href={`/riset/daftar/daftar-listing/detail-listing/${row.index}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
           <span className="">Detail</span>
         </Link>
       ),
@@ -119,7 +119,7 @@ const TableBlokSensus = ({data}) => {
 
   return (
     <>
-      <BasicTable columns={columns} data={data} />
+      <BasicTable columns={columns} data={datas} />
       <div className="w-[90%] bg-[#d93f57] bg-opacity-50"></div>
     </>
   );
