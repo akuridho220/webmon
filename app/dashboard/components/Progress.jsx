@@ -8,7 +8,7 @@ const Progress = ({ totalSampel, Selesai, persentase }) => {
   return (
     <>
       <div className="w-full mx-auto bg-primary-700 rounded-3xl rounded-bl-[4.5rem] shadow-md pb-4 overflow-hidden">
-        <div className="bg-primary-900 rounded-lg  py-2 font-sdr text-3xl text-center text-white">Summary</div>
+        <div className="bg-primary-900 rounded-lg  py-2 font-sdr text-3xl text-center text-white">Progress Pengisian Kuesioner</div>
         <div className="font-semibold text-base flex w-[90%] mx-auto items-center overflow-hidden">
           <div className="w-[20%] flex items-center h-fit justify-end">
             <div className="w-full h-40 mt-4 relative bg-white shadow-lg  rounded-3xl flex items-center justify-center">
