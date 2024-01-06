@@ -41,7 +41,7 @@ const TimDropdown = ({ onSelect }) => {
 
   return (
     <>
-      <div className="rounded-xl bg-[#d93f57] bg-opacity-50">
+      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 text-sm">
         <Select
           options={options}
           isSearchable={true}
