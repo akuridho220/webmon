@@ -70,14 +70,14 @@ function BasicTable({ data, columns }) {
               </tbody>
             </table>
           </div>
-          <div className="flex text-white py-2 justify-end space-x-2">
+          <div className="flex text-white py-2 text-sm justify-end space-x-2">
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
               <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
             </div>
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
               <Icon.ChevronLeft aria-disabled={!table.getCanPreviousPage()} onClick={() => table.previousPage()} className="cursor-pointer " />
             </div>
-            <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md">
+            <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800 rounded-md">
               {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
             </p>
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
