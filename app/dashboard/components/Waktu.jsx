@@ -43,13 +43,14 @@ const Waktu = () => {
 
   const now = today.toLocaleDateString('id-ID', options);
   return (
-    <div className="md:flex block justify-between bg-[#D9D9D9] rounded-md py-2 px-4 items-center shadow-md">
-      <p className="font-sdr text-2xl">{now}</p>
-      <div className="flex">
+    <div className="md:flex block justify-between bg-[#D9D9D9] rounded-md py-2 px-4 space-y-4 md:space-y-0 items-center shadow-md">
+      <p className="font-sdr text-2xl text-center md:text-start">{now}</p>
+      <div className="flex justify-center md:justify-start">
         <p className="text-primary-900 font-semibold">Tersisa</p>
-        <Icon.ArrowRight className="text-primary-900" />
+        <Icon.ArrowRight className="text-primary-900 hidden md:block" />
+        <Icon.ArrowDown className="text-primary-900 block md:hidden" />
       </div>
-      <div className=" max-md:w-full flex flex-wrap space-x-4">
+      <div className=" max-md:w-full flex flex-wrap space-x-4 md:justify-start justify-center items-center">
         <Box text="Hari" angka={countdown.days} />
         <Box text="Jam" angka={countdown.hours} />
         <Box text="Menit" angka={countdown.minutes} />

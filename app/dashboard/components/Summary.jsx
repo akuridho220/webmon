@@ -14,7 +14,7 @@ const Summary = ({ totalListing, totalEligible, totalSampelEligible }) => {
               <div className="w-[40%]">
                 <p>Total Listing</p>
               </div>
-              <div className="w-[60%] bg-accent-900 h-fit py-1 flex rounded-2xl justify-center">
+              <div className="w-[60%] bg-accent-900 hover:bg-orange-400 h-fit py-1 flex rounded-2xl justify-center">
                 <p className="text-white font-semibold">{totalListing}</p>
               </div>
             </div>
@@ -22,7 +22,7 @@ const Summary = ({ totalListing, totalEligible, totalSampelEligible }) => {
               <div className="w-[40%]">
                 <p>Total Eligible</p>
               </div>
-              <div className="w-[60%] bg-secondary-800 h-fit py-1 flex rounded-2xl justify-center">
+              <div className="w-[60%] bg-secondary-800 hover:bg-secondary-700 h-fit py-1 flex rounded-2xl justify-center">
                 <p className="text-white font-semibold">{totalEligible}</p>
               </div>
             </div>
@@ -30,7 +30,7 @@ const Summary = ({ totalListing, totalEligible, totalSampelEligible }) => {
               <div className="w-[40%]">
                 <p>Sampel Terpilih</p>
               </div>
-              <div className="w-[60%] bg-primary-900 h-fit py-1 flex rounded-2xl justify-center">
+              <div className="w-[60%] bg-primary-900 hover:bg-red-700 h-fit py-1 flex rounded-2xl justify-center">
                 <p className="text-white font-semibold">{totalSampelEligible}</p>
               </div>
             </div>

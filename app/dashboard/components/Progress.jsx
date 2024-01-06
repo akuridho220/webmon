@@ -25,11 +25,11 @@ const Progress = ({ totalSampel, Selesai, persentase }) => {
                 </p>
               </div>
             </div>
-            <div className="w-full h-6 rounded-lg shadow-sm bg-white md:text-base text-sm">
-              <ProgressBar percentage={50} color="bg-accent-700" />
+            <div className="w-full h-6 rounded-lg shadow-sm bg-white md:text-base text-sm relative">
+              <ProgressBar percentage={28} color="bg-accent-700" />
             </div>
             <div className="">
-              <Link href="/">
+              <Link href="/riset/progres/progres-wilayah">
                 <p className="text-white px-6 py-2 rounded-lg bg-secondary-700 shadow-lg hover:bg-secondary-900 w-fit md:text-lg text-sm">Lihat detail</p>
               </Link>
             </div>
