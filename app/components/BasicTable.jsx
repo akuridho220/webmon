@@ -38,7 +38,7 @@ function BasicTable({ data, columns }) {
                 <p className="">entries</p>
               </div>
               <div className="flex items-center text-sm p-4">
-                <p className="px-2">Search :</p>
+                <p className="px-2">Search:</p>
                 <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
               </div>
             </div>
