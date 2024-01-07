@@ -38,7 +38,7 @@ function BasicTable({ data, columns }) {
                 <p className="">entries</p>
               </div>
               <div className="flex items-center text-sm p-4">
-                <p className="px-2">Search :</p>
+                <p className="px-2">Search:</p>
                 <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
               </div>
             </div>
@@ -70,20 +70,24 @@ function BasicTable({ data, columns }) {
               </tbody>
             </table>
           </div>
-          <div className="flex text-white py-2 justify-end space-x-2">
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
+          <div className="flex text-white py-2 text-sm justify-end space-x-2">
+            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
               <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
             </div>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
-              <Icon.ChevronLeft aria-disabled={!table.getCanPreviousPage()} onClick={() => table.previousPage()} className="cursor-pointer " />
+            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+              <button disabled={!table.getCanPreviousPage()}>
+                <Icon.ChevronLeft onClick={() => table.previousPage()} className="cursor-pointer " />
+              </button>
             </div>
-            <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md">
+            <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800 rounded-md flex items-center">
               {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
             </p>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
-              <Icon.ChevronRight aria-disabled={!table.getCanNextPage()} onClick={() => table.nextPage()} className="cursor-pointer " />
+            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+              <button disabled={!table.getCanNextPage()}>
+                <Icon.ChevronRight  onClick={() => table.nextPage()} className="cursor-pointer " />
+              </button>
             </div>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2">
+            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
               <Icon.ChevronsRight onClick={() => table.setPageIndex(table.getPageCount() - 1)} className="cursor-pointer " />
             </div>
           </div>

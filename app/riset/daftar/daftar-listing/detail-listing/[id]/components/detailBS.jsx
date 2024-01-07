@@ -11,13 +11,13 @@ const detailBS = ({ onClosed }) => {
       className="fixed top-0 left-0 w-full h-full z-50 overflow-auto bg-gray-700 bg-opacity-50 flex items-center justify-center"
     >
     
-      <div className="bg-primary-900 rounded-md shadow-md w-[800px]">
+      <div className="bg-primary-900 rounded-md shadow-md w-[80vw] max-w-[900px] max-h-[750px] overflow-y-auto flex flex-col">
         <div className="flex items-center justify-between bg-primary-900 rounded-t-md py-4 px-6">
           <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />
           <h1 className="text-3xl font-sdr font-bold text-white">Detail Blok Sensus</h1>
           <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />
         </div>
-        <div className="bg-white rounded-b-md py-5 px-6">
+        <div className="bg-white rounded-b-md py-5 px-6 w-auto">
           <div className="flex justify-center pb-4">
             <div className="bg-accent-900 rounded-md py-1 px-2">
               <h1 className="text-white font-bold text-center">Nomor Blok Sensus: 123456789A</h1>

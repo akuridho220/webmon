@@ -52,7 +52,19 @@ body {
   }
 }
 
-// COLOR
+@keyframes slide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-slide {
+  animation: slide 1s ease-out;
+}
+
 .bg-primary-1 {
   background: #951a2e;
 }

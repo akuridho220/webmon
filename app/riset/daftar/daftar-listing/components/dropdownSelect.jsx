@@ -6,6 +6,7 @@ const ListingDropDown = ({ onSelect }) => {
     { value: 'blok sensus', label: 'Blok Sensus' },
     { value: 'desa/kelurahan', label: 'Desa/Kelurahan/Banjar' },
     { value: 'kecamatan', label: 'Kecamatan' },
+    { value: 'kabupaten', label: 'Kabupaten/Kota' },
     { value: 'keseluruhan', label: 'Keseluruhan' },
   ];
 

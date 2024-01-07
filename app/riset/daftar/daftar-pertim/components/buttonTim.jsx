@@ -1,8 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const ButtonTim = () => {
+const ButtonTim = ({onSelect}) => {
   const [activeButton, setActiveButton] = useState(null);
+
+  const handleSelect = (value) => {
+    onSelect(value);
+  };
 
   const changeColor = (button) => {
     if (activeButton) {
@@ -26,16 +30,16 @@ const ButtonTim = () => {
   return (
     <div className="flex h-8 mt-10">
       <button
-        className="w-1/2 p-2 text-white bg-[#d93f57] hover:opacity-80 focus:outline-none default-active opacity-90 rounded-l-xl"
-        onClick={(e) => changeColor(e.target)}
-      >
-        Sample
-      </button>
-      <button
-        className="w-1/2 p-2 text-white bg-[#d93f57] hover:opacity-80 focus:outline-none opacity-50 rounded-r-xl"
-        onClick={(e) => changeColor(e.target)}
+        className="w-1/2 p-2 flex items-center justify-center text-white bg-[#d93f57] hover:opacity-80 focus:outline-none default-active opacity-50 rounded-l-xl"
+        onClick={(e) => {changeColor(e.target); handleSelect('listing')}}
       >
         Listing
+      </button>
+      <button
+        className="w-1/2 p-2 flex items-center justify-center text-white bg-[#d93f57] hover:opacity-80 focus:outline-none opacity-50 rounded-r-xl"
+        onClick={(e) => {changeColor(e.target); handleSelect('sampel')}}
+      >
+        Sampel
       </button>
     </div>
   );
