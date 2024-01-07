@@ -8,8 +8,9 @@ const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
   return await response.json();
 };
+
 const getDataBs = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/tes')]);
+  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/riset/daftar/listing/bs')]);
   return dataListing;
 };
 
