@@ -5,7 +5,7 @@ import TableKecamatan from './TableKecamatan';
 import TableKeseluruhan from './TableKeseluruhan';
 import TableKabupaten from './TableKabupaten';
 
-const TableSelect = ({ selectedCategory, dataBs }) => {
+const TableSelect = ({ selectedCategory, dataBs, dataKec }) => {
   const renderTable = () => {
     switch (selectedCategory) {
       case 'blok sensus':
@@ -13,7 +13,7 @@ const TableSelect = ({ selectedCategory, dataBs }) => {
       case 'desa/kelurahan':
         return <TableDesaKelurahan />;
       case 'kecamatan':
-        return <TableKecamatan />;
+        return <TableKecamatan data={dataKec} />;
       case 'kabupaten':
         return <TableKabupaten />;
       case 'keseluruhan':
