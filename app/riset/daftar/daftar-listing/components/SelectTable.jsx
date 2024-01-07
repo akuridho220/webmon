@@ -4,7 +4,7 @@ import Table from './TableSelect';
 import * as Icon from 'react-feather';
 import SelectCat from './selectCat';
 
-const SelectTabel = ({dataBs}) => {
+const SelectTabel = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryChange = (selectedValue) => {
@@ -27,7 +27,7 @@ const SelectTabel = ({dataBs}) => {
         </div>
       </div>
       <div className="w-[95%] mx-auto overflow-x-clip">
-        <Table selectedCategory={selectedCategory} dataBs={dataBs}/>
+        <Table selectedCategory={selectedCategory} />
       </div>
     </div>
   );

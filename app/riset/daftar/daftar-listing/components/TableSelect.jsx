@@ -5,11 +5,11 @@ import TableKecamatan from './TableKecamatan';
 import TableKeseluruhan from './TableKeseluruhan';
 import TableKabupaten from './TableKabupaten';
 
-const TableSelect = ({ selectedCategory, dataBs }) => {
+const TableSelect = ({ selectedCategory }) => {
   const renderTable = () => {
     switch (selectedCategory) {
       case 'blok sensus':
-        return <TableBlokSensus data={dataBs}/>;
+        return <TableBlokSensus />;
       case 'desa/kelurahan':
         return <TableDesaKelurahan />;
       case 'kecamatan':
@@ -19,7 +19,7 @@ const TableSelect = ({ selectedCategory, dataBs }) => {
       case 'keseluruhan':
         return <TableKeseluruhan />;
       default:
-        return <TableBlokSensus data={dataBs}/>;
+        return <TableBlokSensus />;
     }
   };
 
