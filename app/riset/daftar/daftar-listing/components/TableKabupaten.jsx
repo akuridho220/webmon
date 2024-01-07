@@ -4,60 +4,21 @@ import Link from 'next/link';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
-const datas = [
-  {
-    NamaKabupaten: 'Denpasar',
-    jumlahListing: '86',
-  },
-  {
-    NamaKabupaten: 'Karangasem',
-    jumlahListing: '81',
-  },
-  {
-    NamaKabupaten: 'Badung',
-    jumlahListing: '90',
-  },
-  {
-    NamaKabupaten: 'Gianyar',
-    jumlahListing: '78',
-  },
-  {
-    NamaKabupaten: 'Bangli',
-    jumlahListing: '86',
-  },
-  {
-    NamaKabupaten: 'Jembrana',
-    jumlahListing: '81',
-  },
-  {
-    NamaKabupaten: 'Tabanan',
-    jumlahListing: '90',
-  },
-  {
-    NamaKabupaten: 'Buleleng',
-    jumlahListing: '78',
-  },
-  {
-    NamaKabupaten: 'Klungkung',
-    jumlahListing: '86',
-  },
-];
-
-const TableKecamatan = () => {
+const TableKabupaten = ({ data }) => {
   const columns = [
     {
-      accessorKey: 'NamaKabupaten',
+      accessorKey: 'nama_kabupaten',
       header: 'Nama Kabupaten/Kota',
     },
     {
-      accessorKey: 'jumlahListing',
+      accessorKey: 'jumlah_listing',
       header: 'Jumlah Terlisting',
     },
     {
       accessorKey: 'aksi',
       header: 'Aksi',
-      cell: ({ row }) => (
-        <Link href={`/riset/daftar/daftar-listing/detail-listing/${row.index}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+      cell: (data) => (
+        <Link href={`/riset/daftar/daftar-listing/detail-listing/${data.kode_kabupaten}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
           <span className="">Detail</span>
         </Link>
       ),
@@ -66,10 +27,10 @@ const TableKecamatan = () => {
 
   return (
     <>
-      <BasicTable columns={columns} data={datas} />
+      <BasicTable columns={columns} data={data} />
       <div className="w-[90%] bg-[#d93f57] bg-opacity-50"></div>
     </>
   );
 };
 
-export default TableKecamatan;
+export default TableKabupaten;
