@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import Layout from '@/app/layout/layout';
 import Box from './components/Box';
 import SelectTabel from './components/SelectTable';
 
 const fetchData = async (url) => {
-  const response = await fetch(url);
+  const response = await fetch(url, {cache: 'no-store'});
   return await response.json();
 };
 const getDataBs = async () => {
