@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@next/font": "^14.0.4",
     "@tanstack/react-table": "^8.11.2",
     "date-fns-tz": "^2.0.0",
     "feather-icons": "^4.29.1",
