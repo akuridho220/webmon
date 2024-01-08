@@ -1,11 +1,11 @@
 import Link from "next/link"
-
 const { default: BasicTable } = require("@/app/components/BasicTable")
+
 
 const columns = [
     {
-        accessorKey: 'nama_kelurahan',
-        header: 'Nama Desa/Kelurahan'
+        accessorKey: 'nama_kabupaten',
+        header: 'Nama Kabupaten'
     },
     {
         accessorKey: 'jumlah_sampel',
@@ -22,8 +22,8 @@ const columns = [
             const data = row.original
             return (
                 <div className="bg-white flex justify-center">
-                    <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeDes)}>
-                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/${data.kodeDes}`}>Detail</Link>
+                    <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeKec)}>
+                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/${data.kodeKec}`}>Detail</Link>
                     </button>
                 </div>
             )
@@ -31,10 +31,10 @@ const columns = [
     }
 ]
 
-const TableDes = ({data}) => {
+const TableKab = ({data}) => {
     return(
         <BasicTable data={data} columns={columns}/>
     )
 }
 
-export default TableDes;
+export default TableKab;

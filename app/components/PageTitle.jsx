@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function PageTitle({ judul }) {
     return (
         <div className="
-            w-5/6 py-4 px-2 mt-10
+            w-[85%] py-4 px-2 mt-10
             flex items-center justify-between
             bg-gradient-to-b from-[#951A2E] to-[#CA2128]
             rounded-xl shadow-md text-white

@@ -1,6 +1,6 @@
 // import React from 'react';
 import Layout from '@/app/layout/layout';
-import Box from './components/Box';
+import PageTitle from '@/app/components/PageTitle';
 import SelectTabel from './components/SelectTable';
 
 
@@ -29,6 +29,7 @@ const getDataKab = async () => {
   return dataListing;
 };
 
+const judul = 'Daftar Listing';
 export default async function DaftarListing() {
   const dataBs = getDataBs();
   const dataKec = getDataKec();
@@ -39,7 +40,7 @@ export default async function DaftarListing() {
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
-        <Box />
+        <PageTitle judul={judul} />
         <SelectTabel dataBs={bs} dataKec={kec} dataDesa={desa} dataKab={kab} />
       </Layout>
     </>

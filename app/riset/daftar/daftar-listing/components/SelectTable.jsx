@@ -11,10 +11,10 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
     setSelectedCategory(selectedValue);
   };
   return (
-    <div className="md:w-[85%] w-[95%] mx-auto bg-primary-600 rounded-xl shadow-md overflow-auto">
+    <div className="md:w-[85%] w-[95%] mx-auto bg-primary-600 rounded-xl shadow-md overflow-auto mt-8">
       <div className="flex w-[95%] mx-auto justify-between items-center">
-        <div className="md:w-[40%] md:flex my-4 md:my-0 justify-between h-fit items-center text-xs md:text-base">
-          <p className="text-white">filter: </p>
+        <div className="md:w-[40%] md:flex my-4 md:my-2 justify-between h-fit items-center text-xs md:text-base">
+          <p className="text-white">Filter: </p>
           <div className="md:w-4/5 w-full">
             <SelectCat onSelect={handleCategoryChange} />
           </div>
