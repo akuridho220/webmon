@@ -11,7 +11,18 @@ const mainMulai = 'bg-gradient-to-b from-[#951A2E] to-[#CA2128]';
 const secMulai = 'bg-primary-700';
 const mainSelesai = 'bg-secondary-900';
 const secSelesai = 'bg-secondary-600';
-export default function Dashboard() {
+
+const fetchData = async (url) => {
+  const response = await fetch(url, { next: { revalidate: 60 } });
+  return await response.json();
+};
+const getTotalListing = async () => {
+  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/dashboard/total-listing')]);
+  return dataListing;
+};
+
+export default async function Dashboard() {
+  const dataListing = await getTotalListing();
   return (
     <>
       <Layout>
@@ -22,7 +33,7 @@ export default function Dashboard() {
             <MulaiSelesai text="Mulai" tanggal="Senin, 25 Oktober 2023" waDom={mainMulai} wa={secMulai} />
             <MulaiSelesai text="Selesai" tanggal="Senin, 25 Oktober 2024" waDom={mainSelesai} wa={secSelesai} />
           </div>
-          <Summary totalListing={3000} totalEligible={4000} totalSampelEligible={2000} />
+          <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
           <div className="z-20">
             <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
           </div>
