@@ -21,6 +21,7 @@ const MapComponent = ({ petugas, position, zoom, radius }) => {
 
 	return (
 		<MapContainer
+			
 			className='w-full mb-4 z-0'
 			center={position}
 			zoom={zoom}
