@@ -4,7 +4,7 @@ import TimSelect from "./selectTim";
 import Table from "./TableSelect";
 import { useState } from "react";
 
-const Container = () => {
+const Container = ({dataListing, dataSampel}) => {
     const [table, setTable] = useState();
     const handleTableChange = (selected) => {
         setTable(selected);
@@ -14,7 +14,7 @@ const Container = () => {
             <div className="bg-primary-600 w-[85%] mt-8 px-6 rounded-xl">
                 <ButtonTim onSelect={handleTableChange}/>
                 <TimSelect />
-                <Table selectedCategory={table}/>
+                <Table selectedCategory={table} dataListing={dataListing} dataSampel={dataSampel}/>
             </div>
         </>
     )

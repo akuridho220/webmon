@@ -4,96 +4,21 @@ import DetailModal from "./Detailmodal";
 
 const { default: BasicTable } = require("@/app/components/BasicTable");
 
-const datas = [
-  {
-    kodeBS: "3507040001013B",
-    pencacah: "Ridho",
-    jumlahSampel: "10",
-    jumlahListing: "86",
-  },
-  {
-    kodeBS: "3507040001023B",
-    pencacah: "Ridho",
-    jumlahSampel: "10",
-    jumlahListing: "81",
-  },
-  {
-    kodeBS: "3507040001025B",
-    pencacah: "Ridho",
-    jumlahSampel: "10",
-    jumlahListing: "90",
-  },
-  {
-    kodeBS: "3507040001027B",
-    pencacah: "Ridho",
-    jumlahSampel: "10",
-    jumlahListing: "78",
-  },
-  {
-    kodeBS: "3507040001013B",
-    pencacah: "Agus",
-    jumlahSampel: "10",
-    jumlahListing: "86",
-  },
-  {
-    kodeBS: "3507040001023B",
-    pencacah: "Agus",
-    jumlahSampel: "10",
-    jumlahListing: "81",
-  },
-  {
-    kodeBS: "3507040001025B",
-    pencacah: "Agus",
-    jumlahSampel: "10",
-    jumlahListing: "90",
-  },
-  {
-    kodeBS: "3507040001027B",
-    pencacah: "Agus",
-    jumlahSampel: "10",
-    jumlahListing: "78",
-  },
-  {
-    kodeBS: "3507040001013B",
-    pencacah: "Alif",
-    jumlahSampel: "10",
-    jumlahListing: "86",
-  },
-  {
-    kodeBS: "3507040001023B",
-    pencacah: "Alif",
-    jumlahSampel: "10",
-    jumlahListing: "81",
-  },
-  {
-    kodeBS: "3507040001025B",
-    pencacah: "Alif",
-    jumlahSampel: "10",
-    jumlahListing: "90",
-  },
-  {
-    kodeBS: "3507040001027B",
-    pencacah: "Alif",
-    jumlahSampel: "10",
-    jumlahListing: "78",
-  },
-];
-
-const TableTim = () => {
+const TableTim = ({data}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
-      accessorKey: "kodeBS",
+      accessorKey: "kode_bs",
       header: "Kode BS",
     },
     {
-      accessorKey: "pencacah",
+      accessorKey: "nama",
       header: "Pencacah",
     },
     {
-      accessorKey: "jumlahListing",
+      accessorKey: "jumlah_listing",
       header: "Jumlah Terlisting",
     },
     {
@@ -121,7 +46,7 @@ const TableTim = () => {
 
   return (
     <>
-      <BasicTable columns={columns} data={datas} />
+      <BasicTable columns={columns} data={data} />
       <div className="w-[90%] bg-[#d93f57] bg-opacity-50">
         {selectedRow && (
           <DetailModal
