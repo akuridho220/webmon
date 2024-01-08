@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useId} from 'react';
 import Select from 'react-select';
 
 const ListingDropDown = ({ onSelect }) => {
@@ -36,7 +36,7 @@ const ListingDropDown = ({ onSelect }) => {
   return (
     <>
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50">
-        <Select options={options} isSearchable={true} placeholder="Pilih berdasarkan tingkar wilayah" onChange={handleSelect} styles={customStyles} defaultValue={defaultOption} />
+        <Select options={options} isSearchable={true} instanceId={useId()} placeholder="Pilih berdasarkan tingkar wilayah" onChange={handleSelect} styles={customStyles} defaultValue={defaultOption} />
       </div>
     </>
   );

@@ -21,7 +21,6 @@ const MapComponent = ({ petugas, position, zoom, radius }) => {
 
 	return (
 		<MapContainer
-			
 			className='w-full mb-4 z-0'
 			center={position}
 			zoom={zoom}
@@ -33,8 +32,8 @@ const MapComponent = ({ petugas, position, zoom, radius }) => {
 				attribution="&copy; OpenStreetMap contributors"
 				maxZoom={19}
 			/>
-			{petugas.map((p) => (
-				<Marker position={[p.lat, p.long]} icon={petugasIcon}>
+			{petugas.map((p, index) => (
+				<Marker position={[p.lat, p.long]} icon={petugasIcon} key={index}>
 					<Tooltip>
 						<b>{p.nama} ({p.nim})</b><br />
 						Lokus: {p.lokus}

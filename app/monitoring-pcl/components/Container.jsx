@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import Select from 'react-select';
 import 'leaflet/dist/leaflet.css';
 import { lokus } from './Lokus';
@@ -77,6 +77,7 @@ const Container = ({data}) => {
                             onChange={handleLokusChange}
                             isSearchable={true}
                             styles={dropdownStyles}
+                            instanceId={useId()}
                         />
                     </div>
                 </div>
@@ -92,6 +93,7 @@ const Container = ({data}) => {
                             onChange={handlePetugasChange}
                             isSearchable={true}
                             styles={dropdownStyles}
+                            instanceId={useId()}
                         />
                     </div>
                 </div>

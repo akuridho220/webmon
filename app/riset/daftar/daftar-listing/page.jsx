@@ -2,7 +2,7 @@
 import Layout from '@/app/layout/layout';
 import Box from './components/Box';
 import SelectTabel from './components/SelectTable';
-import { data } from 'autoprefixer';
+
 
 const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
