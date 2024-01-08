@@ -10,7 +10,7 @@ const TimSelect = ({ onSelect, dataListTim }) => {
       <div className="mt-4 w-1/2">
         <p className="font-sm text-white">Monitoring PPL berdasarkan tim</p>
         <div className="w-full">
-          <TimDropdown tim={selectedTim} onSelect={selectedTim} data={dataListTim}/>
+          <TimDropdown  onSelect={handleTimSelect} data={dataListTim}/>
         </div>
       </div>
       <div className="flex items-end mt-10 ">
