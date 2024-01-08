@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useId} from "react";
 import Select from "react-select";
 
 const TimDropdown = ({ onSelect }) => {
@@ -48,6 +48,7 @@ const TimDropdown = ({ onSelect }) => {
           placeholder="Pilih Berdasarkan Tim atau Nama Mahasiswa"
           onChange={handleSelect}
           styles={customStyles}
+          instanceId={useId()}
         />
       </div>
     </>

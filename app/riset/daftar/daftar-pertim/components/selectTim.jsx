@@ -8,7 +8,7 @@ const TimSelect = ({ onSelect }) => {
   return (
     <div className="flex flex-row w-full justify-between items-center">
       <div className="mt-4">
-        <p className="font-sm ">Monitoring PPL berdasarkan tim</p>
+        <p className="font-sm text-white">Monitoring PPL berdasarkan tim</p>
         <div className="">
           <TimDropdown onSelect={handleTimSelect} />
         </div>

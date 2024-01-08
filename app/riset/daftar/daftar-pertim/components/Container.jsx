@@ -1,0 +1,23 @@
+'use client'
+import ButtonTim from "./buttonTim";
+import TimSelect from "./selectTim";
+import Table from "./TableSelect";
+import { useState } from "react";
+
+const Container = () => {
+    const [table, setTable] = useState();
+    const handleTableChange = (selected) => {
+        setTable(selected);
+    }
+    return(
+        <>
+            <div className="bg-primary-600 w-[85%] mt-8 px-6 rounded-xl">
+                <ButtonTim onSelect={handleTableChange}/>
+                <TimSelect />
+                <Table selectedCategory={table}/>
+            </div>
+        </>
+    )
+}
+
+export default Container;

@@ -10,12 +10,12 @@ const ButtonTim = ({onSelect}) => {
 
   const changeColor = (button) => {
     if (activeButton) {
-      activeButton.classList.remove("opacity-100");
-      activeButton.classList.add("opacity-50");
+      activeButton.classList.remove("bg-accent-800");
+      activeButton.classList.add("bg-accent-700");
     }
 
-    button.classList.remove("opacity-50");
-    button.classList.add("opacity-100");
+    button.classList.remove("bg-accent-700");
+    button.classList.add("bg-accent-800");
 
     setActiveButton(button);
   };
@@ -30,13 +30,13 @@ const ButtonTim = ({onSelect}) => {
   return (
     <div className="flex h-8 mt-10">
       <button
-        className="w-1/2 p-2 flex items-center justify-center text-white bg-[#d93f57] hover:opacity-80 focus:outline-none default-active opacity-50 rounded-l-xl"
+        className="w-1/2 p-2 flex items-center justify-center text-white  hover:bg-accent-900 focus:outline-none default-active rounded-l-xl"
         onClick={(e) => {changeColor(e.target); handleSelect('listing')}}
       >
         Listing
       </button>
       <button
-        className="w-1/2 p-2 flex items-center justify-center text-white bg-[#d93f57] hover:opacity-80 focus:outline-none opacity-50 rounded-r-xl"
+        className="w-1/2 p-2 flex items-center justify-center text-white bg-accent-700 hover:bg-accent-900 focus:outline-none rounded-r-xl"
         onClick={(e) => {changeColor(e.target); handleSelect('sampel')}}
       >
         Sampel
