@@ -86,7 +86,7 @@ const Container = ({data}) => {
                     </label>
                     <div className="w-full rounded-xl bg-[#d93f57] bg-opacity-50">
                         <Select id='select-petugas'
-                            options={petugas}
+                            options={data}
                             value={selectedPetugas}
                             placeholder={"Cari nama petugas"}
                             onChange={handlePetugasChange}

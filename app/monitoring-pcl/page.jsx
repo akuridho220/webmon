@@ -12,7 +12,15 @@ const getDataPosisi = async () => {
     const [data] = await Promise.all([
         fetchData('http://localhost:3100/api/monitoring-pcl'),
     ]);
-    return data;
+
+    const newData = data.map(item => {
+        return {
+            ...item,
+            label: `${item.nama} - ${item.nim}`
+        };
+    });
+
+    return newData;
 };
 
 export default async function Monitoring() {
