@@ -16,7 +16,6 @@ const getDataSampel = async () => {
   const [dataSampel, dataListing] = await Promise.all([
       fetchData('http://localhost:3100/api/riset/daftar/tim/sampel'),
       getDataListing()
-      // fetchData('http://localhost:3100/api/riset/daftar/tim/listing'),
   ]);
 
   const mergedData = dataSampel.map((sampelItem) => {
@@ -33,17 +32,30 @@ const getDataSampel = async () => {
   return mergedData;
 };
 
+const getListTim = async () => {
+  const data = await fetchData('http://localhost:3100/api/riset/daftar/tim/list-tim');
+  const newData = data.map(item => {
+    return {
+        ...item,
+        label: `${item.nama} - (${item.nim} / ${item.id_tim})`,
+        value: `${item.nim}`
+    };
+  });
+  return newData;
+}
+
 const judul = 'Daftar Listing dan Sampel Per Tim';
 export default async function DaftarPerTim() {
   const dataListing = getDataListing();
   const dataSampel = getDataSampel();
+  const dataListTim = getListTim();
 
-  const [listing, sampel] = await Promise.all([dataListing, dataSampel])
+  const [listing, sampel, listTim] = await Promise.all([dataListing, dataSampel, dataListTim])
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <Container dataListing={listing} dataSampel={sampel} />
+        <Container dataListing={listing} dataSampel={sampel} dataListTim={listTim}/>
       </Layout>
     </>
   );
