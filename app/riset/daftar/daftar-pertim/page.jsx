@@ -37,15 +37,19 @@ const getListTim = async () => {
   const newData = data.map(item => {
     return {
         ...item,
-        label: `${item.nama} - (${item.nim} / ${item.id_tim})`,
-        value: `${item.nim}`
+        label: `TIM ${item.id_tim}`,
+        value: `${item.id_tim}`
     };
   });
   return newData;
 }
 
 const judul = 'Daftar Listing dan Sampel Per Tim';
-export default async function DaftarPerTim() {
+export default async function DaftarPerTim({id}) {
+
+
+
+
   const dataListing = getDataListing();
   const dataSampel = getDataSampel();
   const dataListTim = getListTim();
@@ -55,7 +59,7 @@ export default async function DaftarPerTim() {
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <Container dataListing={listing} dataSampel={sampel} dataListTim={listTim}/>
+        <Container dataListing={listing} dataSampel={sampel} dataListTim={listTim} />
       </Layout>
     </>
   );

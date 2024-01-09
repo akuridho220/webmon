@@ -4,12 +4,14 @@ import TimDropdown from "./dropdownTim";
 import * as Icon from "react-feather";
 
 const TimSelect = ({ onSelect, dataListTim }) => {
-  const handleTimSelect = (selectedTim) => {};
+  const handleTimSelect = (selectedTim) => {
+    onSelect(selectedTim);
+  };
   return (
     <div className="flex flex-row w-full justify-between items-center">
-      <div className="mt-4 w-1/2">
+      <div className="mt-4 w-full">
         <p className="font-sm text-white">Monitoring PPL berdasarkan tim</p>
-        <div className="w-full">
+        <div className="w-max">
           <TimDropdown  onSelect={handleTimSelect} data={dataListTim}/>
         </div>
       </div>

@@ -14,7 +14,7 @@ const TimDropdown = ({onSelect, data }) => {
         ...provided,
         borderRadius: "0.5rem",
         color: "#000",
-        minWidth: "20rem",
+        minWidth: "15rem",
     }),
     input: (provided) => ({
         ...provided,
@@ -32,12 +32,12 @@ const TimDropdown = ({onSelect, data }) => {
 
   return (
     <>
-      <div className="w-full rounded-xl bg-[#d93f57] bg-opacity-50 text-sm">
+      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 text-sm">
         <Select
           options={data}
           value={selectedPetugas}
           isSearchable={true}
-          placeholder="Pilih Berdasarkan Tim atau Nama Mahasiswa"
+          placeholder="Pilih Berdasarkan Tim"
           onChange={handleSelect}
           styles={customStyles}
           instanceId={useId()}
