@@ -1,8 +1,12 @@
 import React from 'react'
 import Image from "next/image"
-import { motion as Motion } from 'framer-motion'
+import { motion as Motion } from 'framer-motion';
+import { useModal } from './Modal';
 
-const InformasiSampel = ({ onClose }) => {
+
+const InformasiSampel = () => {
+  const {handleCloseModal} = useModal();
+
   return (
     <Motion.div
       initial={{ opacity: 0 }}
@@ -157,7 +161,7 @@ const InformasiSampel = ({ onClose }) => {
           </div>
 
           <div className="flex justify-end mt-4">
-            <button onClick={onClose} className="py-2 px-4 text-white bg-primary-600 hover:bg-gray-400 rounded-lg">
+            <button onClick={handleCloseModal} className="py-2 px-4 text-white bg-primary-600 hover:bg-gray-400 rounded-lg">
               Tutup
             </button>
           </div>
