@@ -1,14 +1,14 @@
 'use client';
+import BasicTable from '@/app/components/BasicTable';
+import { useModal } from './Modal';
+import Informasi from './InformasiSampel';
 import React, { useState } from 'react';
-
-
-const { default: BasicTable } = require('@/app/components/BasicTable');
 
 const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian I',
     budaya: 'Baik',
@@ -17,7 +17,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian II',
     budaya: 'Baik',
@@ -26,7 +26,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian III',
     budaya: 'Baik',
@@ -35,7 +35,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian IV',
     budaya: 'Baik',
@@ -44,7 +44,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian V',
     budaya: 'Baik',
@@ -53,7 +53,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian VI',
     budaya: 'Baik',
@@ -62,7 +62,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian VII',
     budaya: 'Baik',
@@ -71,7 +71,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian VIII',
     budaya: 'Baik',
@@ -80,7 +80,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian IX',
     budaya: 'Baik',
@@ -89,7 +89,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian X',
     budaya: 'Baik',
@@ -98,7 +98,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XI',
     budaya: 'Baik',
@@ -107,7 +107,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XII',
     budaya: 'Baik',
@@ -116,7 +116,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XIII',
     budaya: 'Baik',
@@ -125,7 +125,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XIV',
     budaya: 'Baik',
@@ -134,7 +134,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XIV',
     budaya: 'Baik',
@@ -143,7 +143,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XV',
     budaya: 'Baik',
@@ -152,7 +152,7 @@ const datas = [
   {
     nomor: '0042401414-42b',
     kodeBS: '3507040001013B',
-    pencacah: 'Ridho Pangestu (222112273)',
+    pencacah: 'Sonya Ananta (222112377)',
     noSegmen: 'S-0024-242-4242-424-5678',
     kepRuta: 'Charles Adrian XVI',
     budaya: 'Baik',
@@ -160,7 +160,12 @@ const datas = [
   },
 ];
 
-const tableDetail = ({ setShowModal }) => {
+const tableDetail = () => {
+  const {showModal, setShowModal} = useModal();
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  }
   const columns = [
     {
         accessorKey: 'nomor',
@@ -196,7 +201,7 @@ const tableDetail = ({ setShowModal }) => {
       cell: ({ row }) => (
         <button
           onClick={() => setShowModal(true)} // Mengubah state untuk menampilkan modal ketika tombol "Detail" diklik
-          className="flex items-center py-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md"
+          className="flex items-center px-2 py-1 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md"
         >
           <span className="">Detail</span>
         </button>
@@ -208,6 +213,7 @@ const tableDetail = ({ setShowModal }) => {
     <>
       <BasicTable columns={columns} data={datas} />
       <div className="w-[90%] bg-[#d93f57] bg-opacity-50"></div>
+      {showModal && <Informasi/>}
     </>
   );
 };
