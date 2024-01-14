@@ -16,7 +16,8 @@ const getDataPosisi = async () => {
     const newData = data.map(item => {
         return {
             ...item,
-            label: `${item.nama} - ${item.nim}`
+            label: `${item.nama} - ${item.nim}`,
+            value: `${item.nim}`
         };
     });
 
