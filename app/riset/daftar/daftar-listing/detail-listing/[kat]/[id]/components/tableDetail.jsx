@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-
+import Modal from './InformasiListing';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
@@ -160,7 +160,8 @@ const datas = [
   },
 ];
 
-const tableDetail = ({ setShowModal }) => {
+const tableDetail = () => {
+  const [showModal, setShowModal] = useState(false);
   const columns = [
     {
         accessorKey: 'nomor',
@@ -207,7 +208,8 @@ const tableDetail = ({ setShowModal }) => {
   return (
     <>
       <BasicTable columns={columns} data={datas} />
-      <div className="w-[90%] bg-[#d93f57] bg-opacity-50"></div>
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
+      <div className="w-[100%] bg-[#d93f57] bg-opacity-50"></div>
     </>
   );
 };
