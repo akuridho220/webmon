@@ -41,6 +41,7 @@ const TableTim = ({data}) => {
 
   const handleDetailButtonClick = (row) => {
     setSelectedRow(row);
+    console.log(row);
     setIsOpen(true);
   };
 

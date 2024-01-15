@@ -1,15 +1,19 @@
 import Modal from "react-modal";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const DetailModal = ({ isOpen, onClose, data }) => {
+const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
+  
+
   return (
     <div>
       <Modal
         isOpen={isOpen}
         onRequestClose={onClose}
         contentLabel="Detail Modal"
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg w-90"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg w-3/5"
         overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
+        ariaHideApp={false}
       >
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold mx-auto">Detail Informasi Tim</h2>
@@ -21,11 +25,12 @@ const DetailModal = ({ isOpen, onClose, data }) => {
           </button>
         </div>
         <hr />
-        <p className="text-center">Tim 110</p>
-        <p className="text-center mb-6">Lokus Denpasar</p>
-
-        <div className="flex justify-center items-center">
-          <div className="mr-4">
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-center">Tim {dataPml[0].id_tim}</p>
+          <p className="text-center mb-6">Lokus {dataPml[0].lokus}</p>
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center">
             <Image
               src="/img/maskot/1.png"
               width={120}
@@ -33,57 +38,31 @@ const DetailModal = ({ isOpen, onClose, data }) => {
               alt="foto"
             />
             <p className="text-[#d93f57] text-opacity-90 text-center">
-              Ridho Pangestu
+              {dataPml[0].nama}
             </p>
             <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">
-              PML | 22211918
+              PML | {dataPml[0].nim}
             </p>
           </div>
         </div>
 
-        <div className="flex justify-center items-center">
-          <div className="mr-4">
-            <Image
+        <div className="flex justify-between">
+          {dataPpl.map((ppl) => (
+            <div className="flex flex-col items-center w-36 justify-between" key={ppl.nim}>
+              <Image
               src="/img/maskot/1.png"
               width={120}
               height={160}
               alt="foto"
-            />
-            <p className="text-[#d93f57] text-opacity-90 text-center">
-              Anggota 1
-            </p>
-            <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">
-              PPL | 22211918
-            </p>
-          </div>
-          <div className="mr-4 ml-4">
-            <Image
-              src="/img/maskot/1.png"
-              width={120}
-              height={160}
-              alt="foto"
-            />
-            <p className="text-[#d93f57] text-opacity-90 text-center">
-              Anggota 2
-            </p>
-            <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">
-              PPL | 22211918
-            </p>
-          </div>
-          <div className="ml-4">
-            <Image
-              src="/img/maskot/1.png"
-              width={120}
-              height={160}
-              alt="foto"
-            />
-            <p className="text-[#d93f57] text-opacity-90 text-center">
-              Anggota 3
-            </p>
-            <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">
-              PPL | 22211918
-            </p>
-          </div>
+              />
+              <p className="text-[#d93f57] text-opacity-90 text-center">
+                {ppl.nama}
+              </p>
+              <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">
+                PPL | {ppl.nim}
+              </p>
+            </div>
+          ))}
         </div>
       </Modal>
     </div>
