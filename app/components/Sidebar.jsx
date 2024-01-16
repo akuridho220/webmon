@@ -41,7 +41,7 @@ export default function Sidebar() {
             <Icon.User />
             <span className="pl-4">Profile Saya</span>
           </Link>
-          <Link href="" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
+          <Link href="/login" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
             <Icon.LogOut />
             <span className="pl-4">Keluar</span>
           </Link>
