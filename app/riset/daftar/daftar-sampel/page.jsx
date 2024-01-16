@@ -67,7 +67,6 @@ const getDataKab = async () => {
     return mergedData;
 };
 
-const judul = 'Daftar Sampel';
 
 const getDataDes = async () => {
     const [dataSampel, dataListing] = await Promise.all([
@@ -89,6 +88,7 @@ const getDataDes = async () => {
     return mergedData;
 };
 
+const judul = 'Daftar Sampel';
 export default async function DaftarSampel() {
     const dataBs = getDataBs();
     const dataKec = getDataKec();
