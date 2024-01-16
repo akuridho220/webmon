@@ -32,7 +32,7 @@ const InformasiSampel = () => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Nomor Budaya</h1>
+              <h1 className="text-black font-bold">Kode Rumah Tangga</h1>
             </div>
             <div className="flex-1">
               <h1 className="text-black font-base">0042401414-42b</h1>
@@ -52,9 +52,10 @@ const InformasiSampel = () => {
 
           <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
 
+
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">No Segmen/BF/BS/No Urut Ruta</h1>
+              <h1 className="text-black font-bold">BF/BS/No Urut Ruta</h1>
             </div>
             <div className="flex-1">
               <h1 className="text-black font-base">S-0024-242-4242-424-5678</h1>
@@ -65,68 +66,13 @@ const InformasiSampel = () => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Kepala Rumah Tangga</h1>
+              <h1 className="text-black font-bold">Nama Kepala Rumah Tangga</h1>
             </div>
             <div className="flex-1">
               <h1 className="text-black font-base">Charles Adrian I</h1>
             </div>
           </div>
 
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Budaya I</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">Rajin</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Budaya II</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">Lumayan Rajin</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Budaya III</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">Peduli</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Kode eligible</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">0</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Waktu Pencacahan</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">26 Januari 2024 15:30:45</h1>
-            </div>
-          </div>
-          
           <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
 
           <div className="flex py-2">
