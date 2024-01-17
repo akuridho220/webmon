@@ -5,13 +5,14 @@ const ModalContext = createContext();
 
 const ModalProvider = ({ children }) => {
     const [showModal, setShowModal] = useState(false);
+    const [data, setData] = useState();
 
     const handleCloseModal = () => {
         setShowModal(false);
     };
 
     return (
-        <ModalContext.Provider value={{ showModal, setShowModal, handleCloseModal}}>
+        <ModalContext.Provider value={{ showModal, setShowModal, handleCloseModal, setData}}>
             {children}
         </ModalContext.Provider>
     );

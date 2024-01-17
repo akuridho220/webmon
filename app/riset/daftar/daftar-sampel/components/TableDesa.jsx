@@ -4,7 +4,7 @@ const { default: BasicTable } = require("@/app/components/BasicTable")
 
 const columns = [
     {
-        accessorKey: 'nama_kelurahan',
+        accessorKey: 'nama_kel',
         header: 'Nama Desa/Kelurahan'
     },
     {
@@ -23,7 +23,7 @@ const columns = [
             return (
                 <div className="bg-white flex justify-center">
                     <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeDes)}>
-                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/desa/${data.kodeDes}`}>Detail</Link>
+                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/desa/${data.kode_desa_full}`}>Detail</Link>
                     </button>
                 </div>
             )
