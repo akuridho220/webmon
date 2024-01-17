@@ -7,7 +7,7 @@ const { default: BasicTable } = require('@/app/components/BasicTable');
 const TableKecamatan = ({ data }) => {
   const columns = [
     {
-      accessorKey: 'nama_kecamatan',
+      accessorKey: 'nama_kec',
       header: 'Nama Kecamatan',
     },
     {
@@ -17,11 +17,14 @@ const TableKecamatan = ({ data }) => {
     {
       accessorKey: 'aksi',
       header: 'Aksi',
-      cell: (data) => (
-        <Link href={`/riset/daftar/daftar-listing/detail-listing/kec/${data.kode_kecamatan}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
-          <span className="">Detail</span>
-        </Link>
-      ),
+      cell: ({row}) => {
+        const data = row.original;
+        return(
+          <Link href={`/riset/daftar/daftar-listing/detail-listing/kec/${data.kode_kec_full}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+            <span className="">Detail</span>
+          </Link>
+        )
+      }
     },
   ];
 

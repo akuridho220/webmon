@@ -11,22 +11,43 @@ const fetchData = async (url) => {
 
 const getDataBs = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/bs`)]);
-  return dataListing;
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    //kode_bs_full: `${item.id_prov}${item.id_kab}${item.id_kec}${item.id_kel}${item.kode_bs}`,
+    kode_bs_full: item.id_prov+''+item.id_kab+''+item.id_kec+''+item.id_kel+''+item.kode_bs,
+  }));
+
+  return modifiedData;
 };
 
 const getDataKec = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kec`)]);
-  return dataListing;
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_kec_full: `${item.id_prov}${item.id_kab}${item.id_kec}`,
+  }));
+
+  return modifiedData;
 };
 
 const getDataDesa = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/desa`)]);
-  return dataListing;
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_desa_full: `${item.id_prov}${item.id_kab}${item.id_kec}${item.id_kel}`,
+  }));
+
+  return modifiedData;
 };
 
 const getDataKab = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`)]);
-  return dataListing;
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_kab_full: `${item.id_prov}${item.id_kab}`,
+  }));
+
+  return modifiedData;
 };
 
 const judul = 'Daftar Listing';
