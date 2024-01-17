@@ -7,8 +7,8 @@ const SelectCat = ({ onSelect }) => {
   };
   return (
     <>
-      <div className="mt-4">
-        <div className="w-">
+      <div className="">
+        <div className="">
           <SelectDropDown onSelect={handleSelectCat} />
         </div>
       </div>

@@ -3,20 +3,23 @@ import TableBlokSensus from './TableBlokSensus';
 import TableDesaKelurahan from './TableDesa';
 import TableKecamatan from './TableKecamatan';
 import TableKeseluruhan from './TableKeseluruhan';
+import TableKabupaten from './TableKabupaten';
 
-const TableSelect = ({ selectedCategory }) => {
+const TableSelect = ({ selectedCategory, dataBs, dataKec, dataDesa, dataKab }) => {
   const renderTable = () => {
     switch (selectedCategory) {
       case 'blok sensus':
-        return <TableBlokSensus />;
+        return <TableBlokSensus data={dataBs} />;
       case 'desa/kelurahan':
-        return <TableDesaKelurahan />;
+        return <TableDesaKelurahan data={dataDesa} />;
       case 'kecamatan':
-        return <TableKecamatan />;
+        return <TableKecamatan data={dataKec} />;
+      case 'kabupaten':
+        return <TableKabupaten data={dataKab} />;
       case 'keseluruhan':
         return <TableKeseluruhan />;
       default:
-        return <TableBlokSensus />;
+        return <TableBlokSensus data={dataBs} />;
     }
   };
 

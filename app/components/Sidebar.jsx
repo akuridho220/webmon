@@ -13,12 +13,12 @@ export default function Sidebar() {
             <img src="/img/logo/logo-icon.png" alt="logo sidebar" width={54} />
           </div>
           <div className="py-2">
-            <p className="text-lg text-white font-bold">Web Monitoring</p>
+            <p className="lg:text-lg text-sm text-white font-bold">Web Monitoring</p>
             <p className="text-white text-sm">PKL 63</p>
           </div>
         </div>
         <div>
-          <nav className="text-white text-lg font-semibold">
+          <nav className="text-white lg:text-lg text-sm font-semibold">
             <Link href="/dashboard" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
               <Icon.Home />
               <span className="pl-4">Dashboard</span>
@@ -36,12 +36,12 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="pb-4">
-        <nav className="text-white text-lg font-semibold">
+        <nav className="text-white lg:text-lg text-sm font-semibold">
           <Link href="/profile" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
             <Icon.User />
             <span className="pl-4">Profile Saya</span>
           </Link>
-          <Link href="" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
+          <Link href="/login" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
             <Icon.LogOut />
             <span className="pl-4">Keluar</span>
           </Link>
