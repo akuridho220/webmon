@@ -11,7 +11,7 @@ const Box = () => {
         <body class='h-full'>
         ```
       */}
-      <div className='flex-1 flex-col justify-center px-4 py-4 lg:px-4 bg-white'>
+      <div className='block rounded-md w-30 justify-center px-4 py-4 lg:px-4 bg-white'>
         <div className='sm:mx-auto sm:max-w-sm bg-white self-center'>
             <Image
               src='/img/logo/logo-icon.png'
