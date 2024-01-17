@@ -1,8 +1,37 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import PasswordInput from './PasswordInput';
 import Image from 'next/image';
+import Swal from 'sweetalert2';
+import authService from '@/app/service/authService';
 
 const Box = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await authService.login(email, password);
+
+      Swal.fire({
+        title: 'Success',
+        text: 'Login Berhasil',
+        icon: 'success',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '/dashboard';
+        }
+      });
+    } catch (error) {
+      console.error('Login failed', error);
+      Swal.fire({
+        title: 'Error!',
+        text: error.response.data,
+        icon: 'error',
+      });
+    }
+  };
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="flex-col justify-center sm:px-6 py-4 px-3 bg-white w-max rounded-2xl">
@@ -13,18 +42,20 @@ const Box = () => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm bg-white">
-          <form className="space-y-6" action="/dashboard" method="POST">
+          <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-primary-800">
-                Username
+                Email
               </label>
               <div className="mt-2">
                 <input
-                  id="username"
-                  name="username"
-                  type="username"
-                  autoComplete="username"
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                 />
               </div>
@@ -42,7 +73,7 @@ const Box = () => {
                 </div> */}
               </div>
               <div className="mt-2">
-                <PasswordInput />
+                <PasswordInput onChange={(e) => setPassword(e.target.value)} />
               </div>
             </div>
 
