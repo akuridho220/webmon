@@ -11,13 +11,14 @@ const mainMulai = 'bg-gradient-to-b from-[#951A2E] to-[#CA2128]';
 const secMulai = 'bg-primary-700';
 const mainSelesai = 'bg-secondary-900';
 const secSelesai = 'bg-secondary-600';
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
 const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
   return await response.json();
 };
 const getTotalListing = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/dashboard/total-listing')]);
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}dashboard/total-listing`)]);
   return dataListing;
 };
 
