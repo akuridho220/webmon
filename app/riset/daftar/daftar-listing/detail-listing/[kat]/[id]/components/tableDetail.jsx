@@ -197,7 +197,7 @@ const tableDetail = () => {
       cell: ({ row }) => (
         <button
           onClick={() => setShowModal(true)} // Mengubah state untuk menampilkan modal ketika tombol "Detail" diklik
-          className="flex items-center py-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md"
+          className="flex items-center py-2 px-3 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md"
         >
           <span className="">Detail</span>
         </button>
@@ -207,9 +207,11 @@ const tableDetail = () => {
 
   return (
     <>
+<div className="overflow-x-auto">
       <BasicTable columns={columns} data={datas} />
       {showModal && <Modal onClose={() => setShowModal(false)} />}
       <div className="w-[100%] bg-[#d93f57] bg-opacity-50"></div>
+    </div>
     </>
   );
 };
