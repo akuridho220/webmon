@@ -21,7 +21,7 @@ const TableDesa = ({ data }) => {
         const data = row.original;
 
         return (
-          <Link href={`/riset/daftar/daftar-listing/detail-listing/desa/${data.kode_desa_full}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+          <Link href={{pathname:`/riset/daftar/daftar-listing/detail-listing/desa/${data.kode_desa_full}`, query:{nama: `${data.nama_kel}`}}} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
             <span className="">Detail</span>
           </Link>
         )
