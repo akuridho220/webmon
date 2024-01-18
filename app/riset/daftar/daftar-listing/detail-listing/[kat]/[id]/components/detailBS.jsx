@@ -1,8 +1,68 @@
-import React from 'react';
-import Image from "next/image";
+import Image from "next/image"
+import React, { useEffect, useState } from 'react';
 import { motion as Motion } from 'framer-motion'
 
-const detailBS = ({ onClosed }) => {
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
+const fetchData = async (url) => {
+  const response = await fetch(url, { next: { revalidate: 60 } });
+  return await response.json();
+};
+
+const getDataBs = async () => {
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/bs`)]);
+  return dataListing;
+};
+
+const getDataKec = async () => {
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kec`)]);
+  return dataListing;
+};
+
+const getDataDesa = async () => {
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/desa`)]);
+  return dataListing;
+};
+
+const getDataKab = async () => {
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`)]);
+  return dataListing;
+};
+
+const detailBS = ({ onClosed, dataBS }) => {
+  const [dataDesa, setDataDesa] = useState(null);
+  const [dataKec, setDataKec] = useState(null);
+  const [dataKab, setDataKab] = useState(null);
+
+  useEffect(() => {
+    const fetchDataBs = async () => {
+      try {
+        const [desaData, kecData, kabData] = await Promise.all([
+          getDataDesa(),
+          getDataKec(),
+          getDataKab()
+        ]);
+  
+        const filteredData1 = desaData.filter(item => item.id_kel === dataBS[0].id_kel &&
+          item.id_kec === dataBS[0].id_kec &&
+          item.id_kab === dataBS[0].id_kab);
+        const filteredData2 = kecData.filter(item => item.id_kec === dataBS[0].id_kec &&
+          item.id_kab === dataBS[0].id_kab);
+        const filteredData3 = kabData.filter(item => item.id_kab === dataBS[0].id_kab);
+  
+        setDataDesa(filteredData1);
+        setDataKec(filteredData2);
+        setDataKab(filteredData3);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchDataBs();
+  }, []); // Ensure there are no dependencies here to avoid unintentional re-renders
+  
+
+  console.log(dataDesa);
+  
   return (
     <Motion.div
       initial={{ opacity: 0 }}
@@ -20,29 +80,18 @@ const detailBS = ({ onClosed }) => {
         <div className="bg-white rounded-b-md py-5 px-6 w-auto">
           <div className="flex justify-center pb-4">
             <div className="bg-accent-900 rounded-md py-1 px-2">
-              <h1 className="text-white font-bold text-center">Nomor Blok Sensus: 123456789A</h1>
+              <h1 className="text-white font-bold text-center">Nomor Blok Sensus: {dataBS[0].kode_bs}</h1>
             </div>
           </div>
 
-          
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">RT/RW</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">01/02</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+        
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
               <h1 className="text-black font-bold">Desa/Kelurahan</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">Dajan Peken</h1>
+              <h1 className="text-black font-base">{dataDesa[0].nama_kel}</h1>
             </div>
           </div>
 
@@ -53,7 +102,7 @@ const detailBS = ({ onClosed }) => {
               <h1 className="text-black font-bold">Kecamatan</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">Tabanan</h1>
+              <h1 className="text-black font-base">{dataKec[0].nama_kec}</h1>
             </div>
           </div>
 
@@ -64,7 +113,7 @@ const detailBS = ({ onClosed }) => {
               <h1 className="text-black font-bold">Kabupaten/Kota</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">Tabanan</h1>
+              <h1 className="text-black font-base">{}</h1>
             </div>
           </div>
 
@@ -76,17 +125,6 @@ const detailBS = ({ onClosed }) => {
             </div>
             <div className="flex-1">
               <h1 className="text-black font-base">Bali</h1>
-            </div>
-          </div>
-
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Jumlah Rumah Tangga</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">25</h1>
             </div>
           </div>
 
