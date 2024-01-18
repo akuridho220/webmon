@@ -8,10 +8,6 @@ const fetchData = async (url) => {
   return await response.json();
 };
 
-const getDataBs = async () => {
-  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/bs`)]);
-  return dataListing;
-};
 
 const getDataKec = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kec`)]);
@@ -58,9 +54,8 @@ const detailBS = ({ onClosed, dataBS }) => {
     };
   
     fetchDataBs();
-  }, []); // Ensure there are no dependencies here to avoid unintentional re-renders
+  }, []);
   
-
   console.log(dataDesa);
   
   return (
@@ -91,7 +86,7 @@ const detailBS = ({ onClosed, dataBS }) => {
               <h1 className="text-black font-bold">Desa/Kelurahan</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">{dataDesa[0].nama_kel}</h1>
+              <h1 className="text-black font-base">{dataDesa && dataDesa[0] && dataDesa[0].nama_kel}</h1>
             </div>
           </div>
 
@@ -102,7 +97,7 @@ const detailBS = ({ onClosed, dataBS }) => {
               <h1 className="text-black font-bold">Kecamatan</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">{dataKec[0].nama_kec}</h1>
+              <h1 className="text-black font-base">{dataKec && dataKec[0] && dataKec[0].nama_kec}</h1>
             </div>
           </div>
 
@@ -113,7 +108,7 @@ const detailBS = ({ onClosed, dataBS }) => {
               <h1 className="text-black font-bold">Kabupaten/Kota</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">{}</h1>
+              <h1 className="text-black font-base">{dataKab && dataKab[0] && dataKab[0].nama_kabupaten}</h1>
             </div>
           </div>
 
