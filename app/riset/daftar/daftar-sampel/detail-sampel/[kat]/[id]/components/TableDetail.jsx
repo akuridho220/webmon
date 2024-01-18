@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 
 const tableDetail = ({data}) => {
   const {showModal, setShowModal} = useModal();
-  const {setData} = useModal();
+  const [dataModal, setDataModal] = useState();
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -26,7 +26,7 @@ const tableDetail = ({data}) => {
         header: 'Pencacah',
     },
     {
-        accessorKey: 'noSegmen',
+        accessorFn: (row) => `${row.no_bf}/${row.no_bs}/${row.no_urut_ruta}`,
         header: 'BF/BS/Urutan Ruta',
     },
     {
@@ -45,7 +45,7 @@ const tableDetail = ({data}) => {
         const data = row.original;
         return(
           <button
-            onClick={() => {setShowModal(true); setData(data)}} // Mengubah state untuk menampilkan modal ketika tombol "Detail" diklik
+            onClick={() => {setShowModal(true); setDataModal(data)}} // Mengubah state untuk menampilkan modal ketika tombol "Detail" diklik
             className="flex items-center px-2 py-1 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md"
           >
             <span className="">Detail</span>
@@ -59,7 +59,7 @@ const tableDetail = ({data}) => {
     <>
       <BasicTable columns={columns} data={data} />
       <div className="w-[90%] bg-[#d93f57] bg-opacity-50"></div>
-      {showModal && <Informasi/>}
+      {showModal && <Informasi data={dataModal}/>}
     </>
   );
 };

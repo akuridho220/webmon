@@ -1,13 +1,14 @@
 'use client';
-import React from 'react'
+import React, {useState} from 'react'
 import Image from "next/image"
 import { motion as Motion } from 'framer-motion';
 import { useModal } from './Modal';
 
 
-const InformasiSampel = () => {
+const InformasiSampel = ({data}) => {
   const {handleCloseModal} = useModal();
 
+  const pos = `https://www.google.com/maps?q=${data.lat},${data.long}&hl=es;z=14&output=embed`;
   return (
     <Motion.div
       initial={{ opacity: 0 }}
@@ -26,7 +27,7 @@ const InformasiSampel = () => {
           <div className="flex justify-center pb-4">
             <div className="bg-accent-900 rounded-md py-1 px-2">
               <h1 className="text-white font-bold text-center">Pencacah:</h1>
-              <h1 className="text-white font-bold">Sonya Ananta | 222112377</h1>
+              <h1 className="text-white font-bold">{data.nama_ppl} | {data.nim}</h1>
             </div>
           </div>
 
@@ -35,7 +36,7 @@ const InformasiSampel = () => {
               <h1 className="text-black font-bold">Kode Rumah Tangga</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">0042401414-42b</h1>
+              <h1 className="text-black font-base">{data.kode_ruta}</h1>
             </div>
           </div>
 
@@ -46,7 +47,7 @@ const InformasiSampel = () => {
               <h1 className="text-black font-bold">Kode Blok Sensus</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">3507040001013B</h1>
+              <h1 className="text-black font-base">{`${data.id_prov}${data.id_kab}${data.id_kec}${data.id_kel}${data.kode_bs}`}</h1>
             </div>
           </div>
 
@@ -58,7 +59,7 @@ const InformasiSampel = () => {
               <h1 className="text-black font-bold">BF/BS/No Urut Ruta</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">S-0024-242-4242-424-5678</h1>
+              <h1 className="text-black font-base">{`${data.no_bf}/${data.no_bs}/${data.no_urut_ruta}`}</h1>
             </div>
           </div>
 
@@ -69,7 +70,7 @@ const InformasiSampel = () => {
               <h1 className="text-black font-bold">Nama Kepala Rumah Tangga</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">Charles Adrian I</h1>
+              <h1 className="text-black font-base">{data.nama_krt}</h1>
             </div>
           </div>
 
@@ -80,7 +81,7 @@ const InformasiSampel = () => {
               <h1 className="text-black font-bold">Alamat</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">RT002/RW002, Kel. Tabanan, Kec. Tabanan, Kab. Tabanan, Prov. Bali</h1>
+              <h1 className="text-black font-base">{data.alamat}</h1>
             </div>
           </div>
 
@@ -97,7 +98,7 @@ const InformasiSampel = () => {
 
           <div className="flex py-6 relative overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2682.210152025937!2d115.1283296282556!3d-8.52883507035573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23b935137ce91%3A0x2cda7a3641ba273b!2sPerum%20Graha%20Pasekan!5e0!3m2!1sen!2sid!4v1704524598898!5m2!1sen!2sid"
+              src={pos}
               width="900"
               height="450"
               style={{ border: '0' }}
@@ -108,7 +109,7 @@ const InformasiSampel = () => {
           </div>
 
           <div className="flex justify-end mt-4">
-            <button onClick={handleCloseModal} className="py-2 px-4 text-white bg-primary-600 hover:bg-gray-400 rounded-lg">
+            <button onClick={handleCloseModal} className="py-2 px-4 text-white bg-primary-600 hover:bg-primary-900 rounded-lg">
               Tutup
             </button>
           </div>

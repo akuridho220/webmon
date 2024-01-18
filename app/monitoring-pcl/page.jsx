@@ -3,6 +3,7 @@ import PageTitle from '@/app/components/PageTitle';
 import Container from './components/Container';
 
 const judul = 'Monitoring Posisi Petugas';
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
   return await response.json();
