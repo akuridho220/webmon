@@ -5,7 +5,7 @@ import Informasi from './InformasiSampel';
 import React, { useState } from 'react';
 
 
-const tableDetail = ({data}) => {
+const TableDetail = ({data}) => {
   const {showModal, setShowModal} = useModal();
   const [dataModal, setDataModal] = useState();
 
@@ -63,4 +63,4 @@ const tableDetail = ({data}) => {
     </>
   );
 };
-export default tableDetail;
+export default TableDetail;

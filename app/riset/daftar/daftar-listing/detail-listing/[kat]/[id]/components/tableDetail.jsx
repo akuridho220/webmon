@@ -4,7 +4,7 @@ import Modal from './InformasiListing';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
-const tableDetail = ({data}) => {
+const TableDetail = ({data}) => {
   const [showModal, setShowModal] = useState(false);
   const [dataModal, setDataModal] = useState();
   const columns = [
@@ -55,4 +55,4 @@ const tableDetail = ({data}) => {
     </>
   );
 };
-export default tableDetail;
+export default TableDetail;

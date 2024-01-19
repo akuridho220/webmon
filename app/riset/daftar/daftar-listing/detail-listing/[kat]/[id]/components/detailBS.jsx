@@ -24,7 +24,7 @@ const getDataKab = async () => {
   return dataListing;
 };
 
-const detailBS = ({ onClosed, dataBS }) => {
+const DetailBs = ({ onClosed, dataBS }) => {
   const [dataDesa, setDataDesa] = useState(null);
   const [dataKec, setDataKec] = useState(null);
   const [dataKab, setDataKab] = useState(null);
@@ -138,4 +138,4 @@ const detailBS = ({ onClosed, dataBS }) => {
   );
 };
 
-export default detailBS;
+export default DetailBs;
