@@ -5,9 +5,6 @@ import Image from 'next/image';
 import MulaiSelesai from './components/MulaiSelesai';
 import Summary from './components/Summary';
 import Progress from './components/Progress';
-import Footer from '@/app/components/Footer';
-import { getSession } from 'next-auth/react';
-import authService from '../service/authService';
 
 const mainMulai = 'bg-gradient-to-b from-[#951A2E] to-[#CA2128]';
 const secMulai = 'bg-primary-700';
@@ -26,13 +23,11 @@ const getTotalListing = async () => {
 
 export default async function Dashboard() {
   const dataListing = await getTotalListing();
-  const user = authService.getAccessToken();
-  console.log(user);
   return (
     <>
       <Layout>
         <div className="my-4 w-[90%] space-y-4 min-h-screen">
-          <Wellcome Nama={user} />
+          <Wellcome Nama={'Waluyo'} />
           <Waktu />
           <div className="max-md:space-y-4 md:flex justify-between">
             <MulaiSelesai text="Mulai" tanggal="Senin, 22 Januari 2024" waDom={mainMulai} wa={secMulai} />
@@ -41,13 +36,6 @@ export default async function Dashboard() {
           <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
           <div className="z-20">
             <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
-          </div>
-          {/* <div className="absolute -bottom-[28rem] z-10 flex justify-between lg:w-[72%] w-[90%] h-80">
-            <Image src="/img/elements/pura.png" width={150} height={200} alt="maskot2" className="float-end" />
-            <Image src="/img/elements/candi.png" width={150} height={200} alt="maskot2" className="float-end" />
-          </div> */}
-          <div className="h-20 flex items-center">
-            <Footer />
           </div>
         </div>
       </Layout>

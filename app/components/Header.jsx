@@ -1,12 +1,45 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as Icon from 'react-feather';
 import Image from 'next/image';
 import Sidebar from './Sidebar';
+import authService from '../service/authService';
+import Swal from 'sweetalert2';
 
 export default function Header() {
   const [isMobileNavVisible, setMobileMenuOpen] = useState(false);
+  const [name, setName] = useState(''); // Initialize with an empty string or default value
+  const [jenis, setJenis] = useState('');
+  const [jabatan, setJabatan] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await authService.IsAuthenticated();
+
+        if (result === false) {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Silahkan Login Terlebih Dahulu',
+            icon: 'error',
+          }).then(() => {
+            setTimeout(() => {
+              window.location.href = '/login';
+            }, 1000);
+          });
+        } else {
+          setName(result.name);
+          setJenis(result.jenis);
+          setJabatan(result.jabatan);
+        }
+      } catch (error) {
+        console.error(error); // Handle any errors
+      }
+    };
+
+    fetchData();
+  }, []); // Run once on component mount
 
   const toggleMobileNav = () => {
     setMobileMenuOpen(!isMobileNavVisible);
@@ -14,7 +47,7 @@ export default function Header() {
   return (
     <>
       {/* Header Dekstop */}
-      <header className="w-full items-center bg-[#C4314E] h-20 pr-6 pl-64 lg:flex fixed top-0 right-0 justify-between z-10 hidden">
+      <header className="w-full items-center bg-[#C4314E] h-20  pl-64 lg:flex fixed top-0 right-0 justify-between z-10 hidden">
         <div className="searchBar w-2/3 ml-8">
           <form>
             {/* <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label> */}
@@ -31,11 +64,13 @@ export default function Header() {
         </div>
         <div className="profile flex w-max px-4">
           <div className="flex flex-col text-white pr-4">
-            <p>Nama Orang</p>
-            <p>Jabatan | Bidang</p>
+            <p className="text-center">{name}</p>
+            <p>
+              {jenis} | {jabatan}
+            </p>
           </div>
           <div className="text-white">
-            <p>FOTO</p>
+            <Icon.User className="h-full bg-white w-8 text-gray-950 rounded-full" />
           </div>
         </div>
       </header>
