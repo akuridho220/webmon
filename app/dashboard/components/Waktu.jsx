@@ -14,7 +14,7 @@ const Waktu = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const today = new Date();
-      const dayEnd = new Date('01/29/2024');
+      const dayEnd = new Date('01/26/2024'); //format bulan / tanggal / tahun
       const timeToDate = dayEnd - today;
 
       const days = Math.floor(timeToDate / (1000 * 60 * 60 * 24));

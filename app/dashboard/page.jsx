@@ -36,7 +36,7 @@ export default async function Dashboard() {
           <Waktu />
           <div className="max-md:space-y-4 md:flex justify-between">
             <MulaiSelesai text="Mulai" tanggal="Senin, 22 Januari 2024" waDom={mainMulai} wa={secMulai} />
-            <MulaiSelesai text="Selesai" tanggal="Senin, 29 Januari 2024" waDom={mainSelesai} wa={secSelesai} />
+            <MulaiSelesai text="Selesai" tanggal="Jumat, 26 Januari 2024" waDom={mainSelesai} wa={secSelesai} />
           </div>
           <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
           <div className="z-20">
