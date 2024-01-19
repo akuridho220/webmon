@@ -17,6 +17,7 @@ const getDataBs = async () => {
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
+      kode_bs_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec+''+sampelItem.id_kel+''+sampelItem.kode_bs
     };
   });
 
@@ -32,6 +33,7 @@ const getDataKec = async () => {
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
+      kode_kec_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec
     };
   });
 
@@ -47,6 +49,7 @@ const getDataKab = async () => {
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
+      kode_kab_full: sampelItem.id_prov+''+sampelItem.id_kab
     };
   });
 
@@ -62,6 +65,7 @@ const getDataDes = async () => {
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
+      kode_desa_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec+''+sampelItem.id_kel
     };
   });
 
