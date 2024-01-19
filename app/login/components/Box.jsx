@@ -1,9 +1,10 @@
 'use client';
+
 import React, { useState } from 'react';
 import PasswordInput from './PasswordInput';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-import authService from '@/app/service/authService';
+import authService from '../../service/authService';
 
 const Box = () => {
   const [email, setEmail] = useState('');
@@ -11,9 +12,9 @@ const Box = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
-      await authService.login(email, password);
+    const result = await authService.Login(email, password);
 
+    if (result === true) {
       Swal.fire({
         title: 'Success',
         text: 'Login Berhasil',
@@ -23,11 +24,11 @@ const Box = () => {
           window.location.href = '/dashboard';
         }
       });
-    } catch (error) {
-      console.error('Login failed', error);
+    } else {
+      console.log('Login failed', result);
       Swal.fire({
         title: 'Error!',
-        text: error.response.data,
+        text: result,
         icon: 'error',
       });
     }

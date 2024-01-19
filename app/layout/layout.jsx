@@ -1,6 +1,7 @@
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import bg from '../../public/img/pattern/pattern2-trs.png';
+import Footer from '../components/Footer';
 
 export default function Layout({ children }) {
   return (
@@ -13,6 +14,7 @@ export default function Layout({ children }) {
           </div>
           <div className="hero flex flex-col lg:pl-64 items-center  w-full min-h-screen lg:mt-20 mt-16" style={{ backgroundImage: `url(${bg.src})` }}>
             {children}
+            <Footer />
           </div>
         </div>
       </div>

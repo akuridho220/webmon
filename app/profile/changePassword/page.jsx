@@ -1,7 +1,7 @@
 import Layout from '@/app/layout/layout';
 import Box from './components/Box';
 
-export default function Profile() {
+export default function ChangePassword() {
   return (
     <>
       <Layout>
