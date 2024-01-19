@@ -3,10 +3,11 @@
 import * as Icon from 'react-feather';
 import Accordion from './Accordion';
 import Link from 'next/link';
+import authService from '../service/authService';
 
 export default function Sidebar() {
   return (
-    <aside className="flex flex-col justify-between items-stretch w-full bg-primary-900 h-screen shadow-xl">
+    <aside className="flex flex-col justify-between items-stretch w-full bg-primary-900 h-screen no-scrollbar overflow-y-auto shadow-xl">
       <div className="">
         <div className="flex flex-row items-center h-auto w-full px-4">
           <div className="py-2 pr-2 flex">
@@ -41,10 +42,10 @@ export default function Sidebar() {
             <Icon.User />
             <span className="pl-4">Profile Saya</span>
           </Link>
-          <Link href="/login" className="flex items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
+          <div onClick={authService.logout} className="flex cursor-pointer items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
             <Icon.LogOut />
             <span className="pl-4">Keluar</span>
-          </Link>
+          </div>
         </nav>
       </div>
     </aside>

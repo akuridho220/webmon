@@ -6,6 +6,8 @@ import MulaiSelesai from './components/MulaiSelesai';
 import Summary from './components/Summary';
 import Progress from './components/Progress';
 import Footer from '@/app/components/Footer';
+import { getSession } from 'next-auth/react';
+import authService from '../service/authService';
 
 const mainMulai = 'bg-gradient-to-b from-[#951A2E] to-[#CA2128]';
 const secMulai = 'bg-primary-700';
@@ -24,11 +26,13 @@ const getTotalListing = async () => {
 
 export default async function Dashboard() {
   const dataListing = await getTotalListing();
+  const user = authService.getAccessToken();
+  console.log(user);
   return (
     <>
       <Layout>
         <div className="my-4 w-[90%] space-y-4 min-h-screen">
-          <Wellcome Nama="Muhammad Fauzan" />
+          <Wellcome Nama={user} />
           <Waktu />
           <div className="max-md:space-y-4 md:flex justify-between">
             <MulaiSelesai text="Mulai" tanggal="Senin, 25 Oktober 2023" waDom={mainMulai} wa={secMulai} />
