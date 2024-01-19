@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 
-export default function AccordionFaq({ children, title, id, active = false }) {
+export default function AccordionFaq({ children, title, id }) {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
   useEffect(() => {
-    setAccordionOpen(active);
+    setAccordionOpen(false);
   }, []);
 
   return (

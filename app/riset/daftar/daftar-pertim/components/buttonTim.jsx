@@ -25,7 +25,7 @@ const ButtonTim = ({onSelect}) => {
     if (defaultButton) {
       changeColor(defaultButton);
     }
-  }, []);
+  }, [changeColor]);
 
   return (
     <div className="flex h-8 mt-10">

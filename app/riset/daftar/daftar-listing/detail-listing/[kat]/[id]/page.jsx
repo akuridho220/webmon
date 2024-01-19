@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '@/app/layout/layout';
 import Header from  './components/Header';
-import Table from './components/tableDetail';
+import Table from './components/TableDetail';
 import PageTitle from '@/app/components/PageTitle';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
