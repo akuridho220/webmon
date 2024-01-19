@@ -9,7 +9,6 @@ const fetchData = async (url) => {
   return await response.json();
 };
 
-const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const getDataPosisi = async () => {
   const [data] = await Promise.all([fetchData(`${apiURL}monitoring-pcl`)]);
 
