@@ -23,8 +23,8 @@ function BasicTable({ data, columns }) {
   });
   return (
     <div className="flex flex-col my-2">
-      <div className="-my-2 sm:-mx-6">
-        <div className="py-2 align-middle overflow-x-auto  inline-block min-w-full sm:px-6">
+      <div className="-my-2 sm:-mx-6 overflow-x-auto ">
+        <div className="py-2 align-middle inline-block min-w-full sm:px-6">
           <div className="shadow overflow-hidden border-b border-gray-200 rounded-lg">
             <div className="flex justify-between bg-gray-100">
               <div className="flex items-center text-sm p-4 ">
