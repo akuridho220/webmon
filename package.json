@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {
@@ -17,12 +17,10 @@
     "dotenv": "^16.3.1",
     "feather-icons": "^4.29.1",
     "framer-motion": "^10.17.9",
-    "js-cookie": "^3.0.5",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18",
-    "react-cookie": "^7.0.1",
     "react-dom": "^18",
     "react-feather": "^2.0.10",
     "react-leaflet": "^4.2.1",

@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import authService from '@/app/service/authService';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default function Box() {
   const [passwordLama, setPasswordLama] = useState('');
@@ -33,8 +34,37 @@ export default function Box() {
       return;
     }
 
-    // Continue with your form submission logic
-    // ...
+    const token = authService.GetAccesToken();
+    console.log(token);
+    const data = {
+      oldPassword: passwordLama,
+      newPassword: passwordBaru,
+    };
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    const apiURL = process.env.NEXT_PUBLIC_API_URL;
+    axios
+      .put(`${apiURL}updatePassword`, data, { headers })
+      .then((res) => {
+        Swal.fire({
+          title: 'Berhasil!',
+          text: 'Password berhasil diubah',
+          icon: 'success',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/login';
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: 'Error!',
+          text: err.response.data,
+          icon: 'error',
+        });
+      });
   };
   return (
     <div className="flex flex-col h-full">
@@ -59,7 +89,7 @@ export default function Box() {
             <label htmlFor="passwordLama">Password lama</label>
             <input
               type="text"
-              onKeyUp={setPasswordLama(passwordLama)}
+              onChange={(e) => setPasswordLama(e.target.value)}
               value={passwordLama}
               placeholder="Isikan Password lama"
               className=" placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
@@ -68,11 +98,25 @@ export default function Box() {
           </div>
           <div className="w-full flex justify-between space-x-4">
             <label htmlFor="passwordBaru">Password Baru</label>
-            <input type="text" placeholder="Isikan Password baru" className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5" name="passwordBaru" />
+            <input
+              type="text"
+              onChange={(e) => setPasswordBaru(e.target.value)}
+              value={passwordBaru}
+              placeholder="Isikan Password baru"
+              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
+              name="passwordBaru"
+            />
           </div>
           <div className="w-full flex justify-between space-x-4">
             <label htmlFor="passwordBaru2">Ulangi Password Baru</label>
-            <input type="text" placeholder="Isikan Konfirmasi Password" className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5" name="passwordBaru2" />
+            <input
+              type="text"
+              onChange={(e) => setPasswordBaru2(e.target.value)}
+              value={passwordBaru2}
+              placeholder="Isikan Konfirmasi Password"
+              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
+              name="passwordBaru2"
+            />
           </div>
           <div className="pt-6 pb-4 w-full flex justify-center">
             <button type="submit" className="bg-secondary-900 hover:bg-secondary-700 rounded-md 2 w-1/2 py-2 text-white text-center">
