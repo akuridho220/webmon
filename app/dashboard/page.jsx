@@ -27,7 +27,7 @@ export default async function Dashboard() {
     <>
       <Layout>
         <div className="my-4 w-[90%] space-y-4 min-h-screen">
-          <Wellcome Nama={'Waluyo'} />
+          <Wellcome />
           <Waktu />
           <div className="max-md:space-y-4 md:flex justify-between">
             <MulaiSelesai text="Mulai" tanggal="Senin, 22 Januari 2024" waDom={mainMulai} wa={secMulai} />

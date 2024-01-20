@@ -2,7 +2,6 @@
 
 import axios from 'axios';
 import cookieCutter from 'cookie-cutter';
-import Swal from 'sweetalert2';
 
 const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
 const api = process.env.NEXT_PUBLIC_API_URL;
@@ -31,7 +30,6 @@ const authService = {
   Logout: async () => {
     // Remove the JWT token from the cookie on logout
     const accessToken = cookieCutter.get('accessToken');
-    console.log('accessToken', accessToken);
     try {
       const response = await axios.delete(`${authServer}logout`, { data: { token: accessToken } });
       return true; // Login successful
@@ -43,7 +41,6 @@ const authService = {
 
   IsAuthenticated: () => {
     const accessToken = cookieCutter.get('accessToken');
-    console.log('accessToken', accessToken);
 
     if (!accessToken) {
       return false; // or handle accordingly if there is no access token
@@ -58,8 +55,9 @@ const authService = {
       });
   },
 
-  GetAccessToken: () => {
-    return cookieCutter.get('accessToken');
+  GetAccesToken: () => {
+    const accessToken = cookieCutter.get('accessToken');
+    return accessToken;
   },
 };
 
