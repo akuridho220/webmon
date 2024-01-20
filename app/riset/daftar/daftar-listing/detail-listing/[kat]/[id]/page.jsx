@@ -1,8 +1,7 @@
-// import React, { useEffect, useState } from 'react';
 import React from 'react';
 import Layout from '@/app/layout/layout';
 import Header from './components/Header';
-import TableDetail from './components/tableDetail';
+import TableDetail from './components/TableDetail';
 import PageTitle from '@/app/components/PageTitle';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
@@ -11,15 +10,10 @@ const fetchData = async (url) => {
   return await response.json();
 };
 
-// const getDataBs = async () => {
-//   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/bs`)]);
-//   return dataListing;
-// };
 
 export default async function DetailListing({ params, searchParams }) {
   let judul = '';
   let url = '';
-  // const [dataBs, setDataBs] = useState(null);
 
   if (params.kat == 'bs') {
     url = `${apiURL}riset/daftar/listing/bs/detail/${params.id}`;
@@ -35,15 +29,6 @@ export default async function DetailListing({ params, searchParams }) {
     judul = `Detail Listing Kabupaten ${searchParams.nama}`;
   }
 
-  // useEffect(() => {
-  //   const fetchDataBs = async () => {
-  //     const data = await getDataBs();
-  //     const filteredData = data.filter(item => item.kode_bs === '444A');
-  //     setDataBs(filteredData);
-  //   };
-
-  //   fetchDataBs();
-  // }, []);
 
   const getDataDetail = async () => {
     const data = await fetchData(url);

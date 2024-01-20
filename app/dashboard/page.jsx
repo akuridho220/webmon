@@ -1,7 +1,6 @@
 import Layout from '@/app/layout/layout';
 import Wellcome from './components/Wellcome';
 import Waktu from './components/Waktu';
-import Image from 'next/image';
 import MulaiSelesai from './components/MulaiSelesai';
 import Summary from './components/Summary';
 import Progress from './components/Progress';

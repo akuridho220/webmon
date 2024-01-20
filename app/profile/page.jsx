@@ -5,9 +5,7 @@ export default function Profile() {
   return (
     <>
       <Layout>
-        <div className="my-4 w-[90%] space-y-4 h-full">
-          <Box />
-        </div>
+        <Box />
       </Layout>
     </>
   );
