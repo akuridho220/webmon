@@ -1,10 +1,8 @@
 import Modal from "react-modal";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+
 
 const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
-  
-
   return (
     <div>
       <Modal

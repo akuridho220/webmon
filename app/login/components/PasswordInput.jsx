@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import * as Icon from 'react-feather';
+
 const PasswordInput = ({ onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
 

@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import Layout from '@/app/layout/layout';
 import PageTitle from '@/app/components/PageTitle';
 import SelectTabel from './components/SelectTable';

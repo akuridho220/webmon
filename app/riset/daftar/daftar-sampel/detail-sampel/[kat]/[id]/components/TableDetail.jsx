@@ -9,9 +9,6 @@ const TableDetail = ({data}) => {
   const {showModal, setShowModal} = useModal();
   const [dataModal, setDataModal] = useState();
 
-  const handleShowModal = () => {
-    setShowModal(true);
-  }
   const columns = [
     {
         accessorKey: 'kode_ruta',
