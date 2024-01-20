@@ -54,7 +54,7 @@ const DetailBs = ({ onClosed, dataBS }) => {
     };
   
     fetchDataBs();
-  }, []);
+  }, [dataBS]);
   
   console.log(dataDesa);
   

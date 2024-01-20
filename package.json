@@ -26,6 +26,7 @@
     "react-leaflet": "^4.2.1",
     "react-modal": "^3.16.1",
     "react-select": "^5.8.0",
+    "sharp": "^0.33.2",
     "sweetalert2": "^11.10.3"
   },
   "devDependencies": {
