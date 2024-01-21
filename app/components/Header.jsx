@@ -5,6 +5,7 @@ import * as Icon from 'react-feather';
 import Image from 'next/image';
 import Sidebar from './Sidebar';
 import authService from '../service/authService';
+import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 
 export default function Header() {
@@ -13,6 +14,7 @@ export default function Header() {
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
 
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,13 +22,11 @@ export default function Header() {
 
         if (result === false) {
           Swal.fire({
-            title: 'Error!',
-            text: 'Silahkan Login Terlebih Dahulu',
             icon: 'error',
+            title: 'Anda Belum Login',
+            text: 'Silahkan Login terlebih dahulu',
           }).then(() => {
-            setTimeout(() => {
-              window.location.href = '/login';
-            }, 1000);
+            router.push('/login');
           });
         } else {
           setName(result.name);
