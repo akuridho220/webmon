@@ -94,7 +94,7 @@ export default function Box() {
           </div>
 
           <div className="my-3 flex w-full md:text-lg text-sm">
-            <Link href="/profile/changePassword" className="bg-secondary-900 hover:bg-secondary-700 text-white font-bold py-2 text-center w-full rounded">
+            <Link href="/profile/changePassword" className="bg-primary-800 hover:bg-primary-900 text-white font-bold py-2 text-center w-full rounded">
               Ubah Password
             </Link>
           </div>

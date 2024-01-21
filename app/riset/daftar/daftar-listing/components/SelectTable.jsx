@@ -3,12 +3,31 @@ import React, { useState } from 'react';
 import Table from './TableSelect';
 import * as Icon from 'react-feather';
 import SelectCat from './selectCat';
+import Swal from 'sweetalert2';
 
 const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryChange = (selectedValue) => {
     setSelectedCategory(selectedValue);
+  };
+  const HandleExport = () => {
+    Swal.fire({
+      title: 'Export Data',
+      text: 'Pilih Format Export Data',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Excel',
+      cancelButtonText: 'PDF',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
+      } else {
+        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
+      }
+    });
   };
   return (
     <div className="md:w-[85%] w-[95%] mx-auto bg-primary-600 rounded-xl shadow-md overflow-auto mt-8">
@@ -20,7 +39,7 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
           </div>
         </div>
         <div className="">
-          <button className="flex md:mt-2 mt-6 items-center justify-center md:text-base text-xs bg-secondary-800 py-2 px-6 w-fit rounded-lg text-white hover:bg-secondary-900">
+          <button onClick={HandleExport} className="flex md:mt-2 mt-6 items-center justify-center md:text-base text-xs bg-secondary-800 py-2 px-6 w-fit rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
             <p className=" pl-4">Export</p>
           </button>

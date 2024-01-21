@@ -17,8 +17,8 @@ export default function Sidebar() {
     if (result === true) {
       Swal.fire({
         icon: 'success',
-        title: 'Logout successful',
-        text: 'See you soon!',
+        title: 'Logout',
+        text: 'Berhasil Logout, Sampai jumpa lagi!',
       }).then(() => {
         cookieCutter.set('accessToken', '', { expires: new Date(0) });
         router.push('/login');
