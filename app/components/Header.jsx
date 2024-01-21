@@ -70,7 +70,7 @@ export default function Header() {
             </p>
           </div>
           <div className="text-white">
-            <Icon.User className="h-full bg-white w-8 text-gray-950 rounded-full" />
+            <Icon.User className="h-full w-8 text-white " />
           </div>
         </div>
       </header>
