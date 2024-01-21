@@ -85,41 +85,47 @@ export default function Box() {
           <Image src="/img/maskot/3.png" width={150} height={200} alt="foto" />
         </div>
         <form onSubmit={handleSubmit} className="block space-y-4 mx-5 text-sm md:text-base">
-          <div className="w-full flex justify-between space-x-4">
-            <label htmlFor="passwordLama">Password lama</label>
+          <div className="w-full block md:flex md:justify-between space-y-2  md:space-x-4">
+            <div className="">
+              <label htmlFor="passwordLama">Password lama</label>
+            </div>
             <input
               type="text"
               onChange={(e) => setPasswordLama(e.target.value)}
               value={passwordLama}
               placeholder="Isikan Password lama"
-              className=" placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
+              className=" placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
               name="passwordLama"
             />
           </div>
-          <div className="w-full flex justify-between space-x-4">
-            <label htmlFor="passwordBaru">Password Baru</label>
+          <div className="w-full block md:flex md:justify-between md:space-x-4">
+            <div className="">
+              <label htmlFor="passwordBaru">Password Baru</label>
+            </div>
             <input
               type="text"
               onChange={(e) => setPasswordBaru(e.target.value)}
               value={passwordBaru}
               placeholder="Isikan Password baru"
-              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
+              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
               name="passwordBaru"
             />
           </div>
-          <div className="w-full flex justify-between space-x-4">
-            <label htmlFor="passwordBaru2">Ulangi Password Baru</label>
+          <div className="w-full block md:flex md:justify-between md:space-x-4">
+            <div className="">
+              <label htmlFor="passwordBaru2">Ulangi Password Baru</label>
+            </div>
             <input
               type="text"
               onChange={(e) => setPasswordBaru2(e.target.value)}
               value={passwordBaru2}
               placeholder="Isikan Konfirmasi Password"
-              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md w-3/5"
+              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
               name="passwordBaru2"
             />
           </div>
-          <div className="pt-6 pb-4 w-full flex justify-center">
-            <button type="submit" className="bg-secondary-900 hover:bg-secondary-700 rounded-md 2 w-1/2 py-2 text-white text-center">
+          <div className="pt-6 pb-4 w-full block md:flex justify-center">
+            <button type="submit" className="bg-primary-800 hover:bg-primary-900 rounded-md 2 w-full py-2 text-white text-center">
               Simpan
             </button>
           </div>
