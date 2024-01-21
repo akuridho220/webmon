@@ -5,10 +5,12 @@ import PasswordInput from './PasswordInput';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
 import authService from '../../service/authService';
+import { useRouter } from 'next/navigation';
 
 const Box = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -19,10 +21,8 @@ const Box = () => {
         title: 'Success',
         text: 'Login Berhasil',
         icon: 'success',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '/dashboard';
-        }
+      }).then(() => {
+        router.push('/dashboard');
       });
     } else {
       console.log('Login failed', result);
