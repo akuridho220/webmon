@@ -6,7 +6,7 @@ import Link from 'next/link';
 import authService from '../service/authService';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-import cookieCutter from 'cookie-cutter';
+import cookieCutter, { set } from 'cookie-cutter';
 import { useRouter } from 'next/navigation';
 
 export default function Sidebar() {
@@ -20,8 +20,10 @@ export default function Sidebar() {
         title: 'Logout',
         text: 'Berhasil Logout, Sampai jumpa lagi!',
       }).then(() => {
-        cookieCutter.set('accessToken', '', { expires: new Date(0) });
-        router.push('/login');
+        setTimeout(() => {
+          cookieCutter.set('accessToken', '', { expires: new Date(0) });
+          router.push('/login');
+        }, 1);
       });
     } else {
       console.log('Login failed', result);

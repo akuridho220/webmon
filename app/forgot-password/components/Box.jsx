@@ -1,33 +1,25 @@
 'use client';
 
 import React, { useState } from 'react';
-import PasswordInput from './PasswordInput';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-import authService from '../../service/authService';
-import { useRouter } from 'next/navigation';
+// import resetPasswordService from '../../../service/resetPasswordService';
 
 const Box = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const result = await authService.Login(email, password);
-
+    // const result = await resetPasswordService(email);
+    const result = true;
     if (result === true) {
       Swal.fire({
         title: 'Success',
-        text: 'Login Berhasil',
+        text: 'Email reset password berhasil terkirim',
         icon: 'success',
-      }).then(() => {
-        setTimeout(() => {
-          router.push('/dashboard');
-        }, 1);
       });
     } else {
-      console.log('Login failed', result);
+      console.log('Email reset password gagal terkirim', result);
       Swal.fire({
         title: 'Error!',
         text: result,
@@ -39,6 +31,9 @@ const Box = () => {
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="flex-col justify-center sm:px-6 py-4 px-3 bg-white w-max rounded-2xl">
         <div className="sm:mx-auto sm:max-w-sm  bg-white flex flex-col justify-center items-center">
+          <div className="text-white w-full rounded-md bg-primary-900 justify-center flex items-center">
+            <h1 className="flex mt-4 self-center text-center text-xl font-bold leading-9 tracking-tight ">LUPA PASSWORD</h1>
+          </div>
           <Image src="/img/logo/logo-icon.png" width={120} height={120} alt="logo" />
           <h2 className="flex mt-4 self-center text-center text-xl font-bold leading-9 tracking-tight text-gray-900">WEB MONITORING PKL D-IV 63</h2>
           <p className="font-light text-sm">POLSTAT STIS 2023/2024</p>
@@ -63,40 +58,12 @@ const Box = () => {
                 />
               </div>
             </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-primary-800">
-                  Password
-                </label>
-                {/* <div className='text-sm'>
-                  <a href='#' className='font-semibold text-indigo-600 hover:text-indigo-500'>
-                    Lupa password?
-                  </a>
-                </div> */}
-              </div>
-              <div className="mt-2">
-                <PasswordInput onChange={(e) => setPassword(e.target.value)} />
-              </div>
-            </div>
-
             <div>
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primary-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
-              </button>
-            </div>
-            <div>
-              <button
-                type="button"
-                onClick={() => {
-                  router.push('/forgot-password');
-                }}
-                className="flex w-full -mt-4 justify-center rounded-md bg-white text-primary-900 px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm hover:text-primary-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Lupa password
+                Kirim Link Reset Password
               </button>
             </div>
           </form>

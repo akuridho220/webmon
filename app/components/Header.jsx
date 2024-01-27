@@ -26,7 +26,9 @@ export default function Header() {
             title: 'Anda Belum Login',
             text: 'Silahkan Login terlebih dahulu',
           }).then(() => {
-            router.push('/login');
+            setTimeout(() => {
+              router.push('/login');
+            }, 1);
           });
         } else {
           setName(result.name);
