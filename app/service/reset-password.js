@@ -3,37 +3,26 @@ import axios from 'axios';
 
 const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { email } = req.body;
-
-    // Generate a random reset token
+const reset = {
+  Reset: async (email) => {
     try {
-      const response = await axios.put(`${authServer}CreatePasswordReset`, {
+      console.log('email', email);
+
+      const response = await axios.put(`${authServer}createPasswordReset`, {
         email,
       });
-      const { token } = response.data.token;
+      const resetToken = response.data.token;
+      await sendEmail(email, resetToken);
+      return true;
     } catch (error) {
-      console.error('Error create password reset:', error);
-      res.status(500).json({ error: 'Error create password reset' });
+      console.log('Reset failed', error.response.data);
+      return error.response.data;
     }
-
-    // Send the email
-    try {
-      await sendEmail(email, token);
-      res.status(200).json({ message: 'Password reset email sent successfully.' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      res.status(500).json({ error: 'Failed to send password reset email.' });
-    }
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
-  }
-}
-
+  },
+};
 async function sendEmail(email, resetToken) {
   // Create a nodemailer transporter
-  var transport = nodemailer.createTransport({
+  const transport = nodemailer.createTransport({
     host: 'sandbox.smtp.mailtrap.io',
     port: 2525,
     auth: {
@@ -43,7 +32,7 @@ async function sendEmail(email, resetToken) {
   });
 
   // Send the email
-  const info = await transporter.sendMail({
+  const info = await transport.sendMail({
     from: 'webmon63@stis.ac.id', // Sender email address
     to: email,
     subject: 'Password Reset Web Monitoring PKL 63',
@@ -52,3 +41,5 @@ async function sendEmail(email, resetToken) {
   });
   console.log('Email sent:', info);
 }
+
+export default reset;

@@ -3,28 +3,35 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-// import resetPasswordService from '../../../service/resetPasswordService';
+import reset from '@/app/service/reset-password';
 
 const Box = () => {
   const [email, setEmail] = useState('');
+  const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const handleLogin = async (e) => {
     e.preventDefault();
+    const thisemail = email;
+    try {
+      const response = await reset.Reset(thisemail);
 
-    // const result = await resetPasswordService(email);
-    const result = true;
-    if (result === true) {
-      Swal.fire({
-        title: 'Success',
-        text: 'Email reset password berhasil terkirim',
-        icon: 'success',
-      });
-    } else {
-      console.log('Email reset password gagal terkirim', result);
-      Swal.fire({
-        title: 'Error!',
-        text: result,
-        icon: 'error',
-      });
+      if (response.data.message) {
+        console.log(response.data.message);
+        Swal.fire({
+          title: 'Success',
+          text: 'Email reset password berhasil terkirim',
+          icon: 'success',
+        });
+      } else {
+        console.error('Error:', response.data.error);
+        Swal.fire({
+          title: 'Error!',
+          text: response.data.error,
+          icon: 'error',
+        });
+      }
+    } catch (error) {
+      console.error('Error calling reset-password API:', error);
     }
   };
   return (
