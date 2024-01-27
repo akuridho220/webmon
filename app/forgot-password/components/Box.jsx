@@ -15,18 +15,17 @@ const Box = () => {
     try {
       const response = await reset.Reset(thisemail);
 
-      if (response.data.message) {
-        console.log(response.data.message);
+      if (response == true) {
         Swal.fire({
           title: 'Success',
           text: 'Email reset password berhasil terkirim',
           icon: 'success',
         });
       } else {
-        console.error('Error:', response.data.error);
+        console.error('Error:', response);
         Swal.fire({
           title: 'Error!',
-          text: response.data.error,
+          text: response,
           icon: 'error',
         });
       }
