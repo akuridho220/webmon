@@ -20,7 +20,6 @@ const Box = () => {
     const response = await Axios.post(`${authServer}verifyResetToken`, {
       token: token,
     });
-    console.log(response.data);
     if (response.data == 'Token tidak valid') {
       Swal.fire({
         title: 'Error!',

@@ -14,9 +14,17 @@ const Box = () => {
     try {
       const response = await Axios.post(`${authServer}forgotPassword`, {
         email: thisemail,
+      }).catch(function (error) {
+        if (error.response) {
+          Swal.fire({
+            title: 'Error',
+            text: 'Email tidak terdaftar dalam database / Server sedang error',
+            icon: 'error',
+          });
+          return null;
+        }
       });
 
-      console.log(response.data.message);
       if (response.data.message == 'Password reset email sent successfully.') {
         Swal.fire({
           title: 'Success',
