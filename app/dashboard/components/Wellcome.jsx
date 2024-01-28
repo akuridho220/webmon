@@ -25,7 +25,7 @@ const Wellcome = () => {
     };
 
     getNama();
-  }, []); // Empty dependency array ensures the effect runs only once after mount
+  }, []);
 
   return (
     <div className="bg-gradient-to-b from-[#951A2E] to-[#CA2128] rounded-md shadow-md flex h-fit py-4 pl-2">
@@ -33,7 +33,7 @@ const Wellcome = () => {
         <Image src="/img/elements/barong.png" fill={true} alt="Barong" />
       </div>
       <div className="p-4">
-        <h1 className="md:text-3xl text-2xl font-sdr font-bold  text-white">Selamat datang, {nama}</h1>
+        <h1 className="md:text-3xl text-2xl font-sdr font-bold text-white">Selamat datang, {nama}</h1>
         <p className="text-white md:text-base text-xs">Halaman web monitoring PKL 63</p>
       </div>
     </div>

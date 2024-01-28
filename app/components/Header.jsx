@@ -7,6 +7,8 @@ import Sidebar from './Sidebar';
 import authService from '../service/authService';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Header() {
   const [isMobileNavVisible, setMobileMenuOpen] = useState(false);
@@ -16,6 +18,10 @@ export default function Header() {
 
   const router = useRouter();
   useEffect(() => {
+    AOS.init({
+      delay: 10,
+      once: true,
+    });
     const fetchData = async () => {
       try {
         const result = await authService.IsAuthenticated();
