@@ -9,9 +9,11 @@ import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Menu from './MenuUser';
 
 export default function Header() {
   const [isMobileNavVisible, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [name, setName] = useState(''); // Initialize with an empty string or default value
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
@@ -52,6 +54,9 @@ export default function Header() {
   const toggleMobileNav = () => {
     setMobileMenuOpen(!isMobileNavVisible);
   };
+  const toggleMenuOpen = () => {
+    setMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       {/* Header Dekstop */}
@@ -78,7 +83,12 @@ export default function Header() {
             </p>
           </div>
           <div className="text-white">
-            <Icon.User className="h-full w-8 text-white " />
+            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-white hover:bg-white hover:text-slate-600  cursor-pointer rounded-full" />
+            {isMenuOpen ? (
+              <div className="absolute top-20 right-0">
+                <Menu />
+              </div>
+            ) : null}
           </div>
         </div>
       </header>
@@ -105,7 +115,12 @@ export default function Header() {
         </div>
         <div className="profile flex w-[20%] md:w-[15%] h-full px-2">
           <div className="text-white w-full  h-full relative">
-            <Image src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
+            <Image onClick={toggleMenuOpen} src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
+            {isMenuOpen ? (
+              <div className="absolute top-16 -right-2">
+                <Menu />
+              </div>
+            ) : null}
           </div>
         </div>
       </header>

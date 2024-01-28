@@ -6,7 +6,7 @@ import Link from 'next/link';
 import authService from '../service/authService';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-import cookieCutter, { set } from 'cookie-cutter';
+import cookieCutter from 'cookie-cutter';
 import { useRouter } from 'next/navigation';
 
 export default function Sidebar() {
