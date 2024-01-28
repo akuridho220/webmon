@@ -3,29 +3,31 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
-import reset from '@/app/service/reset-password';
+import Axios from 'axios';
 
 const Box = () => {
   const [email, setEmail] = useState('');
   const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const handleLogin = async (e) => {
+  const handleForgot = async (e) => {
     e.preventDefault();
     const thisemail = email;
     try {
-      const response = await reset.Reset(thisemail);
+      const response = await Axios.post(`${authServer}forgotPassword`, {
+        email: thisemail,
+      });
 
-      if (response == true) {
+      console.log(response.data.message);
+      if (response.data.message == 'Password reset email sent successfully.') {
         Swal.fire({
           title: 'Success',
           text: 'Email reset password berhasil terkirim',
           icon: 'success',
         });
       } else {
-        console.error('Error:', response);
+        console.error('Error:', response.data.message);
         Swal.fire({
           title: 'Error!',
-          text: response,
+          text: response.data.message,
           icon: 'error',
         });
       }
@@ -46,7 +48,7 @@ const Box = () => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm bg-white">
-          <form className="space-y-6" onSubmit={handleLogin}>
+          <form className="space-y-6" onSubmit={handleForgot}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-primary-800">
                 Email
