@@ -138,7 +138,7 @@ Database yang digunakan web monitoring meliputi `database capi ` dan `database k
 #### Setelah berhasil clone web service lalu kita clone project ini dengan menjalankan command command berikut :
 
 ```
-git clone https://git.stis.ac.id/fosil-spd-pkl/63/web-service-webmon
+git clone https://git.stis.ac.id/fosil-spd-pkl/63/mazhab-webmon.git
 ```
 
 ```
