@@ -22,7 +22,7 @@
   <summary>Tribute To</summary>
   <ol>
     <li>
-        Ketua SPD : Muhammad Julian Firdaus
+        Ketua SPD : Muhammad Julian Firdaus <a>222112217@stis.ac.id</a> (3SI1)
     </li>
     <li>
         Subdivisi CAPI dan Server Tercinta
@@ -30,18 +30,34 @@
     <li>
         Tim Web Monitoring yang telah membuat web monitoring
         <ul>
-            <li>Ridho Pangestu <222011585@stis.ac.id> (3SI3) </a></li>
-            <li>Pandu Wahyu Aji <222011392@stis.ac.id> (3SI2) </a></li>
-            <li>Aliefta Zulvansyah B <222111873@stis.ac.id> (3SI1)</a></li>
-            <li>Sonya Ananta Panjaitain <222011469@stis.ac.id> (3SD3) </a></li>
-            <li>Nur Yudha Jati Prakoso <222011469@stis.ac.id> (3SD3) </a></li>
+            <li>Ridho Pangestu <a>222011585@stis.ac.id (3SI3) </a></li>
+            <li>Pandu Wahyu Aji <a>222011392@stis.ac.id (3SI2) </a></li>
+            <li>Aliefta Zulvansyah B <a>222111873@stis.ac.id (3SI1)</a></li>
+            <li>Sonya Ananta Panjaitain <a>222011469@stis.ac.id (3SD3) </a></li>
+            <li>Nur Yudha Jati Prakoso <a>222011469@stis.ac.id (3SD3) </a></li>
         </ul>
     </li>
         <li>
-        Teman-teman SPD semuanya
+        Teman-teman Bayangan Web monitoring yang turut membantu membangun web ini
         <ul>
             <li> 
-             blablabla
+             Muhammad Diva Amrullah <a>222112210@stis.ac.id (3SI1)</a>
+            </li>
+             <li> 
+            Irsyad Fadhil Asyraf <a>222112116@stis.ac.id (3SI1)</a>
+            </li>
+               <li> 
+            Agus Riyanto <a>222111855@stis.ac.id (3SI2)</a>
+            </li>
+              <li> 
+            Dutatama Rosewika Taufiq Hadihardaya <a>222111997@stis.ac.id (3SD2)</a>
+            </li>
+        </ul>
+         <li>
+        Teman-teman SPD lainnya
+        <ul>
+            <li> 
+             Rifky(3SI1), Zein(3SI1), Rista (3SI1), Danang (3SI2), Alpin (3SI2), Ima (3SI2), Yulius (3SI2), Falana (3SI3),Sari (3SI3)
             </li>
         </ul>
     </li>
@@ -122,7 +138,7 @@ Database yang digunakan web monitoring meliputi `database capi ` dan `database k
 #### Setelah berhasil clone web service lalu kita clone project ini dengan menjalankan command command berikut :
 
 ```
-git clone `url project ini`
+git clone https://git.stis.ac.id/fosil-spd-pkl/63/web-service-webmon
 ```
 
 ```
