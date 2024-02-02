@@ -10,11 +10,12 @@ import { useRouter } from 'next/navigation';
 const Box = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
   const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const result = await authService.Login(email, password);
+    const result = await authService.Login(email, password, remember);
 
     if (result === true) {
       Swal.fire({
@@ -69,18 +70,19 @@ const Box = () => {
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-primary-800">
                   Password
                 </label>
-                {/* <div className='text-sm'>
-                  <a href='#' className='font-semibold text-indigo-600 hover:text-indigo-500'>
-                    Lupa password?
-                  </a>
-                </div> */}
               </div>
               <div className="mt-2">
                 <PasswordInput onChange={(e) => setPassword(e.target.value)} />
               </div>
+              <div className="flex mt-3 text-sm font-light text-slate-800 space-x-2">
+                <input type="checkbox" name="remember" id="remember" onChange={() => setRemember(!remember)} />
+                <label htmlFor="remember" className="flex items-center">
+                  Remember me
+                </label>
+              </div>
             </div>
 
-            <div>
+            <div className="">
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primary-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
