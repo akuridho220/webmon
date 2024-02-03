@@ -5,18 +5,28 @@ import cookieCutter from 'cookie-cutter';
 
 const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
 const api = process.env.NEXT_PUBLIC_API_URL;
-const cookieOptions = { path: '/', expires: new Date(Date.now() + 60 * 60 * 24), secure: true }; // Set options as needed
 const authService = {
-  Login: async (email, password) => {
+  Login: async (email, password, remember) => {
+    let cookieOptions;
     try {
       const response = await axios.post(`${authServer}login`, {
         email,
         password,
+        remember,
       });
 
+      console.log(remember, 'remember');
       const { accessToken } = response.data;
 
       // Use the setCookie function from the hook
+      // if remember me cookie set 10 days, else 1 day
+      if (remember === true) {
+        cookieOptions = { path: '/', expires: new Date(Date.now() + 60 * 60 * 24 * 10 * 1000), secure: true };
+      } else {
+        cookieOptions = { path: '/', expires: new Date(Date.now() + 60 * 60 * 24 * 1000), secure: true };
+      }
+
+      console.log(cookieOptions.expires);
       cookieCutter.set('accessToken', accessToken, cookieOptions);
       document.cookie += '; HttpOnly';
 

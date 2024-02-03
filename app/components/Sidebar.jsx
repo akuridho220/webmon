@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import * as Icon from 'react-feather';
 import Accordion from './Accordion';
 import Link from 'next/link';
@@ -8,24 +7,23 @@ import authService from '../service/authService';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
 import cookieCutter from 'cookie-cutter';
+import { useRouter } from 'next/navigation';
 
 export default function Sidebar() {
-  const [logoutError, setLogoutError] = useState(null);
-
-  const handleLogout = async () => {
+  const router = useRouter();
+  const HandleLogout = async () => {
     const result = await authService.Logout();
 
     if (result === true) {
       Swal.fire({
         icon: 'success',
-        title: 'Logout successful',
-        text: 'See you soon!',
-        showConfirmButton: true,
-      }).then((result) => {
-        if (result.isConfirmed) {
+        title: 'Logout',
+        text: 'Berhasil Logout, Sampai jumpa lagi!',
+      }).then(() => {
+        setTimeout(() => {
           cookieCutter.set('accessToken', '', { expires: new Date(0) });
-          window.location.href = '/login';
-        }
+          router.push('/login');
+        }, 1);
       });
     } else {
       console.log('Login failed', result);
@@ -72,7 +70,7 @@ export default function Sidebar() {
             <Icon.User />
             <span className="pl-4">Profile Saya</span>
           </Link>
-          <div onClick={handleLogout} className="flex cursor-pointer items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
+          <div onClick={HandleLogout} className="flex cursor-pointer items-center py-4 pl-6 nav-item hover:bg-[#8d2b3c]">
             <Icon.LogOut />
             <span className="pl-4">Keluar</span>
           </div>

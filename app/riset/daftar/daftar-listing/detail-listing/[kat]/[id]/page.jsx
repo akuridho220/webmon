@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@/app/layout/layout';
 import Header from './components/Header';
-import TableDetail from './components/TableDetail';
+import TableDetail from './components/tableDetail';
 import PageTitle from '@/app/components/PageTitle';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
@@ -9,7 +9,6 @@ const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
   return await response.json();
 };
-
 
 export default async function DetailListing({ params, searchParams }) {
   let judul = '';
@@ -28,7 +27,6 @@ export default async function DetailListing({ params, searchParams }) {
     url = `${apiURL}riset/daftar/listing/kab/detail/${params.id}`;
     judul = `Detail Listing Kabupaten ${searchParams.nama}`;
   }
-
 
   const getDataDetail = async () => {
     const data = await fetchData(url);

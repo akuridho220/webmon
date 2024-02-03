@@ -5,28 +5,38 @@ import * as Icon from 'react-feather';
 import Image from 'next/image';
 import Sidebar from './Sidebar';
 import authService from '../service/authService';
+import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Menu from './MenuUser';
 
 export default function Header() {
   const [isMobileNavVisible, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [name, setName] = useState(''); // Initialize with an empty string or default value
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
 
+  const router = useRouter();
   useEffect(() => {
+    AOS.init({
+      delay: 10,
+      once: true,
+    });
     const fetchData = async () => {
       try {
         const result = await authService.IsAuthenticated();
 
         if (result === false) {
           Swal.fire({
-            title: 'Error!',
-            text: 'Silahkan Login Terlebih Dahulu',
             icon: 'error',
+            title: 'Anda Belum Login',
+            text: 'Silahkan Login terlebih dahulu',
           }).then(() => {
             setTimeout(() => {
-              window.location.href = '/login';
-            }, 1000);
+              router.push('/login');
+            }, 1);
           });
         } else {
           setName(result.name);
@@ -43,6 +53,9 @@ export default function Header() {
 
   const toggleMobileNav = () => {
     setMobileMenuOpen(!isMobileNavVisible);
+  };
+  const toggleMenuOpen = () => {
+    setMenuOpen(!isMenuOpen);
   };
   return (
     <>
@@ -70,7 +83,12 @@ export default function Header() {
             </p>
           </div>
           <div className="text-white">
-            <Icon.User className="h-full bg-white w-8 text-gray-950 rounded-full" />
+            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-white hover:bg-white hover:text-slate-600  cursor-pointer rounded-full" />
+            {isMenuOpen ? (
+              <div className="absolute top-20 right-0">
+                <Menu />
+              </div>
+            ) : null}
           </div>
         </div>
       </header>
@@ -97,7 +115,12 @@ export default function Header() {
         </div>
         <div className="profile flex w-[20%] md:w-[15%] h-full px-2">
           <div className="text-white w-full  h-full relative">
-            <Image src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
+            <Image onClick={toggleMenuOpen} src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
+            {isMenuOpen ? (
+              <div className="absolute top-16 -right-2">
+                <Menu />
+              </div>
+            ) : null}
           </div>
         </div>
       </header>

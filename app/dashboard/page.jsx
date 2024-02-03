@@ -26,14 +26,20 @@ export default async function Dashboard() {
     <>
       <Layout>
         <div className="my-4 w-[90%] space-y-4 min-h-screen">
-          <Wellcome />
-          <Waktu />
-          <div className="max-md:space-y-4 md:flex justify-between">
+          <div data-aos="fade-down">
+            <Wellcome />
+          </div>
+          <div data-aos="fade-up">
+            <Waktu />
+          </div>
+          <div data-aos="fade-up" className="max-md:space-y-4 md:flex justify-between">
             <MulaiSelesai text="Mulai" tanggal="Senin, 22 Januari 2024" waDom={mainMulai} wa={secMulai} />
             <MulaiSelesai text="Selesai" tanggal="Jumat, 26 Januari 2024" waDom={mainSelesai} wa={secSelesai} />
           </div>
-          <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
-          <div className="z-20">
+          <div data-aos="fade-up">
+            <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
+          </div>
+          <div className="z-20" data-aos="fade-up">
             <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
           </div>
         </div>
