@@ -1,6 +1,6 @@
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import bg from '../../public/img/pattern/pattern2-trs.png';
+import bg from '../../public/img/pattern/pattern_trans2.png';
 import Footer from '../components/Footer';
 
 export default function Layout({ children }) {
