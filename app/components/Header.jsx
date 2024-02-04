@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Menu from './MenuUser';
+import Link from 'next/link';
+import Navbar from './Navbar';
 
 export default function Header() {
   const [isMobileNavVisible, setMobileMenuOpen] = useState(false);
@@ -60,30 +62,30 @@ export default function Header() {
   return (
     <>
       {/* Header Dekstop */}
-      <header className="w-full items-center bg-[#C4314E] h-20  pl-64 lg:flex fixed top-0 right-0 justify-between z-10 hidden">
-        <div className="searchBar w-2/3 ml-8">
-          <form>
-            {/* <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label> */}
-            <div className="relative">
-              <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm rounded-lg bg-[#F86A80]" placeholder="Cari..." required />
-              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                </svg>
-              </div>
-              {/* <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button> */}
+      <header className="w-full items-center bg-putih-200 h-20 lg:flex fixed top-0 right-0 justify-between z-10 shadow-md hidden">
+        <div className="flex flex-row w-2/3 ml-8 justify-start">
+          <div className="flex flex-row items-center h-auto w-full px-4">
+            <div className="py-2 pr-2 flex">
+              <Image src="/img/logo/logo-icon.png" alt="logo sidebar" width={54} height={54} />
             </div>
-          </form>
+            <div className="py-2 text-primary-600 text-sm">
+              <p className="lg:text-lg font-bold">Web Monitoring</p>
+              <p className="">PKL 63</p>
+            </div>
+          </div>
+          <div className='flex justify-center items-center w-full text-primary-600'>
+            <Navbar />
+          </div>
         </div>
         <div className="profile flex w-max px-4">
-          <div className="flex flex-col text-white pr-4">
+          <div className="flex flex-col text-primary-600 pr-4">
             <p className="text-center">{name}</p>
             <p>
               {jenis} | {jabatan}
             </p>
           </div>
           <div className="text-white">
-            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-white hover:bg-white hover:text-slate-600  cursor-pointer rounded-full" />
+            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-primary-600 hover:bg-white hover:text-primary-100  cursor-pointer rounded-full" />
             {isMenuOpen ? (
               <div className="absolute top-20 right-0">
                 <Menu />

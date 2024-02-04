@@ -45,6 +45,9 @@ module.exports = {
           200: '#FDFBF4',
           100: '#FAFAFA',
         },
+        base: {
+          100: '#FFFAE6'
+        }
       },
     },
   },
