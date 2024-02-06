@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const DropdownProgres = ({title}) => {
     return (
-        <Dropdown className="bg-putih-100 text-primary-600 ml-32 rounded-lg">
+        <Dropdown className="bg-putih-100 text-primary-600 ml-32 rounded-lg shadow-md">
             <DropdownTrigger className="w-full p-1 rounded-md">
                 <Button 
                     variant="light" 

@@ -18,7 +18,7 @@ const Dropdown = () => {
         className="flex flex-row"
         onClick={toggleDropdown}
       >
-        <span>Dropdown</span>
+        <span>Riset</span>
         <div>
           {chevron ? <Icon.ChevronDown/> : <Icon.ChevronUp />}
         </div>

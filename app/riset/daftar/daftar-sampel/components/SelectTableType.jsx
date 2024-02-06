@@ -31,7 +31,7 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa }) => {
   };
   return (
     <>
-      <div className="bg-primary-600 w-[85%] mt-8 px-6 rounded-xl">
+      <div className="bg-primary-900/95 w-[85%] mt-8 px-6 rounded-xl">
         <div className="flex text-white py-4">
           <p className="font-medium">Progres Sampel Survei</p>
         </div>
