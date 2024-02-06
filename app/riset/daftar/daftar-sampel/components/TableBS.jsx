@@ -5,11 +5,11 @@ const { default: BasicTable } = require("@/app/components/BasicTable")
 const columns = [
     {
         accessorKey: 'kode_bs_full',
-        header: 'Kode BS'
+        header: 'ID Blok Sensus'
     },
     {
         accessorKey: 'nama_pcl',
-        header: 'Pencacah'
+        header: 'Tim Pencacah'
     },
     {
         accessorKey: 'jumlah_sampel',

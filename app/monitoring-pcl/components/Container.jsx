@@ -58,10 +58,9 @@ const Container = ({data}) => {
     };
 
     return(
-        <div className='w-5/6 my-8 px-6 bg-primary-600 rounded-md'>
-            {/*<h1 class="my-2 text-center fw-bolder font-bold text-white">Monitoring Seluruh Petugas</h1>*/}
+        <div className='w-[90%] my-8 px-6 bg-primary-900/95 rounded-md'>
             <p className="my-4 text-white">
-                &#x203B; Posisi petugas diperbarui 5 menit sekali dan ketika petugas berpindah lokasi
+                &#x203B; Posisi petugas diperbarui 10 menit sekali dan ketika petugas berpindah lokasi
                 lebih dari 200 meter. Silakan <i>refresh</i> halaman untuk melihat lokasi terbaru.
             </p>
             <div className='w-full mb-4 xl:flex items-center justify-stretch gap-3'>

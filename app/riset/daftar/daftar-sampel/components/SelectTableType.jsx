@@ -31,11 +31,8 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa }) => {
   };
   return (
     <>
-      <div className="bg-primary-900/95 w-[85%] mt-8 px-6 rounded-xl">
-        <div className="flex text-white py-4">
-          <p className="font-medium">Progres Sampel Survei</p>
-        </div>
-        <div className="flex justify-between mb-4">
+      <div className="bg-primary-900/95 md:w-[90%] w-[95%] mt-8 px-6 rounded-xl">
+        <div className="flex justify-between mb-4 pt-4">
           <div className="flex flex-row items-center">
             <p className="text-white">Filter :</p>
             <SelectCat onSelect={handleCategoryChange} />

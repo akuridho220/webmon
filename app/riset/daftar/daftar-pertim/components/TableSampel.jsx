@@ -31,7 +31,7 @@ const TableTim = ({data}) => {
       cell: ({ cell }) => (
         <button
           onClick={() => handleDetailButtonClick(cell.row.original)}
-          className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300"
+          className="bg-accent-900 text-white rounded-xl py-2 px-4 hover:bg-accent-700 transition duration-300"
         >
           Detail
         </button>

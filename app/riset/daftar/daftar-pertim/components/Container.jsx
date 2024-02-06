@@ -25,7 +25,7 @@ const Container = ({dataListing, dataSampel, dataListTim}) => {
     }
     return(
         <>
-            <div className="bg-primary-900/95 w-[85%] mt-8 px-6 rounded-xl">
+            <div className="bg-primary-900/95 md:w-[90%] w-[95%] mt-8 px-6 rounded-xl">
                 <ButtonTim onSelect={handleTableChange}/>
                 <TimSelect dataListTim={dataListTim} onSelect={handleTimSelect}/>
                 <Table selectedCategory={table} dataListing={listing} dataSampel={sampel}/>

@@ -27,14 +27,14 @@ export default function Faq() {
     return (
         <>
             <Layout>
-                <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
+                <div className='flex flex-col w-3/4 rounded-xl bg-primary-900/95 mt-10 p-6'>
                     <div className='flex text-white px-4'>
                         <p className='pr-4'>FAQ</p>
                         <span>|</span>
                         <p className='pl-4'>Pusat Bantuan - FAQ</p>
                     </div>
                 </div>
-                <div className='flex flex-col w-3/4 rounded-xl bg-[#d93f57] mt-10 p-6'>
+                <div className='flex flex-col w-3/4 rounded-xl bg-primary-900/95 mt-10 p-6'>
                     <div className='flex flex-col text-white items-center'>
                         <div className='flex flex-col items-center'>
                             <p className='font-bold text-xl'>Frequently Asked Question</p>

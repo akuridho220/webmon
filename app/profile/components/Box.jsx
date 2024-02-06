@@ -28,9 +28,9 @@ export default function Box() {
   }, []); // Run once on component mount
 
   return (
-    <div className="my-4 w-[90%] space-y-4 h-full">
+    <div className="my-4 w-[90%] space-y-4 h-full shadow-lg">
       <div className="flex flex-col h-full">
-        <div className="bg-primary-900 rounded-t-md shadow-md py-4 flex">
+        <div className="bg-primary-900/95 rounded-t-md shadow-md py-4 flex">
           <div className="flex-1 pl-2 flex items-center justify-center">
             <Image src="/img/pattern/pattern2-crop.png" width={45} height={32} alt="patt2cr" className="h-full" />
           </div>
