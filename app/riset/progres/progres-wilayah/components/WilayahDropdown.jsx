@@ -3,18 +3,11 @@ import Select from "react-select";
 
 const WilayahDropdown = ({ onSelect }) => {
   const options = [
-    { value: "Wilayah A", label: "Wilayah A" },
-    { value: "Wilayah B", label: "Wilayah B" },
-    { value: "Wilayah C", label: "Wilayah C" },
-    { value: "Wilayah D", label: "Wilayah D" },
-    { value: "Wilayah E", label: "Wilayah E" },
-    { value: "Wilayah F", label: "Wilayah F" },
-    { value: "Wilayah G", label: "Wilayah G" },
-    { value: "Wilayah H", label: "Wilayah H" },
-    { value: "Wilayah I", label: "Wilayah I" },
-    { value: "Wilayah J", label: "Wilayah J" },
-    { value: "Wilayah K", label: "Wilayah K" },
-    { value: "Wilayah L", label: "Wilayah L" },
+    { value: "Blok Sensus", label: "Blok Sensus" },
+    { value: "Desa/Kelurahan/Banjar", label: "Desa/Kelurahan/Banjar" },
+    { value: "Kecamatan", label: "Kecamatan" },
+    { value: "Kabupaten/Kota", label: "Kabupaten/Kota" },
+    { value: "Keseluruhan", label: "Keseluruhan" },
   ];
 
   const handleSelect = (selectedOption) => {
@@ -48,7 +41,7 @@ const WilayahDropdown = ({ onSelect }) => {
         <Select
           options={options}
           isSearchable={true}
-          placeholder="Semua Wilayah"
+          placeholder="Pilih Filter"
           onChange={handleSelect}
           styles={customStyles}
         />
