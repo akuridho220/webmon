@@ -3,9 +3,9 @@ import Image from "next/image"
 export default function PageTitle({ judul }) {
     return (
         <div className="
-            w-[85%] py-4 px-2 mt-10
+            w-[90%] py-4 px-2 mt-10
             flex items-center justify-between
-            bg-gradient-to-b from-[#951A2E] to-[#CA2128]
+            bg-gradient-to-b from-primary-900 to-primary-900/95
             rounded-xl shadow-md text-white
         ">
             <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />

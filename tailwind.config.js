@@ -8,6 +8,7 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-pattern': "url('/img/hero-pattern.png')",
+        'pattern': "url('/img/pattern/pattern_trans2.png')",
       },
       fontFamily: {
         sans: ['var(--font-poppins)'],
@@ -44,6 +45,9 @@ module.exports = {
           200: '#FDFBF4',
           100: '#FAFAFA',
         },
+        base: {
+          100: '#FFFAE6'
+        }
       },
     },
   },

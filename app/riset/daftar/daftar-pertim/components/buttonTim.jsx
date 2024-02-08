@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const ButtonTim = ({onSelect}) => {
   const [activeButton, setActiveButton] = useState(null);
@@ -8,7 +8,7 @@ const ButtonTim = ({onSelect}) => {
     onSelect(value);
   };
 
-  const changeColor = (button) => {
+  const changeColor = useCallback((button) => {
     if (activeButton) {
       activeButton.classList.remove("bg-accent-800");
       activeButton.classList.add("bg-accent-700");
@@ -18,14 +18,14 @@ const ButtonTim = ({onSelect}) => {
     button.classList.add("bg-accent-800");
 
     setActiveButton(button);
-  };
+  });
 
   useEffect(() => {
     const defaultButton = document.querySelector(".default-active");
     if (defaultButton) {
       changeColor(defaultButton);
     }
-  }, []);
+  }, [changeColor]);
 
   return (
     <div className="flex h-8 mt-10">

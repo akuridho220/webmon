@@ -6,8 +6,8 @@ import ProgressBar from './ProgressBar';
 const Summary = ({ totalListing, totalEligible, totalSampelEligible }) => {
   return (
     <>
-      <div className="w-full mx-auto bg-primary-700 rounded-3xl sm:rounded-bl-[4.5rem] shadow-md pb-4 overflow-hidden">
-        <div className="bg-primary-900 rounded-lg  py-2 font-sdr md:text-3xl text-2xl text-center text-white">Summary</div>
+      <div className="w-full mx-auto bg-primary-400 rounded-3xl sm:rounded-bl-[4.5rem] shadow-md pb-4 overflow-hidden">
+        <div className="bg-primary-400 rounded-lg  py-2 font-sdr md:text-3xl text-2xl text-center text-white">Summary</div>
         <div className="font-semibold text-base flex w-[90%] mx-auto items-center overflow-hidden">
           <div className="w-[80%] ">
             <div className="flex justify-between w-full text-white md:text-lg text-sm px-4 py-2">

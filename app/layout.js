@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import localFont from "next/font/local";
+import localFont from 'next/font/local';
 
 const madeMountain = localFont({
   src: [
@@ -38,12 +38,15 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Web Monitoring 63',
-  description: 'Tagline PKL 63',
+  description: 'Harmoni Dalam Tradisi Bersinergi Dengan Inovasi Berbakti Untuk Negeri',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.variable} ${sdr.variable} ${madeMountain.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="1200x1200" />
+      </head>
       <body>{children}</body>
     </html>
   );

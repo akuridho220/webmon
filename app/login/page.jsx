@@ -4,10 +4,9 @@ import React from 'react'
 const Login = () => {
   return (
     <>
-    <div className='bg-primary-900'>
-        <Box />
-
-    </div>
+      <div className='bg-primary-900'>
+          <Box />
+      </div>
     </>
   )
 }

@@ -7,14 +7,12 @@ import * as Icon from 'react-feather'
 export default function AccordionChild({
 	children,
 	title,
-	id,
-	active = false
+	id
 }) {
-
 	const [accordionOpen, setAccordionOpen] = useState(false)
 
 	useEffect(() => {
-		setAccordionOpen(active)
+		setAccordionOpen(false)
 	}, [])
 
 	return (

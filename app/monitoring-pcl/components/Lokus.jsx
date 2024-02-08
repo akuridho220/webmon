@@ -37,8 +37,8 @@ export const lokus = [
     {
         label: 'Klungkung',
         value: '5105',
-        lat: '-8.7299',
-        long: '115.4962',
+        lat: '-8.5299',
+        long: '115.3862',
         zoom: '11',
     },
     {

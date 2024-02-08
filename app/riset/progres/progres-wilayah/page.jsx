@@ -1,10 +1,6 @@
-import Layout from "@/app/layout/layout"
+import Layout from '@/app/layout/layout';
 import Box from './components/Box';
-import WilayahSelect from "./components/WilayahSelect";
-import TableWilayah from "./components/TableProgressPerWilayah";
-import ProgressBar from "./components/ProgressBar";
-import * as Icon from "react-feather";
-
+import Content from './components/Content';
 
 export default function ProgresWilayah() {
     return(
@@ -16,7 +12,7 @@ export default function ProgresWilayah() {
                         <p className='font-medium'>Monitoring PPL Berdasarkan Wilayah</p>
                     </div>
                     <div className='flex text-white py-4'>
-                        <p className='font-medium'>Filter</p>
+                        <p className='font-medium'>Pilih wilayah</p>
                     </div>
                     <div className='flex justify-between mb-4'>
                         {/* <div className='flex flex-row items-center '> */}

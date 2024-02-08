@@ -1,8 +1,41 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import PasswordInput from './PasswordInput';
 import Image from 'next/image';
+import Swal from 'sweetalert2';
+import authService from '../../service/authService';
+import { useRouter } from 'next/navigation';
 
 const Box = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
+  const router = useRouter();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const result = await authService.Login(email, password, remember);
+
+    if (result === true) {
+      Swal.fire({
+        title: 'Success',
+        text: 'Login Berhasil',
+        icon: 'success',
+      }).then(() => {
+        setTimeout(() => {
+          router.push('/dashboard');
+        }, 1);
+      });
+    } else {
+      console.log('Login failed', result);
+      Swal.fire({
+        title: 'Error!',
+        text: result,
+        icon: 'error',
+      });
+    }
+  };
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="flex-col justify-center sm:px-6 py-4 px-3 bg-white w-max rounded-2xl">
@@ -13,18 +46,20 @@ const Box = () => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm bg-white">
-          <form className="space-y-6" action="/dashboard" method="POST">
+          <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-primary-800">
-                Username
+                Email
               </label>
               <div className="mt-2">
                 <input
-                  id="username"
-                  name="username"
-                  type="username"
-                  autoComplete="username"
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                 />
               </div>
@@ -35,23 +70,35 @@ const Box = () => {
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-primary-800">
                   Password
                 </label>
-                {/* <div className='text-sm'>
-                  <a href='#' className='font-semibold text-indigo-600 hover:text-indigo-500'>
-                    Lupa password?
-                  </a>
-                </div> */}
               </div>
               <div className="mt-2">
-                <PasswordInput />
+                <PasswordInput onChange={(e) => setPassword(e.target.value)} />
+              </div>
+              <div className="flex mt-3 text-sm font-light text-slate-800 space-x-2">
+                <input type="checkbox" name="remember" id="remember" onChange={() => setRemember(!remember)} />
+                <label htmlFor="remember" className="flex items-center">
+                  Remember me
+                </label>
               </div>
             </div>
 
-            <div>
+            <div className="">
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primary-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
+              </button>
+            </div>
+            <div>
+              <button
+                type="button"
+                onClick={() => {
+                  router.push('/forgot-password');
+                }}
+                className="flex w-full -mt-4 justify-center rounded-md bg-white text-primary-900 px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm hover:text-primary-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Lupa password
               </button>
             </div>
           </form>

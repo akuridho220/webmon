@@ -4,12 +4,12 @@ const { default: BasicTable } = require("@/app/components/BasicTable")
 
 const columns = [
     {
-        accessorKey: 'kode_bs',
-        header: 'Kode BS'
+        accessorKey: 'kode_bs_full',
+        header: 'ID Blok Sensus'
     },
     {
         accessorKey: 'nama_pcl',
-        header: 'Pencacah'
+        header: 'Tim Pencacah'
     },
     {
         accessorKey: 'jumlah_sampel',
@@ -27,7 +27,7 @@ const columns = [
             return (
                 <div className="bg-white flex justify-center">
                     <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeBS)}>
-                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/bs/${data.kode_bs}`}>Detail</Link>
+                        <Link href={`/riset/daftar/daftar-sampel/detail-sampel/bs/${data.kode_bs_full}`}>Detail</Link>
                     </button>
                 </div>
             )

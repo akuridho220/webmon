@@ -23,11 +23,27 @@ function BasicTable({ data, columns }) {
   });
   return (
     <div className="flex flex-col my-2">
-      <div className="-my-2 overflow-x-auto sm:-mx-6">
+      <div className="-my-2 sm:-mx-6 overflow-x-auto ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6">
-          <div className="shadow overflow-hidden border-b border-gray-200 rounded-lg">
-            <div className="flex justify-between bg-gray-100">
-              <div className="flex items-center text-sm p-4 ">
+          <div className="flex bg-gray-100 rounded-t-lg">
+            <div className="flex items-center text-sm p-4 mr-[40%]">
+              <p className="">Show</p>
+              <select id="filterSize" className="p-2 border bg-white rounded-lg mx-2" onChange={(event) => table.setPageSize(parseInt(event.target.value))}>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <p className="">entries</p>
+            </div>
+            <div className="flex items-center text-sm p-4">
+              <p className="px-2">Search:</p>
+              <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
+            </div>
+          </div>
+          <div className="shadow overflow-hidden border-b border-gray-200 rounded-b-lg">
+            {/* <div className="flex bg-gray-100">
+              <div className="flex items-center text-sm p-4 mr-[40%]">
                 <p className="">Show</p>
                 <select id="filterSize" className="p-2 border bg-white rounded-lg mx-2" onChange={(event) => table.setPageSize(parseInt(event.target.value))}>
                   <option value="10">10</option>
@@ -41,7 +57,7 @@ function BasicTable({ data, columns }) {
                 <p className="px-2">Search:</p>
                 <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
               </div>
-            </div>
+            </div> */}
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-200 text-sm font-medium text-gray-700 uppercase tracking-wider">
                 {table.getHeaderGroups().map((headerGroup) => (
@@ -70,7 +86,7 @@ function BasicTable({ data, columns }) {
               </tbody>
             </table>
           </div>
-          <div className="flex text-white py-2 text-sm justify-end space-x-2">
+          {/* <div className="flex text-white py-2 text-sm justify-start space-x-2">
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
               <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
             </div>
@@ -84,13 +100,34 @@ function BasicTable({ data, columns }) {
             </p>
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
               <button disabled={!table.getCanNextPage()}>
-                <Icon.ChevronRight  onClick={() => table.nextPage()} className="cursor-pointer " />
+                <Icon.ChevronRight onClick={() => table.nextPage()} className="cursor-pointer " />
               </button>
             </div>
             <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
               <Icon.ChevronsRight onClick={() => table.setPageIndex(table.getPageCount() - 1)} className="cursor-pointer " />
             </div>
-          </div>
+          </div> */}
+        </div>
+      </div>
+      <div className="flex text-white py-2 text-sm justify-end space-x-2">
+        <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+          <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
+        </div>
+        <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+          <button disabled={!table.getCanPreviousPage()}>
+            <Icon.ChevronLeft onClick={() => table.previousPage()} className="cursor-pointer " />
+          </button>
+        </div>
+        <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800 rounded-md flex items-center">
+          {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
+        </p>
+        <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+          <button disabled={!table.getCanNextPage()}>
+            <Icon.ChevronRight onClick={() => table.nextPage()} className="cursor-pointer " />
+          </button>
+        </div>
+        <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
+          <Icon.ChevronsRight onClick={() => table.setPageIndex(table.getPageCount() - 1)} className="cursor-pointer " />
         </div>
       </div>
     </div>

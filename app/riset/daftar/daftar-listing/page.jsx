@@ -1,32 +1,53 @@
-// import React from 'react';
+import React from 'react';
 import Layout from '@/app/layout/layout';
 import PageTitle from '@/app/components/PageTitle';
 import SelectTabel from './components/SelectTable';
 
-
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (url) => {
   const response = await fetch(url, { next: { revalidate: 60 } });
   return await response.json();
 };
 
 const getDataBs = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/riset/daftar/listing/bs')]);
-  return dataListing;
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/bs`)]);
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    //kode_bs_full: `${item.id_prov}${item.id_kab}${item.id_kec}${item.id_kel}${item.kode_bs}`,
+    kode_bs_full: item.id_prov+''+item.id_kab+''+item.id_kec+''+item.id_kel+''+item.kode_bs,
+  }));
+
+  return modifiedData;
 };
 
 const getDataKec = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/riset/daftar/listing/kec')]);
-  return dataListing;
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kec`)]);
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_kec_full: `${item.id_prov}${item.id_kab}${item.id_kec}`,
+  }));
+
+  return modifiedData;
 };
 
 const getDataDesa = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/riset/daftar/listing/desa')]);
-  return dataListing;
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/desa`)]);
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_desa_full: `${item.id_prov}${item.id_kab}${item.id_kec}${item.id_kel}`,
+  }));
+
+  return modifiedData;
 };
 
 const getDataKab = async () => {
-  const [dataListing] = await Promise.all([fetchData('http://localhost:3100/api/riset/daftar/listing/kab')]);
-  return dataListing;
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`)]);
+  const modifiedData = dataListing.map(item => ({
+    ...item,
+    kode_kab_full: `${item.id_prov}${item.id_kab}`,
+  }));
+
+  return modifiedData;
 };
 
 const judul = 'Daftar Listing';
