@@ -16,7 +16,7 @@ export default function ProgresWilayah() {
                         <p className='font-medium'>Monitoring PPL Berdasarkan Wilayah</p>
                     </div>
                     <div className='flex text-white py-4'>
-                        <p className='font-medium'>Pilih wilayah</p>
+                        <p className='font-medium'>Filter</p>
                     </div>
                     <div className='flex justify-between mb-4'>
                         {/* <div className='flex flex-row items-center '> */}
