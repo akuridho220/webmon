@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import DetailModal from "./Detailmodal";
 import ProgressBar from "./ProgressBar";
+import Link from "next/link";
 
 const { default: BasicTable } = require("@/app/components/BasicTable");
 
@@ -115,9 +116,12 @@ const TableTim = () => {
       accessorKey: "aksi",
       header: "Aksi",
       cell: ({ cell }) => (
-        <button onClick={() => handleDetailButtonClick(cell.row.original)} className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300">
-          Detail
-        </button>
+        // <button onClick={() => handleDetailButtonClick(cell.row.original)} className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300">
+        //   Detail
+        // </button>
+        <Link href={`/riset/progres/progres-tim/detail/1`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+            <span className="">Detail</span>
+        </Link>
       ),
     },
   ];
@@ -134,7 +138,7 @@ const TableTim = () => {
   return (
     <>
       <BasicTable columns={columns} data={datas} />
-      <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div>
+      {/* <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div> */}
     </>
   );
 };

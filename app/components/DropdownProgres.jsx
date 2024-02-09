@@ -18,8 +18,8 @@ const DropdownProgres = ({title}) => {
                         Progres Wilayah
                     </Link>
                 </DropdownItem>
-                <DropdownItem key="progres-pertim" className="w-full">
-                    <Link href="/riset/progres/progres-pertim">
+                <DropdownItem key="progres-tim" className="w-full">
+                    <Link href="/riset/progres/progres-tim">
                         Progres Per Tim
                     </Link>
                 </DropdownItem>

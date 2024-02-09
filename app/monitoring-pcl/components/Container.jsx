@@ -34,6 +34,7 @@ const dropdownStyles = {
 const Container = ({data}) => {
     const [selectedLokus, setSelectedLokus] = useState(lokus[0]);
     const [selectedPetugas, setSelectedPetugas] = useState(null);
+    const [tooltip, setTooltip] = useState(false);
 
     const [withAccuracy, setWithAccuracy] = useState(false);
     const [mapPosition, setMapPosition] = useState([lokus[0].lat, lokus[0].long]);
@@ -46,6 +47,7 @@ const Container = ({data}) => {
         setWithAccuracy(false);
         setMapPosition([selected.lat, selected.long]);
         setMapZoom(selected.zoom);
+        setTooltip(false);
     };
 
     const handlePetugasChange = (selected) => {
@@ -55,6 +57,7 @@ const Container = ({data}) => {
         setWithAccuracy(true);
         setMapPosition([selected.lat, selected.long]);
         setMapZoom(17);
+        setTooltip(true);
     };
 
     return(
@@ -97,7 +100,7 @@ const Container = ({data}) => {
                     </div>
                 </div>
             </div>
-            <MapComponent petugas={data} position={mapPosition} zoom={mapZoom} radius={withAccuracy} />
+            <MapComponent petugas={data} position={mapPosition} zoom={mapZoom} radius={withAccuracy} toolTip={tooltip}/>
         </div>
     )
 }

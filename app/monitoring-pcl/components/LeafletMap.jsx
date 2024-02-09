@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 
-const MapComponent = ({ petugas, position, zoom, radius }) => {
+const MapComponent = ({ petugas, position, zoom, radius, toolTip }) => {
 	const mapRef = useRef(null);
 	const petugasIcon = L.icon({iconUrl: '/img/maskot/2.png', iconSize: [38, 50]})
+	const [permanentT, setPermanentT] = useState(false);
 
 	useEffect(() => {
 		if (mapRef.current) {
@@ -16,9 +17,13 @@ const MapComponent = ({ petugas, position, zoom, radius }) => {
 				}).addTo(mapRef.current);
 			}
 			mapRef.current.flyTo(position, zoom);
+			if(toolTip){
+				setPermanentT(true);
+			}
 		}
 	}, [position, zoom, radius]);
 
+	console.log(permanentT)
 	return (
 		<MapContainer
 			className='w-full mb-4 z-0'
@@ -34,7 +39,7 @@ const MapComponent = ({ petugas, position, zoom, radius }) => {
 			/>
 			{petugas.map((p, index) => (
 				<Marker position={[p.lat, p.long]} icon={petugasIcon} key={index}>
-					<Tooltip>
+					<Tooltip permanent={permanentT}>
 						<b>{p.nama} ({p.nim})</b><br />
 						Lokus: {p.lokus}
 					</Tooltip>

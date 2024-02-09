@@ -5,7 +5,7 @@ import TimDropdown from "./TimDropdown";
 const TimSelect = ({ onSelect }) => {
   const handleTimSelect = (selectedTim) => {};
   return (
-          <TimDropdown onSelect={handleTimSelect} />
+    <TimDropdown onSelect={handleTimSelect} />
   );
 };
 
