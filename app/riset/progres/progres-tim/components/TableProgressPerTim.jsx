@@ -81,7 +81,7 @@ const datas = [
   },
 ];
 
-const TableTim = () => {
+const TableTim = ({data}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -137,7 +137,7 @@ const TableTim = () => {
 
   return (
     <>
-      <BasicTable columns={columns} data={datas} />
+      <BasicTable columns={columns} data={data} />
       {/* <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div> */}
     </>
   );

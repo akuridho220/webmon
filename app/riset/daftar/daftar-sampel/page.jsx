@@ -12,12 +12,11 @@ const getDataBs = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/bs`), fetchData(`${apiURL}riset/daftar/listing/bs`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.kode_bs === listingItem.kode_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
 
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
-      kode_bs_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec+''+sampelItem.id_kel+''+sampelItem.kode_bs
     };
   });
 
@@ -28,12 +27,11 @@ const getDataKec = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/kec`), fetchData(`${apiURL}riset/daftar/listing/kec`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.kode_bs === listingItem.kode_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
 
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
-      kode_kec_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec
     };
   });
 
@@ -44,12 +42,11 @@ const getDataKab = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/kab`), fetchData(`${apiURL}riset/daftar/listing/kab`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.kode_bs === listingItem.kode_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
 
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
-      kode_kab_full: sampelItem.id_prov+''+sampelItem.id_kab
     };
   });
 
@@ -60,12 +57,11 @@ const getDataDes = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/desa`), fetchData(`${apiURL}riset/daftar/listing/desa`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.kode_bs === listingItem.kode_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
 
     return {
       ...sampelItem,
       jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
-      kode_desa_full: sampelItem.id_prov+''+sampelItem.id_kab+''+sampelItem.id_kec+''+sampelItem.id_kel
     };
   });
 

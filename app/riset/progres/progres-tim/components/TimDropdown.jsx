@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 
-const TimDropdown = ({ onSelect }) => {
+const TimDropdown = ({ onSelect, data }) => {
   const options = [
     { value: "Tim 101", label: "Tim 101" },
     { value: "Tim 102", label: "Tim 102" },
@@ -44,7 +44,7 @@ const TimDropdown = ({ onSelect }) => {
     <>
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50 mr-8" >
         <Select
-          options={options}
+          options={data}
           isSearchable={true}
           placeholder="Pilih Berdasarkan Tim"
           onChange={handleSelect}

@@ -13,12 +13,12 @@ const TableDetail = ({data}) => {
       header: 'Kode Rumah Tangga',
   },
   {
-      accessorKey: 'kode_bs',
+      accessorKey: 'id_bs',
       header: 'Kode Blok Sensus',
   },
   {
-      accessorKey: 'nama_ppl',
-      header: 'Pencacah',
+      accessorKey: 'id_tim',
+      header: 'Tim Pencacah',
   },
   {
       accessorFn: (row) => `${row.no_bf}/${row.no_bs}/${row.no_urut_ruta}`,
