@@ -53,7 +53,7 @@ export default function Header() {
     };
 
     fetchData();
-  }, []); // Run once on component mount
+  }, [router]); // Run once on component mount
 
   const toggleMobileNav = () => {
     setMobileMenuOpen(!isMobileNavVisible);

@@ -45,7 +45,7 @@ const Waktu = ({ mulai, selesai, kegiatan, StartDate, EndDate }) => {
     }, 1000); // Update setiap 1 detik
 
     return () => clearInterval(interval); // Membersihkan interval saat komponen dibongkar
-  }, []);
+  }, [EndDate]);
 
   const dayStart = new Date(StartDate); //format bulan / tanggal / tahun
   const today = new Date();
