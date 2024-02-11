@@ -19,6 +19,8 @@ export default function Header() {
   const [name, setName] = useState(''); // Initialize with an empty string or default value
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
+  const names = name.split(' ');
+  const firstTwoNames = names.slice(0, 2).join(' ');
 
   const router = useRouter();
   useEffect(() => {
@@ -73,19 +75,19 @@ export default function Header() {
               <p className="">PKL 63</p>
             </div>
           </div>
-          <div className='flex justify-center items-center w-full text-primary-600'>
+          <div className="flex justify-center items-center w-full text-primary-600">
             <Navbar />
           </div>
         </div>
         <div className="profile flex w-max px-4">
           <div className="flex flex-col text-primary-600 pr-4">
-            <p className="text-center">{name}</p>
+            <p className="text-center">{firstTwoNames}</p>
             <p>
               {jenis} | {jabatan}
             </p>
           </div>
           <div className="text-white">
-            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-primary-600 hover:bg-white hover:text-primary-100  cursor-pointer rounded-full" />
+            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-primary-600 hover:bg-primary-900 hover:text-white  transition-all  cursor-pointer rounded-full" />
             {isMenuOpen ? (
               <div className="absolute top-20 right-0">
                 <Menu />
