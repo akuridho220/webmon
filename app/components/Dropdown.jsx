@@ -37,8 +37,8 @@ const Dropdown = () => {
           <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
             <AccordionItem key="1" aria-label="Accordion 1" title="Daftar" className="ml-2">
               <ul className="block space-y-4">
-                <li className={currentPath === 'riset/daftar/daftar-listing' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
-                  <Link href="riset/daftar/daftar-listing">Daftar Listing</Link>
+                <li className={currentPath === '/riset/daftar/daftar-listing' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                  <Link href="/riset/daftar/daftar-listing">Daftar Listing</Link>
                 </li>
                 <li className={currentPath === '/riset/daftar/daftar-sampel' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/daftar/daftar-sampel">Daftar Sampel</Link>
