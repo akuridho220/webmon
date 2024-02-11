@@ -28,10 +28,10 @@ const Wellcome = () => {
   }, []);
 
   return (
-    <div className="bg-primary-900/95 rounded-md shadow-md flex h-fit py-4 pl-2">
+    <div className="bg-white text-slate-900 rounded-md shadow-md flex h-fit py-4 pl-2">
       <div className="p-4">
-        <h1 className="md:text-3xl text-2xl font-sdr font-bold text-white">Selamat datang, {nama}</h1>
-        <p className="text-white md:text-base text-xs">Halaman web monitoring PKL 63</p>
+        <h1 className="md:text-3xl text-2xl font-sdr font-bold ">Selamat datang, {nama}</h1>
+        <p className=" md:text-base text-xs">Halaman web monitoring PKL 63</p>
       </div>
     </div>
   );

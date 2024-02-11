@@ -66,7 +66,7 @@ export default function Header() {
       {/* Header Dekstop */}
       <header className="w-full items-center bg-putih-200 h-20 lg:flex fixed top-0 right-0 justify-between z-10 shadow-md hidden">
         <div className="flex flex-row w-2/3 ml-8 justify-start">
-          <div className="flex flex-row items-center h-auto w-full px-4">
+          <Link href={'/dashboard'} className="flex flex-row items-center h-auto w-full px-4">
             <div className="py-2 pr-2 flex">
               <Image src="/img/logo/logo-icon.png" alt="logo sidebar" width={54} height={54} />
             </div>
@@ -74,7 +74,7 @@ export default function Header() {
               <p className="lg:text-lg font-bold">Web Monitoring</p>
               <p className="">PKL 63</p>
             </div>
-          </div>
+          </Link>
           <div className="flex justify-center items-center w-full text-primary-600">
             <Navbar />
           </div>
@@ -87,7 +87,7 @@ export default function Header() {
             </p>
           </div>
           <div className="text-white">
-            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-primary-600 hover:bg-primary-900 hover:text-white  transition-all  cursor-pointer rounded-full" />
+            <Icon.User onClick={toggleMenuOpen} className="h-full w-8 text-primary-600 hover:bg-primary-600 hover:text-white  transition-all  cursor-pointer rounded-full" />
             {isMenuOpen ? (
               <div className="absolute top-20 right-0">
                 <Menu />

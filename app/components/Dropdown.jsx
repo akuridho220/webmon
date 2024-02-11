@@ -33,7 +33,7 @@ const Dropdown = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute mt-2 -left-10 py-2 w-48 bg-putih-100 rounded-lg shadow-xl z-10">
+        <div className="absolute mt-2 -left-10 py-2 w-48 bg-putih-200 rounded-lg shadow-xl z-10">
           <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
             <AccordionItem key="1" aria-label="Accordion 1" title="Daftar" className="ml-2">
               <ul className="block space-y-4">
