@@ -4,10 +4,11 @@ import Link from 'next/link';
 import * as Icon from 'react-feather';
 import Swal from 'sweetalert2';
 import cookieCutter from 'cookie-cutter';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import authService from '../service/authService';
 
 export default function Menu() {
+  const currentPath = usePathname();
   const router = useRouter();
   const HandleLogout = async () => {
     const result = await authService.Logout();
@@ -33,17 +34,17 @@ export default function Menu() {
     }
   };
   return (
-    <div className="rounded-b-lg shadow-lg md:w-fit w-48 justify-center flex items-center  pt-2 pb-4 bg-primary-800/90 text-white">
-      <ul className="space-y-3 text-sm md:text-base font-semibold">
+    <div className="rounded-b-xl overflow-hidden shadow-lg md:w-fit w-48 justify-center flex items-center  pt-2  bg-putih-200 text-primary-600">
+      <ul className="text-sm md:text-base font-semibold">
         <li>
-          <Link href="/profile" className="flex items-center py-4 px-6 nav-item hover:bg-[#8d2b3c]">
+          <Link href="/profile" className={currentPath === '/profile' ? 'flex items-center py-4 px-6 nav-item bg-primary-700 text-white ' : 'flex items-center py-4 px-6 nav-item hover:bg-primary-700 hover:text-white transition-all'}>
             <Icon.User />
             <span className="pl-4">Profile Saya</span>
           </Link>
         </li>
         <hr className="w-[90%] mx-auto shadow-md bg-white" />
         <li>
-          <div onClick={HandleLogout} className="flex cursor-pointer items-center py-4 px-6 nav-item hover:bg-[#8d2b3c]">
+          <div onClick={HandleLogout} className="flex cursor-pointer items-center py-4 px-6 nav-item hover:bg-primary-700 hover:text-white  transition-all">
             <Icon.LogOut />
             <span className="pl-4">Keluar</span>
           </div>
