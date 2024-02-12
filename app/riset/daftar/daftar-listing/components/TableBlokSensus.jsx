@@ -31,7 +31,6 @@ const TableBlokSensus = ({ data }) => {
       }
     },
   ];
-
   return (
     <>
       <BasicTable columns={columns} data={data} />

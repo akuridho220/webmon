@@ -4,7 +4,7 @@ import TableTim from './TableProgressPerTim';
 import * as Icon from 'react-feather';
 import ProgressBar from './ProgressBar';
 import Swal from 'sweetalert2';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const HandleExport = () => {
   Swal.fire({
@@ -27,19 +27,52 @@ const HandleExport = () => {
 
 
 
-const Content = ({data, listTim}) => {
+const Content = ({data, listTim, selectedTim, setSelectedTim}) => {
   const [dataCacah, setDataCacah] = useState(data);
-  const [done, setDone] = useState();
+  const [done, setDone] = useState(data[0].jumlah_sampel_selesai);
+  const [max, setMax] = useState(data[0].jumlah_sampel);
+
 
   const filterDataByTim = (data, tim) => {
     return data.filter(item => item.id_tim === tim);
   };
   
-  const handleTimSelect = (selectedTim) => {
-    const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
-  
-    setDataCacah(filteredDataListing);
+  const countProgres = (datanya) => {
+    let totalSampelSelesai = 0;
+    let totalJumlahSampel = 0;
+
+    datanya.forEach(data => {
+      totalSampelSelesai += data.sampelSelesai;
+      totalJumlahSampel += data.jumlahSampel;
+    });
+
+    setDone(totalSampelSelesai);
+    setMax(totalJumlahSampel);
   }
+
+  useEffect(() => {
+    if (selectedTim !== null) {
+      const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
+      setDataCacah(filteredDataListing);
+    }
+  }, [selectedTim, dataCacah]);
+
+  useEffect(() => {
+    countProgres(dataCacah);
+  }, [dataCacah]);
+
+
+  // const handleTimSelect = (selectedTim) => {
+  //   const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
+
+  //   countProgres(filteredDataListing);
+  
+  //   setDataCacah(filteredDataListing);
+  // }
+
+  const handleTimSelect = (selectedTim) => {
+    setSelectedTim(selectedTim);
+  };
 
   return(
   <>
@@ -54,7 +87,7 @@ const Content = ({data, listTim}) => {
           <button className=" pl-4">Export</button>
         </div>
       </div>
-      <ProgressBar detail={true} done={6} max={35} />
+      <ProgressBar detail={true} done={done} max={max} />
       <TableTim data={data} onSelect={handleTimSelect}/>
     </div>
   </>
