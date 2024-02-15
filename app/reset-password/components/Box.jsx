@@ -25,14 +25,18 @@ const Box = () => {
         title: 'Error!',
         text: response.data,
         icon: 'error',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/login');
-        }
-      }).catch((error) => {
-        console.error('Error handling:', error);
-      });
-    } 
+      })
+        .then(() => {
+          setTimeout(() => {
+            router.push('/login');
+          }, 1);
+          return;
+        })
+        .catch((error) => {
+          console.error('Error handling:', error);
+          return;
+        });
+    }
   };
   CheckToken();
   const handleReset = async (e) => {
