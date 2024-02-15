@@ -34,7 +34,7 @@ export default function Menu() {
     }
   };
   return (
-    <div className="rounded-b-xl overflow-hidden shadow-lg md:w-fit w-48 justify-center flex items-center  pt-2  bg-putih-200 text-primary-600">
+    <div className="rounded-b-xl overflow-hidden shadow-lg lg:w-fit w-48 justify-center flex items-center  pt-2  bg-putih-200 text-primary-600">
       <ul className="text-sm md:text-base font-semibold">
         <li>
           <Link href="/profile" className={currentPath === '/profile' ? 'flex items-center py-4 px-6 nav-item bg-primary-700 text-white ' : 'flex items-center py-4 px-6 nav-item hover:bg-primary-700 hover:text-white transition-all'}>
