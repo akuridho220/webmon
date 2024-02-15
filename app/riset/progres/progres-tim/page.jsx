@@ -50,7 +50,7 @@ export default async function ProgresTim() {
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
         <Content data={dataProgres} listTim={listTim}/>
       </Layout>
     </>
