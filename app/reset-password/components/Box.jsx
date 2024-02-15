@@ -27,7 +27,7 @@ const Box = () => {
         icon: 'error',
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push('/404');
+          router.push('/login');
         }
       });
     }
