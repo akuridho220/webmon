@@ -26,7 +26,7 @@ function BasicTable({ data, columns }) {
       <div className="-my-2 sm:-mx-6 overflow-x-auto ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6">
           <div className="flex bg-gray-100 rounded-t-lg">
-            <div className="flex items-center text-sm p-4 mr-[40%]">
+            <div className="flex items-center text-sm p-4 mr-[55%]">
               <p className="">Show</p>
               <select id="filterSize" className="p-2 border bg-white rounded-lg mx-2" onChange={(event) => table.setPageSize(parseInt(event.target.value))}>
                 <option value="10">10</option>

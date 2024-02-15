@@ -35,12 +35,12 @@ const TableTim = ({ data }) => {
 
   const columns = [
     {
-      accessorKey: 'kode_bs',
-      header: 'Kode BS',
+      accessorKey: 'id_bs',
+      header: 'ID Blok Sensus',
     },
     {
-      accessorKey: 'nama',
-      header: 'Pencacah',
+      accessorKey: 'id_tim',
+      header: 'Tim Pencacah',
     },
     {
       accessorKey: 'jumlah_listing',

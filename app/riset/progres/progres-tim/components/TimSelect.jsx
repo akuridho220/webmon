@@ -2,10 +2,12 @@
 import React from "react";
 import TimDropdown from "./TimDropdown";
 
-const TimSelect = ({ onSelect }) => {
-  const handleTimSelect = (selectedTim) => {};
+const TimSelect = ({ onSelect, dataTim }) => {
+  const handleTimSelect = (selectedTim) => {
+    onSelect(selectedTim);
+  };
   return (
-          <TimDropdown onSelect={handleTimSelect} />
+    <TimDropdown onSelect={handleTimSelect} data={dataTim} />
   );
 };
 

@@ -1,14 +1,9 @@
 import Layout from '@/app/layout/layout';
 import Wellcome from './components/Wellcome';
 import Waktu from './components/Waktu';
-import MulaiSelesai from './components/MulaiSelesai';
 import Summary from './components/Summary';
-import Progress from './components/Progress';
+import Progress from './components/ProgressKue';
 
-const mainMulai = 'bg-gradient-to-b from-[#951A2E] to-[#CA2128]';
-const secMulai = 'bg-primary-700';
-const mainSelesai = 'bg-secondary-900';
-const secSelesai = 'bg-secondary-600';
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
 const fetchData = async (url) => {
@@ -25,22 +20,18 @@ export default async function Dashboard() {
   return (
     <>
       <Layout>
-        <div className="my-4 w-[90%] space-y-4 min-h-screen">
+        <div className="my-4 w-[90%] space-y-5 min-h-screen">
           <div data-aos="fade-down">
             <Wellcome />
           </div>
           <div data-aos="fade-up">
-            <Waktu />
-          </div>
-          <div data-aos="fade-up" className="max-md:space-y-4 md:flex justify-between">
-            <MulaiSelesai text="Mulai" tanggal="Senin, 22 Januari 2024" waDom={mainMulai} wa={secMulai} />
-            <MulaiSelesai text="Selesai" tanggal="Jumat, 26 Januari 2024" waDom={mainSelesai} wa={secSelesai} />
+            <Waktu mulai={'Kamis, 29 Februari 2024'} selesai={'Sabtu, 9 Maret 2024'} kegiatan={'Pencacahan Lapangan'} StartDate={'02/29/2024'} EndDate={'03/09/2024'} />
           </div>
           <div data-aos="fade-up">
             <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
           </div>
           <div className="z-20" data-aos="fade-up">
-            <Progress Selesai={140} totalSampel={500} persentase={Number(140 / 500).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 })} />
+            <Progress Selesai={140} totalSampel={500} />
           </div>
         </div>
       </Layout>

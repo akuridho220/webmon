@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@nextui-org/breadcrumbs": "^2.0.4",
     "@nextui-org/dropdown": "^2.1.16",
     "@nextui-org/react": "^2.2.9",
     "@tanstack/react-table": "^8.11.2",

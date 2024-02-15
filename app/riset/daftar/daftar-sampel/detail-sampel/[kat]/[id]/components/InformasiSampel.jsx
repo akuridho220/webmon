@@ -1,36 +1,31 @@
 'use client';
-import React, {useState} from 'react'
-import Image from "next/image"
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion as Motion } from 'framer-motion';
 import { useModal } from './Modal';
+import * as Icon from 'react-feather';
 
-
-const InformasiSampel = ({data}) => {
-  const {handleCloseModal} = useModal();
+const InformasiSampel = ({ data }) => {
+  const { handleCloseModal } = useModal();
 
   const pos = `https://www.google.com/maps?q=${data.lat},${data.long}&hl=es;z=14&output=embed`;
   return (
-    <Motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="fixed top-0 left-0 w-full h-full z-50 overflow-auto bg-gray-700 bg-opacity-50 flex items-center justify-center"
-    >
-    
+    <Motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="fixed top-0 left-0 w-full h-full z-50 overflow-auto bg-gray-700 bg-opacity-50 flex items-center justify-center">
       <div className="bg-primary-900 rounded-md shadow-md w-[80vw] max-w-[900px] h-[85vh] max-h-[750px] overflow-y-auto flex flex-col">
-        <div className="flex items-center justify-between bg-primary-900 rounded-t-md py-4 px-6">
-          <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />
-          <h1 className="text-3xl font-sdr font-bold text-white">Detail Sampel</h1>
-          <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" />
+        <div className="flex items-center justify-center bg-primary-900 rounded-t-md py-4 px-6 text-white relative">
+          {/* <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" /> */}
+          <h1 className="text-3xl font-sdr font-bold">Detail Ruta</h1>
+          {/* <Image src="/img/pattern/pattern2-crop.png" width={50} height={32} alt="patt2cr" className="h-full" /> */}
+          <div className="absolute right-4">
+            <Icon.X onClick={onClose} className="hover:cursor-pointer" />
+          </div>
         </div>
-        <div className="bg-white rounded-b-md py-5 px-6 overflow-y-auto">
-          <div className="flex justify-center pb-4">
-            <div className="bg-accent-900 rounded-md py-1 px-2">
-              <h1 className="text-white font-bold text-center">Pencacah:</h1>
-              <h1 className="text-white font-bold">{data.nama_ppl} | {data.nim}</h1>
+        <div className="bg-white rounded-b-md py-4 px-6 overflow-y-auto">
+          <div className="flex w-full justify-center mb-4 relative">
+            <div className="bg-accent-900 rounded-md py-2 px-2">
+              <h1 className="text-white font-bold text-center">Pencacah: TIM {data.id_tim}</h1>
             </div>
           </div>
-
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
               <h1 className="text-black font-bold">Kode Rumah Tangga</h1>
@@ -47,12 +42,11 @@ const InformasiSampel = ({data}) => {
               <h1 className="text-black font-bold">Kode Blok Sensus</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">{`${data.id_prov}${data.id_kab}${data.id_kec}${data.id_kel}${data.kode_bs}`}</h1>
+              <h1 className="text-black font-base">{data.id_bs}</h1>
             </div>
           </div>
 
           <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
@@ -89,6 +83,39 @@ const InformasiSampel = ({data}) => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Desa</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.id_kel}</h1>
+            </div>
+          </div>
+
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Kecamatan</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.id_kec}</h1>
+            </div>
+          </div>
+
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Kabupaten</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.id_kab}</h1>
+            </div>
+          </div>
+
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
               <h1 className="text-black font-bold">Lokasi</h1>
             </div>
             <div className="flex-1">
@@ -97,26 +124,11 @@ const InformasiSampel = ({data}) => {
           </div>
 
           <div className="flex py-6 relative overflow-hidden">
-            <iframe
-              src={pos}
-              width="900"
-              height="450"
-              style={{ border: '0' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-
-          <div className="flex justify-end mt-4">
-            <button onClick={handleCloseModal} className="py-2 px-4 text-white bg-primary-600 hover:bg-primary-900 rounded-lg">
-              Tutup
-            </button>
+            <iframe src={pos} width="900" height="450" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
-      </Motion.div>
-
+    </Motion.div>
   );
 };
 
