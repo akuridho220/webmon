@@ -29,8 +29,10 @@ const Box = () => {
         if (result.isConfirmed) {
           router.push('/login');
         }
+      }).catch((error) => {
+        console.error('Error handling:', error);
       });
-    }
+    } 
   };
   CheckToken();
   const handleReset = async (e) => {
