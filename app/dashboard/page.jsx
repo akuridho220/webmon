@@ -3,6 +3,7 @@ import Wellcome from './components/Wellcome';
 import Waktu from './components/Waktu';
 import Summary from './components/Summary';
 import Progress from './components/ProgressKue';
+import { data } from 'autoprefixer';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -14,9 +15,16 @@ const getTotalListing = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}dashboard/total-listing`)]);
   return dataListing;
 };
+const getProgres = async () => {
+  const [progress] = await Promise.all([fetchData(`${apiURL}dashboard/progress`)]);
+  return progress;
+};
 
 export default async function Dashboard() {
+  const dataProgres = await getProgres();
   const dataListing = await getTotalListing();
+  const tercacah = dataProgres.tercacah ?? 0;
+  const eligible = dataListing.total_eligible ?? 0;
   return (
     <>
       <Layout>
@@ -28,10 +36,10 @@ export default async function Dashboard() {
             <Waktu mulai={'Kamis, 29 Februari 2024'} selesai={'Sabtu, 9 Maret 2024'} kegiatan={'Pencacahan Lapangan'} StartDate={'02/29/2024'} EndDate={'03/09/2024'} />
           </div>
           <div data-aos="fade-up">
-            <Summary totalListing={dataListing.total_listing} totalEligible={4000} totalSampelEligible={2000} />
+            <Summary totalListing={dataListing.total_listing} totalEligible={eligible} totalSampelEligible={dataListing.total_sampel} />
           </div>
           <div className="z-20" data-aos="fade-up">
-            <Progress Selesai={140} totalSampel={500} />
+            <Progress Selesai={tercacah} totalSampel={dataProgres.total} />
           </div>
         </div>
       </Layout>
