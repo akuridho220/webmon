@@ -17,7 +17,13 @@ const ProgressKue = ({ totalSampel, Selesai }) => {
     }
   }, [totalSampel, Selesai]);
 
-  const value = (Selesai / totalSampel) * 100;
+  let percent;
+
+  if (totalSampel == 0) {
+    percent = 0;
+  } else {
+    percent = (Selesai / totalSampel) * 100;
+  }
 
   return (
     <>
@@ -27,7 +33,7 @@ const ProgressKue = ({ totalSampel, Selesai }) => {
             <p className="font-semibold text-lg md:text-xl">Progress pengisian</p>
             <hr className="bg-slate-300 w-full h-[0.12rem] shadow-xl" />
             <div className="w-full rounded-lg shadow-sm bg-white md:text-base text-sm relative">
-              <Progress size="xl" label="Kuesioner terisi" isStriped value={value} color={color} showValueLabel={true} className="max-w-full" />
+              <Progress size="xl" label="Kuesioner terisi" isStriped value={percent} color={color} showValueLabel={true} className="max-w-full" />
             </div>
             <div className="font-light">
               <p>
@@ -36,7 +42,7 @@ const ProgressKue = ({ totalSampel, Selesai }) => {
             </div>
             <div className="">
               <Link href="/riset/progres/progres-wilayah">
-                <Button className="border-secondary-700 border-spacing-4 text-secondary-700 hover:bg-secondary-700 hover:text-white transition-all" variant="bordered">
+                <Button className="hover:border-secondary-700 hover:bg-transparent hover:border-spacing-4 hover:text-secondary-700 bg-secondary-700 text-white transition-all" variant="ghost">
                   Lihat Detail
                 </Button>
               </Link>

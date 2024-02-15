@@ -56,40 +56,41 @@ export default function Box() {
               </h1>
             </div>
           </div>
+          <div className="mx-auto md:w-1/2 w-full">
+            <div className="flex w-full md:text-base text-sm">
+              <div className="w-1/4 px-2 pb-2">
+                <h1 className="text-black font-bold">Nama</h1>
+              </div>
+              <div className="px-2 pb-2">
+                <h1 className="text-black font-base">{name}</h1>
+              </div>
+            </div>
 
-          <div className="flex md:text-base text-sm">
-            <div className="w-1/4 px-2 pb-2">
-              <h1 className="text-black font-bold">Nama</h1>
+            <div className="flex w-full md:text-base text-sm">
+              <div className="w-1/4 px-2 pb-2">
+                <h1 className="text-black font-bold">Status</h1>
+              </div>
+              <div className="px-2 pb-2">
+                <h1 className="text-black font-base">{jenis}</h1>
+              </div>
             </div>
-            <div className="flex-1 px-2 pb-2">
-              <h1 className="text-black font-base">{name}</h1>
-            </div>
-          </div>
 
-          <div className="flex md:text-base text-sm">
-            <div className="w-1/4 px-2 pb-2">
-              <h1 className="text-black font-bold">Status</h1>
+            <div className="flex w-full md:text-base text-sm">
+              <div className="w-1/4 px-2 pb-2">
+                <h1 className="text-black font-bold">Email</h1>
+              </div>
+              <div className="px-2 pb-2">
+                <h1 className="text-black font-base">{email}</h1>
+              </div>
             </div>
-            <div className="flex-1 px-2 pb-2">
-              <h1 className="text-black font-base">{jenis}</h1>
-            </div>
-          </div>
 
-          <div className="flex md:text-base text-sm">
-            <div className="w-1/4 px-2 pb-2">
-              <h1 className="text-black font-bold">Email</h1>
-            </div>
-            <div className="flex-1 px-2 pb-2">
-              <h1 className="text-black font-base">{email}</h1>
-            </div>
-          </div>
-
-          <div className="flex md:text-base text-sm">
-            <div className="w-1/4 px-2 pb-2">
-              <h1 className="text-black font-bold">Jabatan</h1>
-            </div>
-            <div className="flex-1 px-2 pb-2">
-              <h1 className="text-black font-base">{jabatan}</h1>
+            <div className="flex w-full md:text-base text-sm">
+              <div className="w-1/4 px-2 pb-2">
+                <h1 className="text-black font-bold">Jabatan</h1>
+              </div>
+              <div className="px-2 pb-2">
+                <h1 className="text-black font-base">{jabatan}</h1>
+              </div>
             </div>
           </div>
 
