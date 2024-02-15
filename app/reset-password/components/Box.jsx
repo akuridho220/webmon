@@ -25,11 +25,17 @@ const Box = () => {
         title: 'Error!',
         text: response.data,
         icon: 'error',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/login');
-        }
-      });
+      })
+        .then(() => {
+          setTimeout(() => {
+            router.push('/login');
+          }, 1);
+          return;
+        })
+        .catch((error) => {
+          console.error('Error handling:', error);
+          return;
+        });
     }
   };
   CheckToken();
