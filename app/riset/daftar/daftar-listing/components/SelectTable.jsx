@@ -3,31 +3,13 @@ import React, { useState } from 'react';
 import Table from './TableSelect';
 import * as Icon from 'react-feather';
 import SelectCat from './selectCat';
-import Swal from 'sweetalert2';
+import HandleExport from '@/app/components/HandleExport';
 
 const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryChange = (selectedValue) => {
     setSelectedCategory(selectedValue);
-  };
-  const HandleExport = () => {
-    Swal.fire({
-      title: 'Export Data',
-      text: 'Pilih Format Export Data',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Excel',
-      cancelButtonText: 'PDF',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      } else {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      }
-    });
   };
   return (
     <div className="md:w-[90%] w-[95%] mx-auto bg-primary-900/95 rounded-xl shadow-lg overflow-auto mt-8 pt-2">

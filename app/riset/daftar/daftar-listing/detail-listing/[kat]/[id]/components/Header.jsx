@@ -1,28 +1,9 @@
 'use client';
 import React from 'react';
 import * as Icon from 'react-feather';
-import Swal from 'sweetalert2';
-// import ModalBS from './detailBS';
+import HandleExport from '@/app/components/HandleExport';
 
 export default function Header() {
-  const HandleExport = () => {
-    Swal.fire({
-      title: 'Export Data',
-      text: 'Pilih Format Export Data',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Excel',
-      cancelButtonText: 'PDF',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      } else {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      }
-    });
-  };
   // const [showModalBS, setShowModalBS] = useState(false);
   return (
     <div className="">

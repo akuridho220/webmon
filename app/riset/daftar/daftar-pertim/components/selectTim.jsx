@@ -2,29 +2,11 @@
 import React, { useState } from 'react';
 import TimDropdown from './dropdownTim';
 import * as Icon from 'react-feather';
-import Swal from 'sweetalert2';
+import HandleExport from '@/app/components/HandleExport';
 
 const TimSelect = ({ onSelect, dataListTim }) => {
   const handleTimSelect = (selectedTim) => {
     onSelect(selectedTim);
-  };
-  const HandleExport = () => {
-    Swal.fire({
-      title: 'Export Data',
-      text: 'Pilih Format Export Data',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Excel',
-      cancelButtonText: 'PDF',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      } else {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      }
-    });
   };
   return (
     <div className="flex flex-row w-full justify-between items-center">

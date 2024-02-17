@@ -3,26 +3,7 @@ import WilayahSelect from './WilayahSelect';
 import TableWilayah from './TableProgressPerWilayah';
 import ProgressBar from './ProgressBar';
 import * as Icon from 'react-feather';
-import Swal from 'sweetalert2';
-
-const HandleExport = () => {
-  Swal.fire({
-    title: 'Export Data',
-    text: 'Pilih Format Export Data',
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Excel',
-    cancelButtonText: 'PDF',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-    } else {
-      Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-    }
-  });
-};
+import HandleExport from '@/app/components/HandleExport';
 
 const Content = () => (
   <>
