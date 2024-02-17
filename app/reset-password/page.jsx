@@ -1,11 +1,13 @@
 import Box from './components/Box';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const resetPassword = () => {
   return (
     <>
       <div className="bg-primary-900">
-        <Box />
+        <Suspense>
+          <Box />
+        </Suspense>
       </div>
     </>
   );

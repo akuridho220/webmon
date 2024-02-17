@@ -4,7 +4,7 @@ import Select from 'react-select';
 const ListingDropDown = ({ onSelect }) => {
   const options = [
     { value: 'blok sensus', label: 'Blok Sensus' },
-    { value: 'desa/kelurahan', label: 'Desa/Kelurahan/Banjar' },
+    { value: 'desa/kelurahan', label: 'Desa/Kelurahan' },
     { value: 'kecamatan', label: 'Kecamatan' },
     { value: 'kabupaten', label: 'Kabupaten/Kota' },
     { value: 'keseluruhan', label: 'Keseluruhan' },
