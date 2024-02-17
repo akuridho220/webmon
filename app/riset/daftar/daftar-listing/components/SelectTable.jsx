@@ -8,11 +8,36 @@ import HandleExport from '@/app/components/HandleExport';
 const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+  let dataToExport;
+
+  if (selectedCategory === 'blok sensus' || selectedCategory === null) {
+    dataToExport = dataBs.map((element) => ({
+      Kode_BS: element.id_bs,
+      Tim: element.id_tim,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'kecamatan') {
+    dataToExport = dataKec.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kecamatan: element.nama_kec,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'desa/kelurahan') {
+    dataToExport = dataDesa.map((element) => ({
+      Kode_Desa: element.id_bs,
+      Desa_Kelurahan: element.nama_kel,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'kabupaten') {
+    dataToExport = dataKab.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kabupaten_Kota: element.nama_kabupaten,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'keseluruhan') {
+    dataToExport = null;
+  }
+
   const Export = () => {
     HandleExport(dataToExport, 'Daftar-listing');
   };
