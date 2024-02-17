@@ -22,7 +22,6 @@ export default function Header({ data }) {
       Long: item.long,
     };
   });
-  console.log(data);
   const Export = () => {
     HandleExport(dataToExport, 'Detail-Listing');
   };
