@@ -42,7 +42,7 @@ export default async function DetailListing({ params, searchParams }) {
         </div>
         <div className="flex flex-col w-[90%] mx-auto rounded-xl space-y-4 bg-primary-900/95 px-6 pb-5" style={{ marginTop: '1em' }}>
           <div className="flex flex-col pt-4">
-            <Header />
+            <Header data={await getDataDetail()} />
             <TableDetail data={await getDataDetail()} />
           </div>
         </div>

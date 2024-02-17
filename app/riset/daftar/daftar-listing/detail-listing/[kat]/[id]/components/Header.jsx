@@ -3,12 +3,26 @@ import React from 'react';
 import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
-export default function Header() {
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+export default function Header({ data }) {
+  const dataToExport = data.map((item) => {
+    return {
+      Kode_Ruta: item.kode_ruta,
+      Kode_Provinsi: item.id_prov,
+      Kode_Kabupaten_Kota: item.id_kab,
+      Kode_Kecamatan: item.id_kec,
+      Kode_Desa_Kelurahan: item.id_kel,
+      Kode_BS: item.id_bs,
+      Alamat: item.alamat,
+      Tim_Pencacah: item.id_tim,
+      No_BF: item.no_bf,
+      No_BS: item.no_bs,
+      No_urut_ruta: item.no_urut_ruta,
+      Nama_KRT: item.nama_krt,
+      Lat: item.lat,
+      Long: item.long,
+    };
+  });
+  console.log(data);
   const Export = () => {
     HandleExport(dataToExport, 'Detail-Listing');
   };
