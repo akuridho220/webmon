@@ -25,11 +25,17 @@ const Box = () => {
         title: 'Error!',
         text: response.data,
         icon: 'error',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/404');
-        }
-      });
+      })
+        .then(() => {
+          setTimeout(() => {
+            router.push('/login');
+          }, 1);
+          return;
+        })
+        .catch((error) => {
+          console.error('Error handling:', error);
+          return;
+        });
     }
   };
   CheckToken();
@@ -58,11 +64,13 @@ const Box = () => {
           title: 'Success',
           text: 'Password berhasil diubah',
           icon: 'success',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push('/login');
-          }
+        // }).then((result) => {
+        //   if (result.isConfirmed) {
+        //     router.push('/login');
+        //   }
+        // });
         });
+        router.push('/login');
       } else {
         console.error('Error:', response.data);
         Swal.fire({

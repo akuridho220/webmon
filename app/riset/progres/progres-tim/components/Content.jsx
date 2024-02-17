@@ -25,10 +25,15 @@ const HandleExport = () => {
   });
 };
 
-const Content = ({ data, listTim, selectedTim, setSelectedTim }) => {
+
+
+const Content = ({data, listTim}) => {
   const [dataCacah, setDataCacah] = useState(data);
+  // const [done, setDone] = useState(data[0].jumlah_sampel_selesai);
+  // const [max, setMax] = useState(data[0].jumlah_sampel);
   const [done, setDone] = useState(0);
   const [max, setMax] = useState(0);
+
 
   const filterDataByTim = (data, tim) => {
     return data.filter((item) => item.id_tim === tim);
@@ -47,28 +52,29 @@ const Content = ({ data, listTim, selectedTim, setSelectedTim }) => {
     setMax(totalJumlahSampel);
   };
 
-  useEffect(() => {
-    if (selectedTim !== null) {
-      const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
-      setDataCacah(filteredDataListing);
-    }
-  }, [selectedTim, dataCacah]);
+  // useEffect(() => {
+  //   if (selectedTim !== null) {
+  //     const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
+  //     setDataCacah(filteredDataListing);
+  //   }
+  // }, [selectedTim, dataCacah]);
 
-  useEffect(() => {
-    countProgres(dataCacah);
-  }, [dataCacah]);
+  // useEffect(() => {
+  //   countProgres(dataCacah);
+  // }, [dataCacah]);
 
-  // const handleTimSelect = (selectedTim) => {
-  //   const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
-
-  //   countProgres(filteredDataListing);
-
-  //   setDataCacah(filteredDataListing);
-  // }
 
   const handleTimSelect = (selectedTim) => {
-    setSelectedTim(selectedTim);
-  };
+    const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
+
+    countProgres(filteredDataListing);
+  
+    setDataCacah(filteredDataListing);
+  }
+
+  // const handleTimSelect = (selectedTim) => {
+  //   setSelectedTim(selectedTim);
+  // };
 
   return (
     <>

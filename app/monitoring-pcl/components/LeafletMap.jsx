@@ -23,7 +23,7 @@ const MapComponent = ({ petugas, position, zoom, radius, toolTip }) => {
     }
   }, [position, zoom, radius, toolTip]);
 
-  console.log(permanentT);
+
   return (
     <MapContainer className="w-full mb-4 z-0" center={position} zoom={zoom} style={{ height: '65vh' }} ref={mapRef}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" maxZoom={19} />
