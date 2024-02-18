@@ -86,30 +86,9 @@ function BasicTable({ data, columns }) {
               </tbody>
             </table>
           </div>
-          {/* <div className="flex text-white py-2 text-sm justify-start space-x-2">
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
-              <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
-            </div>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
-              <button disabled={!table.getCanPreviousPage()}>
-                <Icon.ChevronLeft onClick={() => table.previousPage()} className="cursor-pointer " />
-              </button>
-            </div>
-            <p className="px-4 py-2 bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800 rounded-md flex items-center">
-              {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
-            </p>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
-              <button disabled={!table.getCanNextPage()}>
-                <Icon.ChevronRight onClick={() => table.nextPage()} className="cursor-pointer " />
-              </button>
-            </div>
-            <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
-              <Icon.ChevronsRight onClick={() => table.setPageIndex(table.getPageCount() - 1)} className="cursor-pointer " />
-            </div>
-          </div> */}
         </div>
       </div>
-      <div className="flex text-white py-2 text-sm justify-end space-x-2">
+      <div className="flex text-white py-2 text-sm justify-end space-x-2 mt-2">
         <div className=" bg-secondary-900 active:bg-secondary-800 hover:bg-secondary-800  rounded-md p-2 flex items-center">
           <Icon.ChevronsLeft onClick={() => table.setPageIndex(0)} className="cursor-pointer " />
         </div>

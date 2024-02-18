@@ -17,7 +17,7 @@ const TableDetail = ({data}) => {
       header: 'Kode Blok Sensus',
   },
   {
-      accessorKey: 'id_tim',
+      accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
   },
   {

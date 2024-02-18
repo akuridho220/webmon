@@ -31,106 +31,62 @@ const datas = [
 
 const columns = [
     {
-        accessorKey: 'kodeRuta',
-        header: 'Kode Ruta'
+      accessorKey: 'kode_ruta',
+      header: 'Kode Ruta',
     },
     {
-        accessorKey: 'nim',
-        header: 'NIM PPL'
+      accessorKey: 'nim_pencacah',
+      header: 'NIM PPL',
     },
     {
-        accessorKey: 'namaPPL',
-        header: 'Nama PPL'
+      accessorKey: 'nama',
+      header: 'Nama PPL',
     },
     {
-        accessorKey: 'kodeBs',
-        header: 'Kode Blok Sensus'
+      accessorKey: 'id_bs',
+      header: 'ID BS',
     },
     {
-        accessorKey: 'bs',
-        header: 'BS'
+      accessorKey: 'no_bf',
+      header: 'BF',
     },
     {
-        accessorKey: 'bf',
-        header: 'BF'
+      accessorKey: 'no_bs',
+      header: 'BS',
     },
     {
-        accessorKey: 'noUrutRuta',
-        header: 'Nomor Urut Ruta'
+      accessorKey: 'no_segmen',
+      header: 'No Segmen',
     },
     {
-        accessorKey: 'kodeKot',
-        header: 'Kode Kabupaten/Kota'
+      accessorKey: 'no_urut_ruta',
+      header: 'Nomor Urut RUta',
     },
     {
-        accessorKey: 'namaKot',
-        header: 'Nama Kabupaten/Kota'
+      accessorKey: 'nama_krt',
+      header: 'Nama KRT',
     },
     {
-        accessorKey: 'kodeKec',
-        header: 'Kode Kecamatan'
+      accessorKey: 'alamat',
+      header: 'Alamat',
+    },
+    // {
+    //   accessorFn: (row) => `${row.jml_genx_anak}+${row.jml_genz_dewasa}`,
+    //   header: 'Jumlah IS UUP',
+    // },
+    {
+      accessorKey: 'jml_genz_anak',
+      header: 'Jumlah Gen Z Anak',
     },
     {
-        accessorKey: 'namaKec',
-        header: 'Nama Kecamatan'
+      accessorKey: 'jml_genz_dewasa',
+      header: 'Jumlah Gen Z Dewasa',
     },
-    {
-        accessorKey: 'kodeDes',
-        header: 'Kode Desa/Kelurahan'
-    },
-    {
-        accessorKey: 'namaDes',
-        header: 'Nama Desa/Kelurahan'
-    },
-    {
-        accessorKey: 'namaKrt',
-        header: 'Nama KRT'
-    },
-    {
-        accessorKey: 'alamat',
-        header: 'Alamat'
-    },
-    {
-        accessorKey: 'jmlArt',
-        header: 'Jumlah ART'
-    },
-    {
-        accessorKey: 'jmlArtGenZ',
-        header: 'Jumlah ART Gen Z'
-    },
-    {
-        accessorKey: 'noHp',
-        header: 'Nomor HP'
-    },
-    {
-        accessorKey: 'kodeEligible',
-        header: 'Kode Eligible'
-    },
-    {
-        accessorKey: 'latitude',
-        header: 'Latitude'
-    },
-    {
-        accessorKey: 'longitude',
-        header: 'Longitude'
-    },
-    {
-        accessorKey: 'akurasi',
-        header: 'Akurasi'
-    },
-    {
-        accessorKey: 'status',
-        header: 'Status'
-    },
-    {
-        accessorKey: 'time',
-        header: 'Time'
-    },
-]
+  ];
 
-const TableAll = () => {
+const TableAll = ({data}) => {
     return(
-        <BasicTable data={datas} columns={columns}/>
+        <BasicTable data={data} columns={columns}/>
     )
 }
 

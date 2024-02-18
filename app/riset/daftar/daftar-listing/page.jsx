@@ -54,19 +54,25 @@ const getDataKab = async () => {
   return dataListing;
 };
 
+const getDataAll = async () => {
+  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/all`)]);
+  return dataListing;
+}
+
 const judul = 'Daftar Listing';
 export default async function DaftarListing() {
   const dataBs = getDataBs();
   const dataKec = getDataKec();
   const dataDesa = getDataDesa();
   const dataKab = getDataKab();
+  const dataAll = getDataAll()
 
-  const [bs, kec, desa, kab] = await Promise.all([dataBs, dataKec, dataDesa, dataKab]);
+  const [bs, kec, desa, kab, all] = await Promise.all([dataBs, dataKec, dataDesa, dataKab, dataAll]);
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <SelectTabel dataBs={bs} dataKec={kec} dataDesa={desa} dataKab={kab} />
+        <SelectTabel dataBs={bs} dataKec={kec} dataDesa={desa} dataKab={kab} dataAll={all}/>
       </Layout>
     </>
   );

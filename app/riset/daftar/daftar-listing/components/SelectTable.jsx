@@ -5,7 +5,7 @@ import * as Icon from 'react-feather';
 import SelectCat from './selectCat';
 import HandleExport from '@/app/components/HandleExport';
 
-const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
+const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   let dataToExport;
@@ -62,7 +62,7 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
         </div>
       </div>
       <div className="w-[95%] mx-auto overflow-x-clip">
-        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} />
+        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} dataAll={dataAll}/>
       </div>
     </div>
   );

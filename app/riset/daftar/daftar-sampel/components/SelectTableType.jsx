@@ -5,7 +5,7 @@ import SelectCat from './SelectCat';
 import Table from './TableSelect';
 import HandleExport from '@/app/components/HandleExport';
 
-const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa }) => {
+const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const dataToExport = [
@@ -35,7 +35,7 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa }) => {
       </div>
       {/* Set jenis tabel yg ditampilin */}
       <div className="w-[95%] mx-auto overflow-x-clip">
-        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} />
+        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} dataAll={dataAll}/>
       </div>
     </div>
   );
