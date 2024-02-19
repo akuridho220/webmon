@@ -2,25 +2,81 @@
 import React, { useState } from "react";
 import DetailModal from "./Detailmodal";
 import ProgressBar from "./ProgressBar";
+import TableKecamatan from "@/app/riset/daftar/daftar-listing/components/TableKecamatan";
 
 const { default: BasicTable } = require("@/app/components/BasicTable");
 
 const datas = [
-  /*{
-    blokSensus: "",
-    sampelSelesai: 0,
-    jumlahSampel: 0,
-  }*/
+  {
+    namaDesa: "Desa A",
+    sampelSelesai: 10,
+    jumlahSampel: 86,
+  },
+  {
+    namaDesa: "Desa B",
+    sampelSelesai: 27,
+    jumlahSampel: 81,
+  },
+  {
+    namaDesa: "Desa C",
+    sampelSelesai: 77,
+    jumlahSampel: 90,
+  },
+  {
+    namaDesa: "Desa D",
+    sampelSelesai: 67,
+    jumlahSampel: 78,
+  },
+  {
+    namaDesa: "Desa E",
+    sampelSelesai: 54,
+    jumlahSampel: 86,
+  },
+  {
+    namaDesa: "Desa F",
+    sampelSelesai: 65,
+    jumlahSampel: 81,
+  },
+  {
+    namaDesa: "Desa G",
+    sampelSelesai: 77,
+    jumlahSampel: 90,
+  },
+  {
+    namaDesa: "Desa H",
+    sampelSelesai: 45,
+    jumlahSampel: 78,
+  },
+  {
+    namaDesa: "Desa I",
+    sampelSelesai: 22,
+    jumlahSampel: 86,
+  },
+  {
+    namaDesa: "Desa J",
+    sampelSelesai: 80,
+    jumlahSampel: 81,
+  },
+  {
+    namaDesa: "Desa K",
+    sampelSelesai: 25,
+    jumlahSampel: 90,
+  },
+  {
+    namaDesa: "Desa L",
+    sampelSelesai: 31,
+    jumlahSampel: 78,
+  },
 ];
 
-const TableWilayah = () => {
+const TableKecamatan = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
-      accessorKey: "blokSensus",
-      header: "Blok Sensus",
+      accessorKey: "namaDesa",
+      header: "Nama Desa",
     },
     {
       accessorKey: "sampelSelesai",
@@ -68,4 +124,4 @@ const TableWilayah = () => {
   );
 };
 
-export default TableWilayah;
+export default TableKecamatan;
