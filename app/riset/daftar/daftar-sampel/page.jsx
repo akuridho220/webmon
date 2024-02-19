@@ -68,18 +68,34 @@ const getDataDes = async () => {
   return mergedData;
 };
 
+const getDataAll = async () => {
+  const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/all`), fetchData(`${apiURL}riset/daftar/listing/all`)]);
+
+  const mergedData = dataSampel.map((sampelItem) => {
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
+
+    return {
+      ...sampelItem,
+      jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
+    };
+  });
+
+  return mergedData;
+};
+
 const judul = 'Daftar Sampel';
 export default async function DaftarSampel() {
   const dataBs = getDataBs();
   const dataKec = getDataKec();
   const dataDesa = getDataDes();
   const dataKab = getDataKab();
+  const dataAll = getDataAll();
 
-  const [bs, kec, desa, kab] = await Promise.all([dataBs, dataKec, dataDesa, dataKab]);
+  const [bs, kec, desa, kab, all] = await Promise.all([dataBs, dataKec, dataDesa, dataKab, dataAll]);
   return (
     <Layout className="w-full min-h-screen overflow-x-hidden">
       <PageTitle judul={judul} />
-      <TableType dataBs={bs} dataDesa={desa} dataKab={kab} dataKec={kec} />
+      <TableType dataBs={bs} dataDesa={desa} dataKab={kab} dataKec={kec} dataAll={all}/>
     </Layout>
   );
 }

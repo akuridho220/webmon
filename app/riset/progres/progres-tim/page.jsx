@@ -1,8 +1,6 @@
 import Layout from '@/app/layout/layout';
 import Content from './components/Content';
 import PageTitle from '@/app/components/PageTitle';
-import Breadcrumb from './components/Breadcrumbs';
-
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (url) => {
@@ -37,10 +35,8 @@ const getData = async () => {
   return mergedData;
 };
 
-
-
 export default async function ProgresTim() {
-  const judul = "Progres Tim";
+  const judul = 'Progres Tim';
 
   const data = getData();
   const dataListTim = getListTim();
@@ -50,8 +46,7 @@ export default async function ProgresTim() {
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        {/* <Breadcrumb /> */}
-        <Content data={dataProgres} listTim={listTim}/>
+        <Content data={dataProgres} listTim={listTim} />
       </Layout>
     </>
   );

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import authService from '@/app/service/authService';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import BreadCrumbs from '@/app/components/BreadCrumbs';
 
 export default function Box() {
   const [passwordLama, setPasswordLama] = useState('');
@@ -81,6 +82,9 @@ export default function Box() {
       </div>
 
       <div className="bg-putih-200/80 rounded-b-md shadow-md flex-1 py-4 px-2">
+        <div className="w-fit mx-8 justify-start">
+          <BreadCrumbs />
+        </div>
         <div className="py-4 flex justify-center">
           <Image src="/img/maskot/3.png" width={150} height={200} alt="foto" />
         </div>

@@ -3,6 +3,7 @@ import Layout from '@/app/layout/layout';
 import Header from './components/Header';
 import TableDetail from './components/tableDetail';
 import PageTitle from '@/app/components/PageTitle';
+import BreadCrumbs from '@/app/components/BreadCrumbs';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (url) => {
@@ -36,9 +37,12 @@ export default async function DetailListing({ params, searchParams }) {
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
+        <div className="w-[90%] ">
+          <BreadCrumbs />
+        </div>
         <div className="flex flex-col w-[90%] mx-auto rounded-xl space-y-4 bg-primary-900/95 px-6 pb-5" style={{ marginTop: '1em' }}>
           <div className="flex flex-col pt-4">
-            <Header />
+            <Header data={await getDataDetail()} />
             <TableDetail data={await getDataDetail()} />
           </div>
         </div>

@@ -3,31 +3,47 @@ import React, { useState } from 'react';
 import Table from './TableSelect';
 import * as Icon from 'react-feather';
 import SelectCat from './selectCat';
-import Swal from 'sweetalert2';
+import HandleExport from '@/app/components/HandleExport';
 
-const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
+const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  let dataToExport;
+
+  if (selectedCategory === 'blok sensus' || selectedCategory === null) {
+    dataToExport = dataBs.map((element) => ({
+      Kode_BS: element.id_bs,
+      Tim: element.id_tim,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'kecamatan') {
+    dataToExport = dataKec.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kecamatan: element.nama_kec,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'desa/kelurahan') {
+    dataToExport = dataDesa.map((element) => ({
+      Kode_Desa: element.id_bs,
+      Desa_Kelurahan: element.nama_kel,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'kabupaten') {
+    dataToExport = dataKab.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kabupaten_Kota: element.nama_kabupaten,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'keseluruhan') {
+    dataToExport = null;
+  }
+
+  const Export = () => {
+    HandleExport(dataToExport, 'Daftar-listing');
+  };
 
   const handleCategoryChange = (selectedValue) => {
     setSelectedCategory(selectedValue);
-  };
-  const HandleExport = () => {
-    Swal.fire({
-      title: 'Export Data',
-      text: 'Pilih Format Export Data',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Excel',
-      cancelButtonText: 'PDF',
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      } else {
-        Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-      }
-    });
   };
   return (
     <div className="md:w-[90%] w-[95%] mx-auto bg-primary-900/95 rounded-xl shadow-lg overflow-auto mt-8 pt-2">
@@ -39,14 +55,14 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab }) => {
           </div>
         </div>
         <div className="">
-          <button onClick={HandleExport} className="flex md:mt-2 mt-6 items-center justify-center md:text-base text-xs bg-secondary-800 py-2 px-6 w-fit rounded-lg text-white hover:bg-secondary-900">
+          <button onClick={Export} className="flex md:mt-2 mt-6 items-center justify-center md:text-base text-xs bg-secondary-800 py-2 px-6 w-fit rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
             <p className=" pl-4">Export</p>
           </button>
         </div>
       </div>
       <div className="w-[95%] mx-auto overflow-x-clip">
-        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} />
+        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} dataAll={dataAll}/>
       </div>
     </div>
   );

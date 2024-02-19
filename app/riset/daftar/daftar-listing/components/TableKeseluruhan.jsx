@@ -216,125 +216,69 @@ const datas = [
   },
 ];
 
-const TableKeseluruhan = () => {
+const TableKeseluruhan = ({data}) => {
   const columns = [
     {
-      accessorKey: 'kodeUUP',
-      header: 'Kode UUP',
+      accessorKey: 'kode_ruta',
+      header: 'Kode Ruta',
     },
     {
-      accessorKey: 'nimPPL',
+      accessorKey: 'nim_pencacah',
       header: 'NIM PPL',
     },
     {
-      accessorKey: 'namaPPL',
+      accessorKey: 'nama',
       header: 'Nama PPL',
     },
     {
-      accessorKey: 'kodeBS',
-      header: 'Kode BS',
+      accessorKey: 'id_bs',
+      header: 'ID BS',
     },
     {
-      accessorKey: 'bf',
+      accessorKey: 'no_bf',
       header: 'BF',
     },
     {
-      accessorKey: 'bs',
+      accessorKey: 'no_bs',
       header: 'BS',
     },
     {
-      accessorKey: 'noSegmen',
+      accessorKey: 'no_segmen',
       header: 'No Segmen',
     },
     {
-      accessorKey: 'noRuta',
+      accessorKey: 'no_urut_ruta',
       header: 'Nomor Urut RUta',
     },
     {
-      accessorKey: 'kodeKota',
-      header: 'Kode Kota',
-    },
-    {
-      accessorKey: 'kodeKecamatan',
-      header: 'Kode Kecamatan',
-    },
-    {
-      accessorKey: 'namaKecamatan',
-      header: 'Nama Kecamatan',
-    },
-    {
-      accessorKey: 'kodeDesa',
-      header: 'Kode Desa',
-    },
-    {
-      accessorKey: 'namaDesa',
-      header: 'Nama Desa',
-    },
-    {
-      accessorKey: 'namaKRT',
+      accessorKey: 'nama_krt',
       header: 'Nama KRT',
     },
     {
       accessorKey: 'alamat',
       header: 'Alamat',
     },
+    // {
+    //   accessorFn: (row) => `${row.jml_genx_anak}+${row.jml_genz_dewasa}`,
+    //   header: 'Jumlah IS UUP',
+    // },
     {
-      accessorKey: 'jumlahISUUP',
-      header: 'Jumlah IS UUP',
+      accessorKey: 'jml_genz_anak',
+      header: 'Jumlah Gen Z Anak',
     },
     {
-      accessorKey: 'noUrutPemilikUUP',
-      header: 'Nomo Urut Pemilik UUP',
+      accessorKey: 'jml_genz_dewasa',
+      header: 'Jumlah Gen Z Dewasa',
     },
-    {
-      accessorKey: 'namaPemilikUUP',
-      header: 'Nama Pemilik UUP',
-    },
-    {
-      accessorKey: 'keududukanUUP',
-      header: 'Kedudukan UUP',
-    },
-    {
-      accessorKey: 'statusKelola',
-      header: 'Status Kelola',
-    },
-    {
-      accessorKey: 'lokasiUP',
-      header: 'Lokasi UP',
-    },
-    {
-      accessorKey: 'jenisUP',
-      header: 'Jenis UP',
-    },
-    {
-      accessorKey: 'noUrutUUP',
-      header: 'Nomor Urut UUP',
-    },
-    {
-      accessorKey: 'latitude',
-      header: 'Latitude',
-    },
-    {
-      accessorKey: 'longitude',
-      header: 'Longitude',
-    },
-    {
-      accessorKey: 'akurasi',
-      header: 'Akurasi',
-    },
-    {
-      accessorKey: 'status',
-      header: 'Status',
-    },
-    {
-      accessorKey: 'time',
-      header: 'Time',
-    },
+    // {
+    //   accessorKey: 'status',
+    //   header: 'Status',
+    // },
   ];
 
   return (
     <>
-      <BasicTable columns={columns} data={datas} />
+      <BasicTable columns={columns} data={data} />
     </>
   );
 };

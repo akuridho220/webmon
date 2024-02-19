@@ -37,23 +37,23 @@ const Dropdown = () => {
           <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
             <AccordionItem key="1" aria-label="Accordion 1" title="Daftar" className="ml-2">
               <ul className="block space-y-4">
-                <li className={currentPath === '/riset/daftar/daftar-listing' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                <li className={currentPath.startsWith('/riset/daftar/daftar-listing') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/daftar/daftar-listing">Daftar Listing</Link>
                 </li>
-                <li className={currentPath === '/riset/daftar/daftar-sampel' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                <li className={currentPath.startsWith('/riset/daftar/daftar-sampel') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/daftar/daftar-sampel">Daftar Sampel</Link>
                 </li>
-                <li className={currentPath === '/riset/daftar/daftar-pertim' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                <li className={currentPath.startsWith('/riset/daftar/daftar-pertim') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/daftar/daftar-pertim">Daftar Per Tim</Link>
                 </li>
               </ul>
             </AccordionItem>
             <AccordionItem key="2" aria-label="Accordion 2" title="Progress" className="ml-2">
               <ul className="block space-y-4">
-                <li className={currentPath === '/riset/progres/progres-wilayah' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                <li className={currentPath.startsWith('/riset/progres/progres-wilayah') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/progres/progres-wilayah">Progress Wilayah</Link>
                 </li>
-                <li className={currentPath === '/riset/progres/progres-tim' ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
+                <li className={currentPath.startsWith('/riset/progres/progres-tim') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
                   <Link href="/riset/progres/progres-tim">Progress Per tim</Link>
                 </li>
               </ul>

@@ -8,7 +8,7 @@ const columns = [
         header: 'ID Blok Sensus'
     },
     {
-        accessorKey: 'nama_pcl',
+        accessorKey: 'nama_tim',
         header: 'Tim Pencacah'
     },
     {

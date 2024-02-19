@@ -3,38 +3,24 @@ import TimSelect from './TimSelect';
 import TableTim from './TableProgressPerTim';
 import * as Icon from 'react-feather';
 import ProgressBar from './ProgressBar';
-import Swal from 'sweetalert2';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import HandleExport from '@/app/components/HandleExport';
 
-const HandleExport = () => {
-  Swal.fire({
-    title: 'Export Data',
-    text: 'Pilih Format Export Data',
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Excel',
-    cancelButtonText: 'PDF',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-    } else {
-      Swal.fire('Error', 'Maaf Fitur belum terimplementasi', 'error');
-    }
-  });
-};
-
-
-
-const Content = ({data, listTim}) => {
+const Content = ({ data, listTim }) => {
   const [dataCacah, setDataCacah] = useState(data);
   // const [done, setDone] = useState(data[0].jumlah_sampel_selesai);
   // const [max, setMax] = useState(data[0].jumlah_sampel);
   const [done, setDone] = useState(0);
   const [max, setMax] = useState(0);
 
-
+  const dataToExport = [
+    { id: 1, name: 'John', age: 30 },
+    { id: 2, name: 'Jane', age: 25 },
+    { id: 3, name: 'Doe', age: 40 },
+  ];
+  const Export = () => {
+    HandleExport(dataToExport, 'Progres-Tim');
+  };
   const filterDataByTim = (data, tim) => {
     return data.filter((item) => item.id_tim === tim);
   };
@@ -63,14 +49,13 @@ const Content = ({data, listTim}) => {
   //   countProgres(dataCacah);
   // }, [dataCacah]);
 
-
   const handleTimSelect = (selectedTim) => {
     const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
 
     countProgres(filteredDataListing);
-  
+
     setDataCacah(filteredDataListing);
-  }
+  };
 
   // const handleTimSelect = (selectedTim) => {
   //   setSelectedTim(selectedTim);
@@ -84,7 +69,7 @@ const Content = ({data, listTim}) => {
       </div> */}
         <div className="flex justify-between mb-4 pt-6">
           <TimSelect dataTim={listTim} onSelect={handleTimSelect} />
-          <div onClick={HandleExport} className="flex items-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
+          <div onClick={Export} className="flex items-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
             <button className=" pl-4">Export</button>
           </div>

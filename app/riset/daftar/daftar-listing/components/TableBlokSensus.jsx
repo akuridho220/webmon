@@ -11,7 +11,7 @@ const TableBlokSensus = ({ data }) => {
       header: 'ID Blok Sensus',
     },
     {
-      accessorKey: 'id_tim',
+      accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
     },
     {
