@@ -6,66 +6,11 @@ import ProgressBar from "./ProgressBar";
 const { default: BasicTable } = require("@/app/components/BasicTable");
 
 const datas = [
-  {
-    namaKecamatan: "Kecamatan A",
-    sampelSelesai: 10,
-    jumlahSampel: 86,
-  },
-  {
-    namaKecamatan: "Kecamatan B",
-    sampelSelesai: 27,
-    jumlahSampel: 81,
-  },
-  {
-    namaKecamatan: "Kecamatan C",
-    sampelSelesai: 77,
-    jumlahSampel: 90,
-  },
-  {
-    namaKecamatan: "Kecamatan D",
-    sampelSelesai: 67,
-    jumlahSampel: 78,
-  },
-  {
-    namaKecamatan: "Kecamatan E",
-    sampelSelesai: 54,
-    jumlahSampel: 86,
-  },
-  {
-    namaKecamatan: "Kecamatan F",
-    sampelSelesai: 65,
-    jumlahSampel: 81,
-  },
-  {
-    namaKecamatan: "Kecamatan G",
-    sampelSelesai: 77,
-    jumlahSampel: 90,
-  },
-  {
-    namaKecamatan: "Kecamatan H",
-    sampelSelesai: 45,
-    jumlahSampel: 78,
-  },
-  {
-    namaKecamatan: "Kecamatan I",
-    sampelSelesai: 22,
-    jumlahSampel: 86,
-  },
-  {
-    namaKecamatan: "Kecamatan J",
-    sampelSelesai: 80,
-    jumlahSampel: 81,
-  },
-  {
-    namaKecamatan: "Kecamatan K",
-    sampelSelesai: 25,
-    jumlahSampel: 90,
-  },
-  {
-    namaKecamatan: "Kecamatan L",
-    sampelSelesai: 31,
-    jumlahSampel: 78,
-  },
+  /*{
+    blokSensus: "",
+    sampelSelesai: 0,
+    jumlahSampel: 0,
+  }*/
 ];
 
 const TableWilayah = () => {
@@ -74,8 +19,8 @@ const TableWilayah = () => {
 
   const columns = [
     {
-      accessorKey: "namaKecamatan",
-      header: "Nama Kecamatan",
+      accessorKey: "blokSensus",
+      header: "Blok Sensus",
     },
     {
       accessorKey: "sampelSelesai",
