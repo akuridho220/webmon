@@ -88,7 +88,7 @@ const TableTim = ({data}) => {
   const columns = [
     {
       accessorKey: "id_bs",
-      header: "Kode BS",
+      header: "Blok Sensus",
     },
     {
       accessorKey: "nama_tim",

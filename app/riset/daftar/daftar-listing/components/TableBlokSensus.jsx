@@ -8,7 +8,7 @@ const TableBlokSensus = ({ data }) => {
   const columns = [
     {
       accessorKey: 'id_bs',
-      header: 'ID Blok Sensus',
+      header: 'Blok Sensus',
     },
     {
       accessorKey: 'nama_tim',
