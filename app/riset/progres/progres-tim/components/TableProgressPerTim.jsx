@@ -87,19 +87,19 @@ const TableTim = ({data}) => {
 
   const columns = [
     {
-      accessorKey: "kodeBS",
+      accessorKey: "id_bs",
       header: "Kode BS",
     },
     {
-      accessorKey: "pencacah",
-      header: "Pencacah",
+      accessorKey: "nama_tim",
+      header: "Tim Pencacah",
     },
     {
-      accessorKey: "sampelSelesai",
+      accessorKey: "jumlah_sampel_selesai",
       header: "Sampel Selesai",
     },
     {
-      accessorKey: "jumlahSampel",
+      accessorKey: "jumlah_sampel",
       header: "Jumlah Sampel",
     },
     {
@@ -107,8 +107,8 @@ const TableTim = ({data}) => {
       header: "Progress",
       cell: ({ cell }) => (
         <>
-        {Math.round(cell.row.original.sampelSelesai/cell.row.original.jumlahSampel * 100)}%
-        <ProgressBar done={cell.row.original.sampelSelesai} max={cell.row.original.jumlahSampel} />
+        {Math.round(cell.row.original.jumlah_sampel_selesai/cell.row.original.jumlah_sampel * 100)}%
+        <ProgressBar done={cell.row.original.jumlah_sampel_selesai} max={cell.row.original.jumlah_sampel} />
         </>
       ),
     },
@@ -119,7 +119,7 @@ const TableTim = ({data}) => {
         // <button onClick={() => handleDetailButtonClick(cell.row.original)} className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300">
         //   Detail
         // </button>
-        <Link href={`/riset/progres/progres-tim/detail/1`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+        <Link href={`/riset/progres/progres-tim/detail/${cell.id_tim}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
             <span className="">Detail</span>
         </Link>
       ),

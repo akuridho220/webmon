@@ -78,14 +78,14 @@ const datas = [
     },
   ];
 
-const TableDetailProgres = () => {
+const TableDetailProgres = ({data}) => {
     const columns = [
         {
-            accessorKey: "noRuta",
+            accessorKey: "kode_ruta",
             header: "Nomor Rumah Tangga",
         },
         {
-            accessorKey: "tim_pencacah",
+            accessorKey: "nama_tim",
             header: "Tim Pencacah",
         },
         {
@@ -93,12 +93,12 @@ const TableDetailProgres = () => {
           header: "Nama KRT",
         },
         {
-          accessorKey: "status_cacah",
+          accessorKey: "status",
           header: "Status Cacah",
           cell: ({row}) => {
             return(
               <div>
-                {row.original.status_cacah==1?
+                {row.original.status_cacah==2?
                   <Button isDisabled color="success" variant="flat">
                     Tercacah
                   </Button>:
@@ -112,7 +112,7 @@ const TableDetailProgres = () => {
     ];
     return(
         <div>
-            <BasicTable columns={columns} data={datas} />
+            <BasicTable columns={columns} data={data} />
         </div>
     )
 }
