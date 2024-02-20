@@ -39,10 +39,10 @@ export default async function DetailSampel({ params, searchParams }) {
         <PageTitle judul={judul} />
         <div className="flex flex-col w-[85%] mx-auto rounded-xl space-y-4 bg-primary-600 px-6 pb-5" style={{ marginTop: '1em' }}>
           <div className="flex flex-col pt-4">
-            <div className="text-white">
+            <div className="text-white flex justify-between items-center">
               <BreadCrumbs />
+              <Header />
             </div>
-            <Header />
             <Table data={await getDataDetail()} />
           </div>
         </div>
