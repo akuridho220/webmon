@@ -2,6 +2,12 @@
 import { useEffect, useState } from 'react';
 
 const ProgressBar = ({ detail, done, max }) => {
+  // const [dataCacah, setDataCacah] = useState(data);
+  // const [done, setDone] = useState(data[0].jumlah_sampel_selesai);
+  // const [max, setMax] = useState(data[0].jumlah_sampel);
+  // const [done, setDone] = useState(0);
+  // const [max, setMax] = useState(0);
+  
   let dataProgress;
   if (max == 0) {
     dataProgress = 0;
