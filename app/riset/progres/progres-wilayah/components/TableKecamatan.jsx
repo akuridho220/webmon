@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import DetailModal from "./Detailmodal";
 import ProgressBar from "./ProgressBar";
-import TableKecamatan from "@/app/riset/daftar/daftar-listing/components/TableKecamatan";
+//import TableKecamatan from "@/app/riset/daftar/daftar-listing/components/TableKecamatan";
 
 const { default: BasicTable } = require("@/app/components/BasicTable");
 

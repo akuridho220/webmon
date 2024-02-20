@@ -29,7 +29,7 @@ const DetailProgresTim = async ({params}) => {
           <div className="flex flex-col pt-4">
             <Header />
             {/* <TableDetailProgres /> */}
-            <TableDetail data={dataDetail} />
+            <TableDetailProgres data={dataDetail} />
           </div>
         </div>
       </Layout>
