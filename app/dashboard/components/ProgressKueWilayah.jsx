@@ -18,8 +18,6 @@ const ProgressKueWilayah = ({ data }) => {
     window.addEventListener('resize', handleResize); // Tambahkan event listener untuk menangani perubahan ukuran jendela
     return () => window.removeEventListener('resize', handleResize); // Membersihkan event listener saat komponen dibongkar
   }, []);
-
-  console.log(dataWilayah);
   // Fungsi untuk menampilkan panah sebelumnya
   const renderPrevArrow = (onClickHandler, hasPrev, label) =>
     hasPrev && (
