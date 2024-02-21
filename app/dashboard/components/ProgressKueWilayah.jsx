@@ -63,6 +63,8 @@ const ProgressKueWilayah = ({ data }) => {
                 showArrows={showArrows}
                 autoPlay
                 infiniteLoop
+                showIndicators={showArrows}
+                interval={2500}
                 stopOnHover={true}
                 showStatus={false}
                 renderArrowPrev={renderPrevArrow} // Menambahkan renderPrevArrow
