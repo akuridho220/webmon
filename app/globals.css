@@ -82,6 +82,15 @@ body {
   }
 }
 
+.control-arrow {
+  top: 0;
+  color: #951a2e !important;
+  font-size: 26px;
+  bottom: 0;
+  margin-top: 0;
+  padding: 5px;
+}
+
 .animate-slide {
   animation: slide 1s ease-out;
 }
