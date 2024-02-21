@@ -1,5 +1,5 @@
-import React, {useId} from "react";
-import Select from "react-select";
+import React, { useId, useState } from 'react';
+import Select from 'react-select';
 
 const TimDropdown = ({ onSelect, data }) => {
   const [selectedPetugas, setSelectedPetugas] = useState(null);
@@ -16,36 +16,26 @@ const TimDropdown = ({ onSelect, data }) => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      borderRadius: "0.5rem",
-      color: "#000",
-      minWidth: "20rem",
+      borderRadius: '0.5rem',
+      color: '#000',
+      minWidth: '20rem',
     }),
     input: (provided) => ({
       ...provided,
-      color: "#000",
+      color: '#000',
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected
-        ? "rgba(217, 63, 87, 1)"
-        : "transparent",
-      borderRadius: "0.3rem",
-      color: state.isSelected ? "white" : "black",
+      backgroundColor: state.isSelected ? 'rgba(217, 63, 87, 1)' : 'transparent',
+      borderRadius: '0.3rem',
+      color: state.isSelected ? 'white' : 'black',
     }),
   };
 
   return (
     <>
-      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 mr-8" >
-        <Select
-          options={data}
-          value={selectedPetugas}
-          isSearchable={true}
-          placeholder="Pilih Berdasarkan Tim"
-          onChange={handleSelect}
-          styles={customStyles}
-          instanceId={useId()}
-        />
+      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 mr-8">
+        <Select options={data} value={selectedPetugas} isSearchable={true} placeholder="Pilih Berdasarkan Tim" onChange={handleSelect} styles={customStyles} instanceId={useId()} />
       </div>
     </>
   );

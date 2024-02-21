@@ -1,52 +1,50 @@
-"use client";
-import React, { useState } from "react";
-import DetailModal from "./Detailmodal";
-import ProgressBar from "./ProgressBar";
-import Link from "next/link";
+'use client';
+import React, { useState } from 'react';
+import ProgressBar from './ProgressBar';
+import Link from 'next/link';
 
-const { default: BasicTable } = require("@/app/components/BasicTable");
+const { default: BasicTable } = require('@/app/components/BasicTable');
 
-
-const TableTim = ({data}) => {
+const TableTim = ({ data }) => {
   // const [isOpen, setIsOpen] = useState(false);
   // const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
-      accessorKey: "id_bs",
-      header: "Blok Sensus",
+      accessorKey: 'id_bs',
+      header: 'Blok Sensus',
     },
     {
-      accessorKey: "nama_tim",
-      header: "Tim Pencacah",
+      accessorKey: 'nama_tim',
+      header: 'Tim Pencacah',
     },
     {
-      accessorKey: "jumlah_sampel_selesai",
-      header: "Sampel Selesai",
+      accessorKey: 'jumlah_sampel_selesai',
+      header: 'Sampel Selesai',
     },
     {
-      accessorKey: "jumlah_sampel",
-      header: "Jumlah Sampel",
+      accessorKey: 'jumlah_sampel',
+      header: 'Jumlah Sampel',
     },
     {
-      accessorKey: "progres",
-      header: "Progress",
+      accessorKey: 'progres',
+      header: 'Progress',
       cell: ({ cell }) => (
         <>
-        {Math.round(cell.row.original.jumlah_sampel_selesai/cell.row.original.jumlah_sampel * 100)}%
-        <ProgressBar done={cell.row.original.jumlah_sampel_selesai} max={cell.row.original.jumlah_sampel} />
+          {Math.round((cell.row.original.jumlah_sampel_selesai / cell.row.original.jumlah_sampel) * 100)}%
+          <ProgressBar done={cell.row.original.jumlah_sampel_selesai} max={cell.row.original.jumlah_sampel} />
         </>
       ),
     },
     {
-      accessorKey: "aksi",
-      header: "Aksi",
+      accessorKey: 'aksi',
+      header: 'Aksi',
       cell: ({ cell }) => (
         // <button onClick={() => handleDetailButtonClick(cell.row.original)} className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300">
         //   Detail
         // </button>
         <Link href={`/riset/progres/progres-tim/detail/${cell.original.id_tim}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
-            <span className="">Detail</span>
+          <span className="">Detail</span>
         </Link>
       ),
     },
