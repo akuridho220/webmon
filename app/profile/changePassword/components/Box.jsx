@@ -81,8 +81,8 @@ export default function Box() {
         </div>
       </div>
 
-      <div className="bg-putih-200/80 rounded-b-md shadow-md flex-1 py-4 px-2">
-        <div className="w-fit mx-8 justify-start">
+      <div className="bg-putih-200/80 rounded-b-md shadow-md flex-1 py-2 px-2 md:px-4">
+        <div className="w-fit mx-8 justify-start text-primary-900">
           <BreadCrumbs />
         </div>
         <div className="py-4 flex justify-center">
@@ -128,7 +128,7 @@ export default function Box() {
               name="passwordBaru2"
             />
           </div>
-          <div className="pt-6 pb-4 w-full block md:flex justify-center">
+          <div className="pt-6  w-full block md:flex justify-center">
             <button type="submit" className="bg-primary-800 hover:bg-primary-900 rounded-md 2 w-full py-2 text-white text-center">
               Simpan
             </button>

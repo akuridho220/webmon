@@ -10,9 +10,8 @@ const BreadCrumbs = () => {
   const nama = searchParams.get('nama');
   const path = currentPath.split('/').filter((p) => p !== '');
   const dontShow = ['riset', 'daftar', 'detail-listing', 'bs', 'desa', 'kec', 'kab', 'detail-sampel', 'detail', 'progres'];
-
   return (
-    <div className="flex flex-row text-primary-900 text-sm pt-3 w-full justify-center">
+    <div className={`flex flex-row text-sm pt-2 w-full justify-start`}>
       {path.map((p, index) => {
         const url = `/${path.slice(0, index + 1).join('/')}`;
         const isLast = index === path.length - 1;
