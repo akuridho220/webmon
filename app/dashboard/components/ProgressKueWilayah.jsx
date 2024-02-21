@@ -59,6 +59,7 @@ const ProgressKueWilayah = ({ data }) => {
             <div className="block w-[98%]">
               <Carousel
                 showArrows={showArrows}
+                showThumbs={false}
                 autoPlay
                 infiniteLoop
                 showIndicators={showArrows}
