@@ -104,7 +104,7 @@ export default function Header() {
           <div className="ml-6">{isMobileNavVisible ? <Icon.X onClick={toggleMobileNav} /> : <Icon.AlignJustify onClick={toggleMobileNav} />}</div>
         </div>
         <div className="searchBar w-2/3 ml-4"></div>
-        <div className="profile flex w-[20%] md:w-[15%] h-full px-2">
+        <div className="profile flex w-20 h-full px-2">
           <div className="text-primary-900 w-full  h-full relative">
             <Image onClick={toggleMenuOpen} src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
             {isMenuOpen ? (
