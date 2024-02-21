@@ -10,7 +10,7 @@ const fetchData = async (url) => {
 };
 
 const getDataPosisi = async () => {
-  const [data] = await Promise.all([fetchData(`${apiURL}monitoring-pcl`)]);
+  const [data] = await Promise.all([fetchData(`${apiURL}monitoring-ppl`)]);
 
   const newData = data.map((item) => {
     return {

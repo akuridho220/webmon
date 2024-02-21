@@ -6,12 +6,12 @@ import ProgressBar from './ProgressBar';
 import { useState } from 'react';
 import HandleExport from '@/app/components/HandleExport';
 
-const Content = ({ data, listTim }) => {
+const Content = ({ data, listTim, dataAwal }) => {
   const [dataCacah, setDataCacah] = useState(data);
   // const [done, setDone] = useState(data[0].jumlah_sampel_selesai);
   // const [max, setMax] = useState(data[0].jumlah_sampel);
-  const [done, setDone] = useState(0);
-  const [max, setMax] = useState(0);
+  const [done, setDone] = useState(dataAwal[1]);
+  const [max, setMax] = useState(dataAwal[0]);
 
   const dataToExport = [
     { id: 1, name: 'John', age: 30 },
