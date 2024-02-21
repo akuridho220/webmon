@@ -53,7 +53,7 @@ const TableDetail = ({ data }) => {
       <div className="overflow-x-auto">
         <BasicTable columns={columns} data={data} />
         {showModal && <Modal onClose={() => setShowModal(false)} data={dataModal} />}
-        <div className="w-[100%] bg-[#d93f57] bg-opacity-50"></div>
+        <div className="w-[100%] bg-primary-900/95 "></div>
       </div>
     </>
   );

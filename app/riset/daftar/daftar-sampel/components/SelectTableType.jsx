@@ -20,7 +20,7 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
     setSelectedCategory(selectedValue);
   };
   return (
-    <div className="md:w-[90%] w-[95%] mx-auto bg-primary-900/95 rounded-xl shadow-lg overflow-auto mt-8 pt-2">
+    <div className="w-[90%] mx-auto bg-primary-900/95 rounded-xl shadow-lg overflow-auto mt-8 pt-2">
       <div className="flex w-[95%] mx-auto justify-between items-center">
         <div className="md:w-[40%] md:flex my-4 md:my-2 justify-between h-fit items-center text-xs md:text-base">
           <p className="text-white">Filter :</p>
@@ -35,7 +35,7 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
       </div>
       {/* Set jenis tabel yg ditampilin */}
       <div className="w-[95%] mx-auto overflow-x-clip">
-        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} dataAll={dataAll}/>
+        <Table selectedCategory={selectedCategory} dataBs={dataBs} dataKec={dataKec} dataDesa={dataDesa} dataKab={dataKab} dataAll={dataAll} />
       </div>
     </div>
   );
