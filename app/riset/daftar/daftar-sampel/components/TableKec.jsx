@@ -1,6 +1,5 @@
-import Link from "next/link"
-const { default: BasicTable } = require("@/app/components/BasicTable")
-
+import Link from 'next/link';
+const { default: BasicTable } = require('@/app/components/BasicTable');
 
 const columns = [
     {
@@ -31,10 +30,8 @@ const columns = [
     }
 ]
 
-const TableKec = ({data}) => {
-    return(
-        <BasicTable data={data} columns={columns}/>
-    )
-}
+const TableKec = ({ data }) => {
+  return <BasicTable data={data} columns={columns} />;
+};
 
 export default TableKec;

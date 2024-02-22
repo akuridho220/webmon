@@ -4,20 +4,23 @@ import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
 export default function Header({ data }) {
+  console.log(data);
   const dataToExport = data.map((item) => {
     return {
       Kode_Ruta: item.kode_ruta,
-      Kode_Provinsi: item.id_prov,
-      Kode_Kabupaten_Kota: item.id_kab,
-      Kode_Kecamatan: item.id_kec,
-      Kode_Desa_Kelurahan: item.id_kel,
       Kode_BS: item.id_bs,
-      Alamat: item.alamat,
-      Tim_Pencacah: item.id_tim,
-      No_BF: item.no_bf,
-      No_BS: item.no_bs,
+      Tim_Pencacah: item.nama_tim,
+      NIM_Pencacah: item.nim_pencacah,
+      Nama_Pencacah: item.nama,
+      No_Segmen: item.no_segmen,
+      BF: item.no_bf,
+      BS: item.no_bs,
       No_urut_ruta: item.no_urut_ruta,
+      No_urut_eligible: item.no_urut_ruta_egb,
       Nama_KRT: item.nama_krt,
+      Jumlah_genZ_anak: item.jml_genz_anak,
+      Jumlah_genZ_dewasa: item.jml_genz_dewasa,
+      Alamat: item.alamat,
       Lat: item.lat,
       Long: item.long,
     };

@@ -1,6 +1,6 @@
-import Link from "next/link"
+import Link from 'next/link';
 
-const { default: BasicTable } = require("@/app/components/BasicTable")
+const { default: BasicTable } = require('@/app/components/BasicTable');
 
 const columns = [
     {
@@ -31,10 +31,8 @@ const columns = [
     }
 ]
 
-const TableDes = ({data}) => {
-    return(
-        <BasicTable data={data} columns={columns}/>
-    )
-}
+const TableDes = ({ data }) => {
+  return <BasicTable data={data} columns={columns} />;
+};
 
 export default TableDes;
