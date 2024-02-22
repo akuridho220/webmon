@@ -39,7 +39,7 @@ const TableTim = ({ data }) => {
       header: 'Blok Sensus',
     },
     {
-      accessorKey: 'id_tim',
+      accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
     },
     {

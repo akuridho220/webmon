@@ -4,15 +4,25 @@ import TimDropdown from './dropdownTim';
 import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
-const TimSelect = ({ onSelect, dataListTim }) => {
+const TimSelect = ({ onSelect, dataListTim, selectedCategory, dataSampel, dataListing }) => {
   const handleTimSelect = (selectedTim) => {
     onSelect(selectedTim);
   };
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+  let dataToExport;
+  if (selectedCategory === 'listing') {
+    dataToExport = dataListing.map((element) => ({
+      Kode_BS: element.id_bs,
+      Tim: element.nama_tim,
+      Jumlah_listing: element.jumlah_listing,
+    }));
+  } else if (selectedCategory === 'sampel') {
+    dataToExport = dataSampel.map((element) => ({
+      Kode_BS: element.id_bs,
+      Tim: element.nama_tim,
+      Jumlah_listing: element.jumlah_listing,
+      Jumlah_sampel: element.jumlah_sampel,
+    }));
+  }
   const Export = () => {
     HandleExport(dataToExport, 'daftar-Tim');
   };

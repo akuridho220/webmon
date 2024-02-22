@@ -8,7 +8,7 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
         isOpen={isOpen}
         onRequestClose={onClose}
         contentLabel="Detail Modal"
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg md:w-3/5 w-[95%] overflow-y-auto max-md:max-h-full z-30"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg md:w-3/5 w-[95%] overflow-y-auto max-h-full z-30"
         overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
         ariaHideApp={false}
       >
@@ -21,7 +21,6 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
         <hr />
         <div className="flex flex-col items-center justify-center">
           <p className="text-center">Tim {dataPml[0].nama_tim}</p>
-          <p className="text-center mb-6">Lokus {dataPml[0].lokus}</p>
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col items-center text-sm md:text-base">

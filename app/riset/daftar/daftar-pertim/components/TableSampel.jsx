@@ -7,6 +7,30 @@ const { default: BasicTable } = require('@/app/components/BasicTable');
 const TableTim = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [dataPml, setDataPml] = useState(null);
+  const [dataPpl, setDataPpl] = useState(null);
+
+  const handleDetailButtonClick = async (row) => {
+    try {
+      // Get Data PML
+      const pml = await fetch(`${apiURL}riset/daftar/tim/pmlbytim/${row.id_tim}`, { cache: 'no-store' });
+      const resPml = await pml.json();
+      setDataPml(resPml);
+
+      // Get Data PPL
+      const ppl = await fetch(`${apiURL}riset/daftar/tim/pplbytim/${row.id_tim}`, { cache: 'no-store' });
+      const resPpl = await ppl.json();
+      setDataPpl(resPpl);
+    } catch (err) {
+      console.error('Error fetching data:', err);
+    }
+    setSelectedRow(row);
+    setIsOpen(true);
+  };
+
+  const handleCloseDetailModal = () => {
+    setIsOpen(false);
+  };
 
   const columns = [
     {
@@ -14,7 +38,7 @@ const TableTim = ({ data }) => {
       header: 'Blok Sensus',
     },
     {
-      accessorKey: 'id_tim',
+      accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
     },
     {
@@ -36,19 +60,10 @@ const TableTim = ({ data }) => {
     },
   ];
 
-  const handleDetailButtonClick = (row) => {
-    setSelectedRow(row);
-    setIsOpen(true);
-  };
-
-  const handleCloseDetailModal = () => {
-    setIsOpen(false);
-  };
-
   return (
     <>
       <BasicTable columns={columns} data={data} />
-      <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div>
+      <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} dataPml={dataPml} dataPpl={dataPpl} />}</div>
     </>
   );
 };
