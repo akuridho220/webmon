@@ -10,12 +10,14 @@ const WilayahSelect = ({ onSelect }) => {
   const handleKelurahanSelect = (selectedKel) => {};
   return (
           <>
-            <div className="flex items-center">
-              <KabupatenDropdown onSelect={handleKabupatenSelect} />
-              <div className="ml-4">
+            <div className="flex flex-col md:flex-row md:items-center">
+              <div className="mr-4 mb-3 md:mb-0" style={{ width: '310px' }}>
+                <KabupatenDropdown onSelect={handleKabupatenSelect} />
+              </div>
+              <div className="mr-4 mb-3 md:mb-0" style={{ width: '310px' }}>
                 <KecamatanDropdown onSelect={handleKecamatanSelect} />
               </div>
-              <div className="ml-4">
+              <div className="mr-4 mb-3 md:mb-0" style={{ width: '310px' }}>
                 <KelurahanDropdown onSelect={handleKelurahanSelect} />
               </div>
             </div>
