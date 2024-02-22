@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import DetailModal from './Detailmodal';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
 const TableTim = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
