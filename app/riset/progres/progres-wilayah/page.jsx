@@ -38,7 +38,7 @@ const getListKabupaten = async () => {
     const newData = data.map((item) => {
       return {
         ...item,
-        label: `Desa ${item.nama_kel}`,
+        label: `Desa/Kelurahan ${item.nama_kel}`,
         value: `${item.nama_kel}`,
       };
     });
