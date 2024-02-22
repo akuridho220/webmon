@@ -10,43 +10,43 @@ const fetchData = async (url) => {
 };
 
 const getListKabupaten = async () => {
-  const data = await fetchData(`${apiURL}riset/daftar/sampel/kab`);
+  const data = await fetchData(`${apiURL}kabupaten`);
   const newData = data.map((item) => {
     return {
       ...item,
       label: `Kabupaten ${item.nama_kab}`,
-      value: `${item.nama_kab}`,
+      value: `${item.id_kab}`,
     };
   });
   return newData;
 };
 
 const getListKecamatan = async () => {
-  const data = await fetchData(`${apiURL}riset/daftar/sampel/kec`);
+  const data = await fetchData(`${apiURL}kecamatan`);
   const newData = data.map((item) => {
     return {
       ...item,
       label: `Kecamatan ${item.nama_kec}`,
-      value: `${item.nama_kec}`,
+      value: `${item.id_kab}${item.id_kec}`,
     };
   });
   return newData;
 };
 
 const getListDesa = async () => {
-  const data = await fetchData(`${apiURL}riset/daftar/sampel/desa`);
+  const data = await fetchData(`${apiURL}desa`);
   const newData = data.map((item) => {
     return {
       ...item,
       label: `Desa ${item.nama_kel}`,
-      value: `${item.nama_kel}`,
+      value: `${item.id_kab}${item.id_kec}${item.id_kel}`,
     };
   });
   return newData;
 };
 
 const getData = async () => {
-  const [dataSampel, dataSampelSelesai] = await Promise.all([fetchData(`${apiURL}riset/daftar/tim/sampel`), fetchData(`${apiURL}riset/progres/tim`)]);
+  const [dataSampel, dataSampelSelesai] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/bs`), fetchData(`${apiURL}riset/progres/tim`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
     const matchingListing = dataSampelSelesai.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);

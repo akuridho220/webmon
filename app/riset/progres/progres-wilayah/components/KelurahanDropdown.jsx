@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useId} from "react";
 import Select from "react-select";
 
-const KelurahanDropdown = ({ onSelect }) => {
+const KelurahanDropdown = ({ dataListDesa, onSelect }) => {
   const options = [
     { value: "Kelurahan/Desa A", label: "Kelurahan/Desa A" },
     { value: "Kelurahan/Desa B", label: "Kelurahan/Desa B" },
@@ -39,11 +39,12 @@ const KelurahanDropdown = ({ onSelect }) => {
     <>
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: "2rem" }}>
         <Select
-          options={options}
+          options={dataListDesa}
           isSearchable={true}
           placeholder="Pilih Kelurahan/Desa"
           onChange={handleSelect}
           styles={customStyles}
+          instanceId={useId()}
         />
       </div>
     </>

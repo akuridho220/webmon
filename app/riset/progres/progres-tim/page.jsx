@@ -46,7 +46,7 @@ const getData = async () => {
 
 //   // setDone(totalSampelSelesai);
 //   // setMax(totalJumlahSampel);
-//   return (dataAwal = [totalJumlahSampel, totalSampelSelesai]);
+//   return [totalJumlahSampel, totalSampelSelesai];
 // };
 export default async function ProgresTim() {
   const judul = 'Progres Tim';

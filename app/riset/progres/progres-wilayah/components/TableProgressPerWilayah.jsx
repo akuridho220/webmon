@@ -13,21 +13,21 @@ const datas = [
   }*/
 ];
 
-const TableWilayah = () => {
+const TableWilayah = ({data}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
-      accessorKey: "blokSensus",
+      accessorKey: "id_bs",
       header: "Blok Sensus",
     },
     {
-      accessorKey: "sampelSelesai",
+      accessorKey: "jumlah_sampel_selesai",
       header: "Sampel Selesai",
     },
     {
-      accessorKey: "jumlahSampel",
+      accessorKey: "jumlah_sampel",
       header: "Jumlah Sampel",
     },
     {
@@ -35,8 +35,8 @@ const TableWilayah = () => {
       header: "Progress",
       cell: ({ cell }) => (
         <>
-        {Math.round(cell.row.original.sampelSelesai/cell.row.original.jumlahSampel * 100)}%
-        <ProgressBar done={cell.row.original.sampelSelesai} max={cell.row.original.jumlahSampel} />
+        {Math.round(cell.row.original.jumlah_sampel_selesai/cell.row.original.jumlah_sampel * 100)}%
+        <ProgressBar done={cell.row.original.jumlah_sampel_selesai} max={cell.row.original.jumlah_sampel} />
         </>
       ),
     },
@@ -62,8 +62,8 @@ const TableWilayah = () => {
 
   return (
     <>
-      <BasicTable columns={columns} data={datas} />
-      <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div>
+      <BasicTable columns={columns} data={data} />
+      {/* <div className="w-[90%] bg-[#d93f57] bg-opacity-50">{selectedRow && <DetailModal isOpen={isOpen} onClose={handleCloseDetailModal} data={selectedRow} />}</div> */}
     </>
   );
 };

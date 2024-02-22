@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useId} from "react";
 import Select from "react-select";
 
-const KecamatanDropdown = ({ onSelect }) => {
+const KecamatanDropdown = ({ dataListKec, onSelect }) => {
   const options = [
     { value: "Kecamatan A", label: "Kecamatan A" },
     { value: "Kecamatan B", label: "Kecamatan B" },
@@ -39,11 +39,12 @@ const KecamatanDropdown = ({ onSelect }) => {
     <>
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: "2rem" }}>
         <Select
-          options={options}
+          options={dataListKec}
           isSearchable={true}
           placeholder="Pilih Kecamatan"
           onChange={handleSelect}
           styles={customStyles}
+          instanceId={useId()}
         />
       </div>
     </>

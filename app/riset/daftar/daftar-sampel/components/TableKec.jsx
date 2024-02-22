@@ -23,7 +23,7 @@ const columns = [
             return (
                 <div className="bg-white flex justify-center">
                     <button className="bg-accent-800 text-white rounded-lg px-4 py-1 text-sm text-center hover:bg-accent-900" onClick={() => navigator.clipboard.writeText(data.kodeKec)}>
-                        <Link href={{pathname:`/riset/daftar/daftar-sampel/detail-sampel/kec/${data.kode_kec_full}`, query:{nama: `${data.nama_kec}`}}}>Detail</Link>
+                        <Link href={{pathname:`/riset/daftar/daftar-sampel/detail-sampel/kec/${data.id_bs}`, query:{nama: `${data.nama_kec}`}}}>Detail</Link>
                     </button>
                 </div>
             )
