@@ -1,7 +1,26 @@
 import React from "react";
 import Select from "react-select";
 
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
+const fetchData = async (url) => {
+  const response = await fetch(url, { next: { revalidate: 60 } });
+  return await response.json();
+};
+
+const getListKabupaten = async () => {
+  const data = await fetchData(`${apiURL}riset/daftar/sampel/kab`);
+  const newData = data.map((item) => {
+    return {
+      ...item,
+      label: `Kabupaten ${item.nama_kab}`,
+      value: `${item.nama_kab}`,
+    };
+  });
+  return newData;
+};
+
 const KabupatenDropdown = ({ onSelect }) => {
+  const dataListKab = getListKabupaten();
   const options = [
     { value: "Kabupaten A", label: "Kabupaten A" },
     { value: "Kabupaten B", label: "Kabupaten B" },

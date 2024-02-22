@@ -9,17 +9,17 @@ const WilayahSelect = ({ onSelect }) => {
   const handleKecamatanSelect = (selectedKec) => {};
   const handleKelurahanSelect = (selectedKel) => {};
   return (
-    <>
-      <div className="flex flex-col items-center text-sm md:text-base w-full">
-        <KabupatenDropdown onSelect={handleKabupatenSelect} />
-        <div className="mt-4">
-          <KecamatanDropdown onSelect={handleKecamatanSelect} />
-        </div>
-        <div className="mt-4">
-          <KelurahanDropdown onSelect={handleKelurahanSelect} />
-        </div>
-      </div>
-    </>
+          <>
+            <div className="flex items-center">
+              <KabupatenDropdown onSelect={handleKabupatenSelect} />
+              <div className="ml-4">
+                <KecamatanDropdown onSelect={handleKecamatanSelect} />
+              </div>
+              <div className="ml-4">
+                <KelurahanDropdown onSelect={handleKelurahanSelect} />
+              </div>
+            </div>
+          </>
   );
 };
 
