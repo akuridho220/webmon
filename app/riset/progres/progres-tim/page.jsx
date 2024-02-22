@@ -13,7 +13,7 @@ const getListTim = async () => {
   const newData = data.map((item) => {
     return {
       ...item,
-      label: `TIM ${item.id_tim}`,
+      label: `${item.nama_tim}`,
       value: `${item.id_tim}`,
     };
   });
@@ -35,6 +35,19 @@ const getData = async () => {
   return mergedData;
 };
 
+// const countProgres = (datanya) => {
+//   let totalSampelSelesai = 0;
+//   let totalJumlahSampel = 0;
+
+//   datanya.forEach((data) => {
+//     totalSampelSelesai += data.sampelSelesai;
+//     totalJumlahSampel += data.jumlahSampel;
+//   });
+
+//   // setDone(totalSampelSelesai);
+//   // setMax(totalJumlahSampel);
+//   return (dataAwal = [totalJumlahSampel, totalSampelSelesai]);
+// };
 export default async function ProgresTim() {
   const judul = 'Progres Tim';
 
@@ -42,11 +55,12 @@ export default async function ProgresTim() {
   const dataListTim = getListTim();
 
   const [dataProgres, listTim] = await Promise.all([data, dataListTim]);
+  // console.log(countProgres(dataProgres));
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <Content data={dataProgres} listTim={listTim} />
+        <Content data={dataProgres} listTim={listTim} dataAwal={[100, 90]} />
       </Layout>
     </>
   );

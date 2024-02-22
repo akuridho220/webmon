@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import KecamatanDropdown from "./KecamatanDropdown";
-import KabupatenDropdown from "./KabupatenDropdown";
-import KelurahanDropdown from "./KelurahanDropdown";
+'use client';
+import React from 'react';
+import KecamatanDropdown from './KecamatanDropdown';
+import KabupatenDropdown from './KabupatenDropdown';
+import KelurahanDropdown from './KelurahanDropdown';
 
 const WilayahSelect = ({ onSelect }) => {
   const handleKabupatenSelect = (selectedKab) => {};

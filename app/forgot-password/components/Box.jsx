@@ -7,10 +7,14 @@ import Axios from 'axios';
 
 const Box = () => {
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // State untuk mengontrol loading
+
   const authServer = process.env.NEXT_PUBLIC_AUTHSERVER_URL;
+
   const handleForgot = async (e) => {
     e.preventDefault();
     const thisemail = email;
+    setIsLoading(true); // Set loading menjadi true saat permintaan dikirim
     try {
       const response = await Axios.post(`${authServer}forgotPassword`, {
         email: thisemail,
@@ -24,6 +28,8 @@ const Box = () => {
           return null;
         }
       });
+
+      setIsLoading(false); // Set loading menjadi false saat respons diterima
 
       if (response.data.message == 'Password reset email sent successfully.') {
         Swal.fire({
@@ -41,8 +47,10 @@ const Box = () => {
       }
     } catch (error) {
       console.error('Error calling reset-password API:', error);
+      setIsLoading(false); // Set loading menjadi false jika ada kesalahan
     }
   };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="flex-col justify-center sm:px-6 py-4 px-3 bg-white w-max rounded-2xl">
@@ -79,7 +87,7 @@ const Box = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primary-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Kirim Link Reset Password
+                {isLoading ? 'Loading...' : 'Kirim Link Reset Password'} {/* Menampilkan loader jika isLoading true */}
               </button>
             </div>
           </form>

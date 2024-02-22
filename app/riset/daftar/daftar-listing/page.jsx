@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@/app/layout/layout';
 import PageTitle from '@/app/components/PageTitle';
 import SelectTabel from './components/SelectTable';
-import { data } from 'autoprefixer';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const fetchData = async (url) => {
@@ -57,7 +56,7 @@ const getDataKab = async () => {
 const getDataAll = async () => {
   const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/all`)]);
   return dataListing;
-}
+};
 
 const judul = 'Daftar Listing';
 export default async function DaftarListing() {
@@ -65,14 +64,14 @@ export default async function DaftarListing() {
   const dataKec = getDataKec();
   const dataDesa = getDataDesa();
   const dataKab = getDataKab();
-  const dataAll = getDataAll()
+  const dataAll = getDataAll();
 
   const [bs, kec, desa, kab, all] = await Promise.all([dataBs, dataKec, dataDesa, dataKab, dataAll]);
   return (
     <>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <SelectTabel dataBs={bs} dataKec={kec} dataDesa={desa} dataKab={kab} dataAll={all}/>
+        <SelectTabel dataBs={bs} dataKec={kec} dataDesa={desa} dataKab={kab} dataAll={all} />
       </Layout>
     </>
   );

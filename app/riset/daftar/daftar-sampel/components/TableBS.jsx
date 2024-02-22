@@ -5,7 +5,7 @@ const { default: BasicTable } = require("@/app/components/BasicTable")
 const columns = [
     {
         accessorKey: 'kode_bs_full',
-        header: 'ID Blok Sensus'
+        header: 'Blok Sensus'
     },
     {
         accessorKey: 'nama_tim',

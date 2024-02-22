@@ -99,7 +99,7 @@
 
 ## Tentang Web Monitoring
 
-Web Monitoring adalah aplikasi untuk memantau progres listing dan pencacahan setiap kajian pada setiap riset pada kegiatan Praktik Kerja Lapangan (PKL) Politeknik Statistika STIS tahun akademik 2024/2025. Semoga dengan adanya dokumentasi dapat membantu dalam pengembangan Web Monitoring untuk PKL angkatan berikutnya.
+Web Monitoring adalah aplikasi untuk memantau progres listing dan pencacahan setiap kajian pada setiap riset pada kegiatan Praktik Kerja Lapangan (PKL) Politeknik Statistika STIS tahun akademik 2023/2024. Semoga dengan adanya dokumentasi dapat membantu dalam pengembangan Web Monitoring untuk PKL angkatan berikutnya.
 
 <a name="built-with"></a>
 
@@ -127,7 +127,7 @@ Web Monitoring PKL D-IV 63 tahun 2024 dibangun dengan beberapa teknologi
 
 ### Prasyarat
 
-Database yang digunakan web monitoring meliputi `database capi ` dan `database khusus webmon` . Untuk link backup databasenya bisa dilihat [disini.](https://git.stis.ac.id/fosil-spd-pkl/62/backup-database-pkl-62)
+Database yang digunakan web monitoring meliputi `database capi ` dan `database webmon` . Untuk link backup databasenya bisa dilihat [disini.](https://git.stis.ac.id/fosil-spd-pkl/62/backup-database-pkl-62)
 
 <a name="installation"></a>
 
@@ -182,11 +182,10 @@ disini
 
 Untuk konten yang ditampilkan itu didapat dari database mana, berikut penjelasannya :
 
-- Untuk mengambil akun login untuk web monitoring, lihat dari tabel `user` pada database `pkl62_monitoring`
-- Untuk mengambil daftar listing , lihat dari tabel `rumahtangga` pada database `pkl_wilayah`
-- Untuk mengambil daftar sampel , lihat dari tabel `datast` pada database `pkl_wilayah`
-- Untuk mengambil daftar sampel yang telah selesai dicacah (ada pada data ODK) , lihat dari tabel `kuesioner_core` pada database `aggregate`
-- Untuk mencocokan sampel yang ada di database `pkl_wilayah` dan sampel yang selesai pada `aggregate`, PKL D-IV 62 menggunakan indikator `kode blok sensus` dan `nomor urut rumah tangga` yang ada pada kedua tabel
+- Untuk mengambil akun login untuk web monitoring, lihat dari tabel `users` pada database `webmon`
+- Untuk mengambil daftar listing , lihat dari tabel `rumahtangga` pada database `capi`
+- Untuk mengambil daftar sampel , lihat dari tabel `datast` pada database `capi`
+- Untuk mengambil daftar sampel yang telah selesai dicacah , lihat dari tabel `datast` pada database `capi`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,19 +199,20 @@ Untuk konten yang ditampilkan itu didapat dari database mana, berikut penjelasan
 
 ### Kendala
 
-- Query yang digunakan untuk mengambil sampel yang selesai dicacah kurang optimal, sehingga tidak dapat di handle oleh server
-- Beberapa riset memiliki request pada hari-h PKL
+- Query belum diuji dalam skala besar sehingga belum tau skalabilitas dan realibilitasnya
+- Database Capi sering berubah mengikuti `keinginan anak modul`
 
 <a name="saran"></a>
 
 ### Saran
 
-- Gunakan LARAVEL, CodeIgniter 4 tidak cukup powerful
-- Jika masih menggunakan CodeIgniter 4, lakukan optimasi query supaya tidak membebani server.
-- Sarankan ke subdivisi CAPI, di ODKAggregate atau di database `aggregate` itu tolong include column `kodeRuta`. sehingga dapat dengan mudah dicocokkan sama database `pkl_wilayah`. Alhasil sampel yang telah dicacah dapat diidentifikasi dengan mudah
+- Jika ingin tetap menggunakan next.js sebagai FE dan Express.js sebagai web services sebaiknya pahami dan pelajari best practicenya agar mudah dimaintenance.
+- Jika merasa lebih mudah menggunakan framework php seperti Laravel atau CodeIgniter maka perhatikkan optimalisasi querynya
+- Pelajari bagaimana cara mengambil data dari ODK Central sehingga nanti bisa langsung akses dan menampilkan isian data dari ODK ke webmon
+- Pertimbangkan ke CAPI apakah masih mau menggunakan ODK Central atau downradge ke ODK Aggregate mengingat kurangnya persiapan saat kemarin migrasi ke Central
 - Kerjakan apa yang bisa dikerjakan, jangan tunggu-tungguan sama CAPI. kalau database nya belum ada, teman-teman bisa membuat template front end nya dulu
 - Kalau bisa tambahkan fitur lain seperti eligible per wilayah , eligible per tim, dan lain sebagainya.
-- Perbagus UI, Utamakan UX
+- Perbagus UI, Utamakan UX (Sering sering diskusi sama pubdok dan juga dosen)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

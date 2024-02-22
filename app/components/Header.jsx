@@ -64,7 +64,7 @@ export default function Header() {
   return (
     <>
       {/* Header Dekstop */}
-      <header className="w-full items-center bg-putih-200 h-20 lg:flex fixed top-0 right-0 justify-between z-10 shadow-md hidden">
+      <header className="w-full items-center bg-putih-200/95 h-20 lg:flex fixed top-0 right-0 justify-between z-10 shadow-md hidden">
         <div className="flex flex-row w-2/3 ml-8 justify-start">
           <Link href={'/dashboard'} className="flex flex-row items-center h-auto w-full px-4">
             <div className="py-2 pr-2 flex">
@@ -99,12 +99,12 @@ export default function Header() {
       {/* Header Dekstop */}
 
       {/* Header Mobile */}
-      <header className="w-full items-center bg-putih-200 h-16 flex fixed top-0 right-0 justify-between z-10 lg:hidden">
+      <header className="w-full items-center bg-putih-200/95 h-16 flex fixed top-0 right-0 justify-between z-10 lg:hidden">
         <div className="w-fit text-primary-900 flex justify-start">
           <div className="ml-6">{isMobileNavVisible ? <Icon.X onClick={toggleMobileNav} /> : <Icon.AlignJustify onClick={toggleMobileNav} />}</div>
         </div>
         <div className="searchBar w-2/3 ml-4"></div>
-        <div className="profile flex w-[20%] md:w-[15%] h-full px-2">
+        <div className="profile flex w-20 h-full px-2">
           <div className="text-primary-900 w-full  h-full relative">
             <Image onClick={toggleMenuOpen} src="/img/logo/logo-icon.png" fill={true} alt="maskot2" className="float-end" />
             {isMenuOpen ? (

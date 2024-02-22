@@ -3,6 +3,7 @@ import Wellcome from './components/Wellcome';
 import Waktu from './components/Waktu';
 import Summary from './components/Summary';
 import Progress from './components/ProgressKue';
+import ProgressKueWilayah from './components/ProgressKueWilayah';
 import { data } from 'autoprefixer';
 
 const apiURL = process.env.NEXT_PUBLIC_API_URL;
@@ -20,9 +21,15 @@ const getProgres = async () => {
   return progress;
 };
 
+const getProgressWilayah = async () => {
+  const [progressWilayah] = await Promise.all([fetchData(`${apiURL}dashboard/progress-kab`)]);
+  return progressWilayah;
+};
+
 export default async function Dashboard() {
   const dataProgres = await getProgres();
   const dataListing = await getTotalListing();
+  const dataProgressWilayah = await getProgressWilayah();
   const tercacah = dataProgres.tercacah ?? 0;
   const eligible = dataListing.total_eligible ?? 0;
   return (
@@ -40,6 +47,9 @@ export default async function Dashboard() {
           </div>
           <div className="z-20" data-aos="fade-up">
             <Progress Selesai={tercacah} totalSampel={dataProgres.total} />
+          </div>
+          <div className="z-20" data-aos="fade-up">
+            <ProgressKueWilayah data={dataProgressWilayah} />
           </div>
         </div>
       </Layout>

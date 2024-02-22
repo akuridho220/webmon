@@ -37,12 +37,12 @@ export default async function DetailSampel({ params, searchParams }) {
     <ModalProvider>
       <Layout className="w-full min-h-screen overflow-x-hidden">
         <PageTitle judul={judul} />
-        <div className="w-[90%]">
-          <BreadCrumbs />
-        </div>
         <div className="flex flex-col w-[85%] mx-auto rounded-xl space-y-4 bg-primary-600 px-6 pb-5" style={{ marginTop: '1em' }}>
           <div className="flex flex-col pt-4">
-            <Header />
+            <div className="text-white flex justify-between items-center">
+              <BreadCrumbs />
+              <Header />
+            </div>
             <Table data={await getDataDetail()} />
           </div>
         </div>
