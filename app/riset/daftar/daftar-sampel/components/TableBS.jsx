@@ -36,7 +36,6 @@ const columns = [
 ];
 
 const TableBS = ({ data }) => {
-  console.log(data);
   return <BasicTable data={data} columns={columns} />;
 };
 

@@ -9,7 +9,6 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   let dataToExport;
-  console.log(dataBs, dataKec, dataDesa, dataKab, dataAll);
   if (selectedCategory === 'blok sensus' || selectedCategory === null) {
     dataToExport = dataBs.map((element) => ({
       Kode_BS: element.id_bs,

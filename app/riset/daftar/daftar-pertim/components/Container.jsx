@@ -2,7 +2,7 @@
 import ButtonTim from './buttonTim';
 import TimSelect from './selectTim';
 import Table from './TableSelect';
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 
 const Container = ({ dataListing, dataSampel, dataListTim }) => {
   const [table, setTable] = useState();

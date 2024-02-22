@@ -4,7 +4,6 @@ import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
 export default function Header({ data }) {
-  console.log(data);
   const dataToExport = data.map((item) => {
     return {
       Kode_Ruta: item.kode_ruta,

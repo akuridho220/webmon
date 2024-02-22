@@ -1,7 +1,7 @@
-"use client";
-import React, { useState, useEffect, useCallback } from "react";
+'use client';
+import React, { useState, useEffect, useCallback } from 'react';
 
-const ButtonTim = ({onSelect}) => {
+const ButtonTim = ({ onSelect }) => {
   const [activeButton, setActiveButton] = useState(null);
 
   const handleSelect = (value) => {
@@ -10,34 +10,40 @@ const ButtonTim = ({onSelect}) => {
 
   const changeColor = useCallback((button) => {
     if (activeButton) {
-      activeButton.classList.remove("bg-accent-800");
-      activeButton.classList.add("bg-accent-700");
+      activeButton.classList.remove('bg-accent-800');
+      activeButton.classList.add('bg-accent-700');
     }
 
-    button.classList.remove("bg-accent-700");
-    button.classList.add("bg-accent-800");
+    button.classList.remove('bg-accent-700');
+    button.classList.add('bg-accent-800');
 
     setActiveButton(button);
   });
 
   useEffect(() => {
-    const defaultButton = document.querySelector(".default-active");
+    const defaultButton = document.querySelector('.default-active');
     if (defaultButton) {
       changeColor(defaultButton);
     }
   }, [changeColor]);
 
   return (
-    <div className="flex h-8 mt-10">
+    <div className="flex h-8 mt-10 font-semibold">
       <button
         className="w-1/2 p-2 flex items-center justify-center text-white  hover:bg-accent-900 focus:outline-none default-active rounded-l-xl"
-        onClick={(e) => {changeColor(e.target); handleSelect('listing')}}
+        onClick={(e) => {
+          changeColor(e.target);
+          handleSelect('listing');
+        }}
       >
         Listing
       </button>
       <button
         className="w-1/2 p-2 flex items-center justify-center text-white bg-accent-700 hover:bg-accent-900 focus:outline-none rounded-r-xl"
-        onClick={(e) => {changeColor(e.target); handleSelect('sampel')}}
+        onClick={(e) => {
+          changeColor(e.target);
+          handleSelect('sampel');
+        }}
       >
         Sampel
       </button>
