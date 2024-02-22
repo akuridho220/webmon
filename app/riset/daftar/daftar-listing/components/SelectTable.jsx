@@ -13,7 +13,7 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
   if (selectedCategory === 'blok sensus' || selectedCategory === null) {
     dataToExport = dataBs.map((element) => ({
       Kode_BS: element.id_bs,
-      Tim: element.id_tim,
+      Tim: element.nama_tim,
       Jumlah_listing: element.jumlah_listing,
     }));
   } else if (selectedCategory === 'kecamatan') {
@@ -24,7 +24,7 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
     }));
   } else if (selectedCategory === 'desa/kelurahan') {
     dataToExport = dataDesa.map((element) => ({
-      Kode_Desa: element.id_bs,
+      Kode_BS: element.id_bs,
       Desa_Kelurahan: element.nama_kel,
       Jumlah_listing: element.jumlah_listing,
     }));
@@ -35,7 +35,23 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
       Jumlah_listing: element.jumlah_listing,
     }));
   } else if (selectedCategory === 'keseluruhan') {
-    dataToExport = null;
+    dataToExport = dataAll.map((element) => ({
+      Kode_ruta: element.kode_ruta,
+      NIM_Pencacah: element.nim_pencacah,
+      Nama_Pencacah: element.nama,
+      Kode_BS: element.id_bs,
+      BF: element.bf,
+      BS: element.bs,
+      No_Segmen: element.no_segmen,
+      No_urut_ruta: element.no_urut_ruta,
+      No_urut_eligible: element.no_urut_ruta_egb,
+      Nama_KRT: element.nama_krt,
+      Alamat: element.alamat,
+      Jumlah_genz_anak: element.jml_genz_anak,
+      Jumlah_genz_dewasa: element.jml_genz_dewasa,
+      lat: element.lat,
+      long: element.long,
+    }));
   }
 
   const Export = () => {

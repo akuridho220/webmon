@@ -8,11 +8,56 @@ import HandleExport from '@/app/components/HandleExport';
 const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+  let dataToExport;
+  console.log(dataBs, dataKec, dataDesa, dataKab, dataAll);
+  if (selectedCategory === 'blok sensus' || selectedCategory === null) {
+    dataToExport = dataBs.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kode_ruta: element.kode_ruta,
+      Tim: element.nama_tim,
+      Jumlah_listing: element.jumlah_listing,
+      Jumlah_sampel: element.jumlah_sampel,
+    }));
+  } else if (selectedCategory === 'kecamatan') {
+    dataToExport = dataKec.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kecamatan: element.nama_kec,
+      Jumlah_terlisting: element.jumlah_listing,
+      Jumlah_sampel: element.jumlah_sampel,
+    }));
+  } else if (selectedCategory === 'desa/kelurahan') {
+    dataToExport = dataDesa.map((element) => ({
+      Kode_BS: element.id_bs,
+      Desa_Kelurahan: element.nama_kel,
+      Jumlah_terlisting: element.jumlah_listing,
+      Jumlah_sampel: element.jumlah_sampel,
+    }));
+  } else if (selectedCategory === 'kabupaten') {
+    dataToExport = dataKab.map((element) => ({
+      Kode_BS: element.id_bs,
+      Kabupaten_Kota: element.nama_kabupaten,
+      Jumlah_terlisting: element.jumlah_listing,
+      Jumlah_sampel: element.jumlah_sampel,
+    }));
+  } else if (selectedCategory === 'keseluruhan') {
+    dataToExport = dataAll.map((element) => ({
+      Kode_ruta: element.kode_ruta,
+      NIM_Pencacah: element.nim_pencacah,
+      Nama_Pencacah: element.nama,
+      Kode_BS: element.id_bs,
+      BF: element.no_bf,
+      BS: element.no_bs,
+      No_Segmen: element.no_segmen,
+      No_urut_ruta: element.no_urut_ruta,
+      No_urut_eligible: element.no_urut_ruta_egb,
+      Nama_KRT: element.nama_krt,
+      Alamat: element.alamat,
+      Jumlah_genz_anak: element.jml_genz_anak,
+      Jumlah_genz_dewasa: element.jml_genz_dewasa,
+      lat: element.lat,
+      long: element.long,
+    }));
+  }
   const Export = () => {
     HandleExport(dataToExport, 'Daftar-Sampel');
   };
