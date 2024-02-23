@@ -28,7 +28,7 @@ const DetailProgresTim = async ({ params }) => {
             {/* <TableDetailProgres /> */}
             <div className="text-white flex justify-between items-center">
               <BreadCrumbs />
-              <Header />
+              <Header data={dataDetail} />
             </div>
             <TableDetailProgres data={dataDetail} />
           </div>

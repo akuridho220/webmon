@@ -13,11 +13,15 @@ const Content = ({ data, listTim, dataAwal }) => {
   const [done, setDone] = useState(dataAwal[1]);
   const [max, setMax] = useState(dataAwal[0]);
 
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+  const dataToExport = data.map((item) => {
+    return {
+      'Blok Sensus': item.id_bs,
+      'Tim Pencacah': item.nama_tim,
+      'Sampel Selesai': item.jumlah_sampel_selesai,
+      'Jumlah Sampel': item.jumlah_sampel,
+      Progress: `${Math.round((item.jumlah_sampel_selesai / item.jumlah_sampel) * 100)}%`,
+    };
+  });
   const Export = () => {
     HandleExport(dataToExport, 'Progres-Tim');
   };

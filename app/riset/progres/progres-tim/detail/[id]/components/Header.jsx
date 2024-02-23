@@ -4,13 +4,17 @@ import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 // import ModalBS from './detailBS';
 
-export default function Header() {
+export default function Header({ data }) {
   // const [showModalBS, setShowModalBS] = useState(false);
-  const dataToExport = [
-    { id: 1, name: 'John', age: 30 },
-    { id: 2, name: 'Jane', age: 25 },
-    { id: 3, name: 'Doe', age: 40 },
-  ];
+  const dataToExport = data.map((item) => {
+    return {
+      'Nomor Rumah Tangga': item.kode_ruta,
+      'NIM Pencacah': item.nim_pencacah,
+      'Nama Pencacah': item.nama_pencacah,
+      'Nama KRT': item.nama_krt,
+      'Status Cacah': item.status == 2 ? 'Tercacah' : 'Belum Tercacah',
+    };
+  });
   const Export = () => {
     HandleExport(dataToExport, 'Detail-Progres-Tim');
   };
