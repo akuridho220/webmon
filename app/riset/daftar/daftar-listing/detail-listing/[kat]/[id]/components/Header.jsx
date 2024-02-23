@@ -22,6 +22,10 @@ export default function Header({ data }) {
       Alamat: item.alamat,
       Lat: item.lat,
       Long: item.long,
+      Tanggal_listing: item.tgl_listing,
+      Tanggal_Periksa: item.tgl_periksa,
+      Catatan_BS: item.catatan_bs,
+      Catatan_Ruta: item.catatan_ruta,
     };
   });
   const Export = () => {

@@ -138,7 +138,7 @@ const InformasiSampel = ({ onClose, data }) => {
           </div> */}
 
           <div className="flex py-6 relative overflow-hidden">
-            <iframe src={pos} width="900" height="450" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src={pos} className="w-full" height={500} style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
