@@ -10,23 +10,6 @@ const Content = ({ data, listTim, dataAwal }) => {
   const [dataCacah, setDataCacah] = useState(data);
   const [done, setDone] = useState(dataAwal[1]);
   const [max, setMax] = useState(dataAwal[0]);
-
-  const dataToExport = data.map((item) => {
-    return {
-      'Blok Sensus': item.id_bs,
-      'Tim Pencacah': item.nama_tim,
-      'Sampel Selesai': item.jumlah_sampel_selesai,
-      'Jumlah Sampel': item.jumlah_sampel,
-      Progress: `${Math.round((item.jumlah_sampel_selesai / item.jumlah_sampel) * 100)}%`,
-    };
-  });
-  const Export = () => {
-    HandleExport(dataToExport, 'Progres-Tim');
-  };
-  const filterDataByTim = (data, tim) => {
-    return data.filter((item) => item.id_tim === tim);
-  };
-
   // useEffect(() => {
   //   countProgres(dataCacah);
   // }, [dataCacah]);
@@ -46,7 +29,6 @@ const Content = ({ data, listTim, dataAwal }) => {
     setMax(totalJumlahSampel);
   };
 
-
   const handleTimSelect = (selectedTim) => {
     const filteredDataListing = filterDataByTim(data, selectedTim);
 
@@ -64,7 +46,7 @@ const Content = ({ data, listTim, dataAwal }) => {
             <button className=" pl-4">Export</button>
           </div>
         </div> */}
-        <TimSelect dataTim={listTim} onSelect={handleTimSelect}/>
+        <TimSelect data={data} dataTim={listTim} onSelect={handleTimSelect} />
         <ProgressBar detail={true} done={done} max={max} />
         <TableTim data={dataCacah} />
       </div>

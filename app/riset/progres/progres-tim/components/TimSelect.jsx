@@ -1,17 +1,29 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 // import TimDropdown from "@/app/riset/daftar/daftar-pertim/components/dropdownTim";
-import TimDropdown from "./TimDropdown";
+import TimDropdown from './TimDropdown';
 import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
-const TimSelect = ({ onSelect, dataTim }) => {
+const TimSelect = ({ data, onSelect, dataTim }) => {
   const handleTimSelect = (selectedTim) => {
     onSelect(selectedTim);
   };
-  //console.log(dataTim);
+
+  const dataToExport = data.map((item) => {
+    return {
+      'Blok Sensus': item.id_bs,
+      'Tim Pencacah': item.nama_tim,
+      'Sampel Selesai': item.jumlah_sampel_selesai,
+      'Jumlah Sampel': item.jumlah_sampel,
+      Progress: `${Math.round((item.jumlah_sampel_selesai / item.jumlah_sampel) * 100)}%`,
+    };
+  });
   const Export = () => {
-    HandleExport();
+    HandleExport(dataToExport, 'Progres-Tim');
+  };
+  const filterDataByTim = (data, tim) => {
+    return data.filter((item) => item.id_tim === tim);
   };
   return (
     //<TimDropdown onSelect={handleTimSelect} data={dataTim}/>
