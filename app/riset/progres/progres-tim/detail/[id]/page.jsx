@@ -26,9 +26,9 @@ const DetailProgresTim = async ({ params }) => {
         <div className="flex flex-col w-[90%] mx-auto rounded-xl space-y-4 overflow-hidden bg-primary-900/95 px-6 pb-5" style={{ marginTop: '1em' }}>
           <div className="flex flex-col pt-4">
             {/* <TableDetailProgres /> */}
-            <div className="text-white flex justify-between items-center">
+            <div className="text-white md:flex justify-between items-center">
               <BreadCrumbs />
-              <Header />
+              <Header data={dataDetail} />
             </div>
             <TableDetailProgres data={dataDetail} />
           </div>
