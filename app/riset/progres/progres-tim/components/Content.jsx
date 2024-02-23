@@ -3,7 +3,7 @@ import TimSelect from './TimSelect';
 import TableTim from './TableProgressPerTim';
 import * as Icon from 'react-feather';
 import ProgressBar from './ProgressBar';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import HandleExport from '@/app/components/HandleExport';
 
 const Content = ({ data, listTim, dataAwal }) => {
@@ -27,40 +27,32 @@ const Content = ({ data, listTim, dataAwal }) => {
     return data.filter((item) => item.id_tim === tim);
   };
 
+  // useEffect(() => {
+  //   countProgres(dataCacah);
+  // }, [dataCacah]);
+
+  // let dataFilter = [];
+
   const countProgres = (datanya) => {
     let totalSampelSelesai = 0;
     let totalJumlahSampel = 0;
 
     datanya.forEach((data) => {
-      totalSampelSelesai += data.sampelSelesai;
-      totalJumlahSampel += data.jumlahSampel;
+      totalSampelSelesai += parseInt(data.jumlah_sampel_selesai);
+      totalJumlahSampel += parseInt(data.jumlah_sampel);
     });
 
     setDone(totalSampelSelesai);
     setMax(totalJumlahSampel);
   };
 
-  // useEffect(() => {
-  //   if (selectedTim !== null) {
-  //     const filteredDataListing = filterDataByTim(dataCacah, selectedTim);
-  //     setDataCacah(filteredDataListing);
-  //   }
-  // }, [selectedTim, dataCacah]);
-
-  // useEffect(() => {
-  //   countProgres(dataCacah);
-  // }, [dataCacah]);
 
   const handleTimSelect = (selectedTim) => {
     const filteredDataListing = filterDataByTim(data, selectedTim);
 
     countProgres(filteredDataListing);
-
     setDataCacah(filteredDataListing);
   };
-  // const handleTimSelect = (selectedTim) => {
-  //   setSelectedTim(selectedTim);
-  // };
 
   return (
     <>
@@ -74,7 +66,7 @@ const Content = ({ data, listTim, dataAwal }) => {
         </div> */}
         <TimSelect dataTim={listTim} onSelect={handleTimSelect}/>
         <ProgressBar detail={true} done={done} max={max} />
-        <TableTim data={dataCacah} onSelect={handleTimSelect} />
+        <TableTim data={dataCacah} />
       </div>
     </>
   );
