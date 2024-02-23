@@ -2,7 +2,7 @@
 import ButtonTim from './buttonTim';
 import TimSelect from './selectTim';
 import Table from './TableSelect';
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 
 const Container = ({ dataListing, dataSampel, dataListTim }) => {
   const [table, setTable] = useState();
@@ -57,7 +57,7 @@ const Container = ({ dataListing, dataSampel, dataListTim }) => {
     <>
       <div className="bg-primary-900/95 w-[90%] mt-8 px-6 rounded-xl overflow-hidden">
         <ButtonTim onSelect={handleTableChange} />
-        <TimSelect dataListTim={dataListTim} onSelect={handleTimSelect} />
+        <TimSelect dataListTim={dataListTim} onSelect={handleTimSelect} selectedCategory={table} dataListing={listing} dataSampel={sampel} />
         {/* <TimSelect dataListTim={dataListTim} onSelect={fetchNewData}/> */}
         <Table selectedCategory={table} dataListing={listing} dataSampel={sampel} />
       </div>

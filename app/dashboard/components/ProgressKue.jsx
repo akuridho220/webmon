@@ -8,12 +8,12 @@ const ProgressKue = ({ totalSampel, Selesai }) => {
   const [color, setColor] = useState('');
 
   useEffect(() => {
-    if (Selesai / totalSampel > 0.5) {
-      setColor('warning');
-    } else if (Selesai / totalSampel > 0.8) {
-      setColor('success');
-    } else {
+    if (Selesai / totalSampel < 0.5) {
       setColor('danger');
+    } else if (Selesai / totalSampel >= 0.5 && Selesai / totalSampel < 0.8) {
+      setColor('warning');
+    } else if (Selesai / totalSampel >= 0.8) {
+      setColor('success');
     }
   }, [totalSampel, Selesai]);
 

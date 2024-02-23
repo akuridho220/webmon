@@ -10,13 +10,14 @@ const fetchData = async (url) => {
   return await response.json();
 };
 
-const getData = async () => {
-  const data = await fetchData(`${apiURL}riset/progres/tim/detail/:id_bs`);
-  return data;
-};
 const DetailProgresTim = async ({ params }) => {
-  const judul = `Progres Blok Sensus ${params.id}`;
+  const getData = async () => {
+    const data = await fetchData(`${apiURL}riset/progres/tim/detail/${params.id}`);
+    return data;
+  };
+
   const dataDetail = await getData();
+  const judul = `Progres Tim ${dataDetail[0].nama_tim}`;
 
   return (
     <div>

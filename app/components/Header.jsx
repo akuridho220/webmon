@@ -19,8 +19,8 @@ export default function Header() {
   const [name, setName] = useState(''); // Initialize with an empty string or default value
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
-  //const names = name.split(' ');
-  //const firstTwoNames = names.slice(0, 2).join(' ');
+  const names = name.split(' ');
+  const firstTwoNames = names.slice(0, 2).join(' ');
 
   const router = useRouter();
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function Header() {
         </div>
         <div className="profile flex w-max px-4">
           <div className="flex flex-col text-primary-600 pr-4">
-            <p className="text-center">{"a"}</p>
+            <p className="text-center">{firstTwoNames}</p>
             <p>
               {jenis} | {jabatan}
             </p>

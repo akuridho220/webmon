@@ -39,14 +39,14 @@ const TableTim = ({ data }) => {
     {
       accessorKey: 'aksi',
       header: 'Aksi',
-      cell: ({ cell }) => (
-        // <button onClick={() => handleDetailButtonClick(cell.row.original)} className="bg-[#d93f57] text-white rounded-xl py-2 px-4 hover:bg-red-700 transition duration-300">
-        //   Detail
-        // </button>
-        <Link href={`/riset/progres/progres-tim/detail/${cell.original.id_tim}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
-          <span className="">Detail</span>
-        </Link>
-      ),
+      cell: ({ row }) => {
+        const data = row.original;
+        return (
+          <Link href={`/riset/progres/progres-tim/detail/${data.id_tim}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+            <span className="">Detail</span>
+          </Link>
+        );
+      },
     },
   ];
 

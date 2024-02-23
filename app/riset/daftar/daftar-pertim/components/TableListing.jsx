@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DetailModal from './Detailmodal';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
@@ -39,7 +39,7 @@ const TableTim = ({ data }) => {
       header: 'Blok Sensus',
     },
     {
-      accessorKey: 'id_tim',
+      accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
     },
     {

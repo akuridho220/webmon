@@ -66,7 +66,7 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
       <div className="flex w-[95%] mx-auto justify-between items-center">
         <div className="md:w-[40%] md:flex my-4 md:my-2 justify-start h-fit items-center text-xs md:text-base">
           <p className="text-white">Pilih Tabel : </p>
-          <div className="md:w-3/5 w-full ml-4">
+          <div className="md:w-3/5 w-full md:ml-4">
             <SelectCat onSelect={handleCategoryChange} />
           </div>
         </div>
