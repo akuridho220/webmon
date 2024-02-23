@@ -13,34 +13,6 @@ const Container = ({ dataListing, dataSampel, dataListTim }) => {
     setTable(selected);
   };
 
-  // const fetchNewData = useCallback(async (selectedTim) =>{
-  //     const fetchData = async (url) => {
-  //         const response = await fetch(url, { next: { revalidate: 60 } });
-  //         return await response.json();
-  //     };
-
-  //     const getDataListing = async () => {
-  //         const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/tim/listing/${selectedTim}`)]);
-  //         setListing(dataListing);
-  //     };
-
-  //     const getDataSampel = async () => {
-  //         const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/tim/sampel/${selectedTim}`), getDataListing()]);
-
-  //         const mergedData = dataSampel.map((sampelItem) => {
-  //             const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
-  //             return {
-  //                 ...sampelItem,
-  //                 jumlah_listing: matchingListing ? matchingListing.jumlah_listing : 0,
-  //             };
-  //         });
-  //         setSampel(mergedData)
-  //     };
-  // },[]);
-
-  // useEffect(() => {
-  //     fetchNewData()
-  // }, [fetchNewData]);
 
   const filterDataByTim = (data, tim) => {
     return data.filter((item) => item.id_tim === tim);

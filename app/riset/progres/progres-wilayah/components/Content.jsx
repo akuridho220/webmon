@@ -18,30 +18,30 @@ const Export = () => {
 const Content = ({ data, listKab, listKec, listDesa }) => {
   const [filteredData, setFilteredData] = useState(data);
   const handleSelect = ({selected_id}) => {
-    let len = selected_id.length();
-    let id_kab = '';
-    let id_kec = '';
-    let id_kel = '';
-    if(len == 2){
-      id_kab = selected_id;
-      setFilteredData(data.filter((item) => item.id_kab === id_kab ));
-    } else if(len == 4){
-      id_kab = selected_id.slice(0,2);
-      id_kec = selected_id.slice(2,4);
-      setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec));
-    } else if(len == 6){
-      id_kab = selected_id.slice(0,2);
-      id_kec = selected_id.slice(2,4);
-      id_kel = selected_id.slice(4,6);
-      setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec && item.id_kel === id_kel));
-    }
+    // let len = selected_id.length();
+    // let id_kab = '';
+    // let id_kec = '';
+    // let id_kel = '';
+    // if(len == 2){
+    //   id_kab = selected_id;
+    //   setFilteredData(data.filter((item) => item.id_kab === id_kab ));
+    // } else if(len == 4){
+    //   id_kab = selected_id.slice(0,2);
+    //   id_kec = selected_id.slice(2,4);
+    //   setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec));
+    // } else if(len == 6){
+    //   id_kab = selected_id.slice(0,2);
+    //   id_kec = selected_id.slice(2,4);
+    //   id_kel = selected_id.slice(4,6);
+    //   setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec && item.id_kel === id_kel));
+    // }
   };
   return (
     <>
       <div className="bg-primary-900/95 w-[90%] mt-8 px-6 rounded-xl overflow-hidden">
         <div className="block md:flex justify-between mb-4 pt-6">
           <div className="w-[90%] md:w-fit  justify-start">
-            <WilayahSelect listKab={listKab} listKec={listKec} listDesa={listDesa} onSelect={handleSelect()}/>
+            <WilayahSelect listKab={listKab} listKec={listKec} listDesa={listDesa} onSelect={handleSelect}/>
           </div>
           <div onClick={Export} className="mt-3 md:mt-0 flex items-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
