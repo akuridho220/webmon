@@ -11,13 +11,21 @@ export default function Box() {
   const [jabatan, setJabatan] = useState('');
   const [email, setEmail] = useState('');
 
+  function capitalizeFirstLetter(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    return splitStr.join(' ');
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await authService.IsAuthenticated();
-        setName(result.name);
+        setName(capitalizeFirstLetter(result.name));
         setJenis(result.jenis);
-        setJabatan(result.jabatan);
+        setJabatan(capitalizeFirstLetter(result.jabatan));
         setEmail(result.email);
       } catch (error) {
         console.error(error); // Handle any errors

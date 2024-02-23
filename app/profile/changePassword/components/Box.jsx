@@ -5,12 +5,18 @@ import Image from 'next/image';
 import authService from '@/app/service/authService';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import * as Icon from 'react-feather';
 import BreadCrumbs from '@/app/components/BreadCrumbs';
 
 export default function Box() {
   const [passwordLama, setPasswordLama] = useState('');
   const [passwordBaru, setPasswordBaru] = useState('');
   const [passwordBaru2, setPasswordBaru2] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -90,43 +96,64 @@ export default function Box() {
         </div>
         <form onSubmit={handleSubmit} className="block space-y-4 mx-5 text-sm md:text-base">
           <div className="w-full block md:flex md:justify-between space-y-2  md:space-x-4">
-            <div className="">
+            <div className="md:w-1/4">
               <label htmlFor="passwordLama">Password lama</label>
             </div>
-            <input
-              type="text"
-              onChange={(e) => setPasswordLama(e.target.value)}
-              value={passwordLama}
-              placeholder="Isikan Password lama"
-              className=" placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
-              name="passwordLama"
-            />
+            <div className="mt-2 bg-red-800/60 rounded-md relative w-full">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                onChange={(e) => setPasswordLama(e.target.value)}
+                value={passwordLama}
+                placeholder="Isikan Password lama"
+                className=" placeholder-white border-gray-600 pl-2 text-white py-2 bg-transparent rounded-md md:w-[90%] w-full"
+                name="passwordLama"
+              />
+              {showPassword ? (
+                <Icon.Eye onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              ) : (
+                <Icon.EyeOff onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              )}
+            </div>
           </div>
           <div className="w-full block md:flex md:justify-between md:space-x-4">
-            <div className="">
+            <div className="md:w-1/4">
               <label htmlFor="passwordBaru">Password Baru</label>
             </div>
-            <input
-              type="text"
-              onChange={(e) => setPasswordBaru(e.target.value)}
-              value={passwordBaru}
-              placeholder="Isikan Password baru"
-              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
-              name="passwordBaru"
-            />
+            <div className="mt-2 bg-red-800/60 rounded-md relative w-full">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                onChange={(e) => setPasswordBaru(e.target.value)}
+                value={passwordBaru}
+                placeholder="Isikan Password baru"
+                className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-transparent rounded-md md:w-[90%] w-full"
+                name="passwordBaru"
+              />
+              {showPassword ? (
+                <Icon.Eye onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              ) : (
+                <Icon.EyeOff onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              )}
+            </div>
           </div>
           <div className="w-full block md:flex md:justify-between md:space-x-4">
-            <div className="">
+            <div className="md:w-1/4">
               <label htmlFor="passwordBaru2">Ulangi Password Baru</label>
             </div>
-            <input
-              type="text"
-              onChange={(e) => setPasswordBaru2(e.target.value)}
-              value={passwordBaru2}
-              placeholder="Isikan Konfirmasi Password"
-              className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-red-800/60 rounded-md md:w-3/5 w-full"
-              name="passwordBaru2"
-            />
+            <div className="mt-2 bg-red-800/60 rounded-md relative w-full">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                onChange={(e) => setPasswordBaru2(e.target.value)}
+                value={passwordBaru2}
+                placeholder="Isikan Konfirmasi Password"
+                className="placeholder-white border-gray-600 pl-2 text-white py-2 bg-transparent rounded-md md:w-[90%] w-full"
+                name="passwordBaru2"
+              />
+              {showPassword ? (
+                <Icon.Eye onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              ) : (
+                <Icon.EyeOff onClick={togglePasswordVisibility} className="absolute top-1/2 transform text-slate-100 -translate-y-1/2 right-4 cursor-pointer" />
+              )}
+            </div>
           </div>
           <div className="pt-6  w-full block md:flex justify-center">
             <button type="submit" className="bg-primary-800 hover:bg-primary-900 rounded-md 2 w-full py-2 text-white text-center">

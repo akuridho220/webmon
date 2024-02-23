@@ -20,7 +20,16 @@ export default function Header() {
   const [jenis, setJenis] = useState('');
   const [jabatan, setJabatan] = useState('');
   const names = name.split(' ');
-  const firstTwoNames = names.slice(0, 2).join(' ');
+
+  function capitalizeFirstLetter(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    return splitStr.join(' ');
+  }
+
+  const firstTwoNames = capitalizeFirstLetter(names.slice(0, 2).join(' '));
 
   const router = useRouter();
   useEffect(() => {
@@ -45,7 +54,7 @@ export default function Header() {
         } else {
           setName(result.name);
           setJenis(result.jenis);
-          setJabatan(result.jabatan);
+          setJabatan(capitalizeFirstLetter(result.jabatan));
         }
       } catch (error) {
         console.error(error); // Handle any errors

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import DetailModal from './Detailmodal';
 import ProgressBar from './ProgressBar';
+import Link from 'next/link';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
@@ -43,11 +44,14 @@ const TableWilayah = ({ data }) => {
     {
       accessorKey: 'aksi',
       header: 'Aksi',
-      cell: ({ cell }) => (
-        <button onClick={() => handleDetailButtonClick(cell.row.original)} className=" text-white rounded-xl py-2 px-4 bg-accent-900 hover:bg-orange-700 transition duration-300">
-          Detail
-        </button>
-      ),
+      cell: ({ row }) => {
+        const data = row.original;
+        return (
+          <Link href={`/riset/progres/progres-wilayah/detail/${data.id_bs}`} className="flex items-center p-2 bg-accent-900 hover:bg-orange-700 text-white justify-center rounded-md">
+            <span className="">Detail</span>
+          </Link>
+        );
+      },
     },
   ];
 

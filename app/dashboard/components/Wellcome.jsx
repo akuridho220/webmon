@@ -14,13 +14,21 @@ const fetchData = async (url, options) => {
 const Wellcome = () => {
   const [nama, setNama] = useState('');
 
+  function capitalizeFirstLetter(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    return splitStr.join(' ');
+  }
+
   useEffect(() => {
     const getNama = async () => {
       const token = authService.GetAccesToken();
 
       if (token) {
         const user = await Promise.all([fetchData(`${apiURL}profile`, { headers: { Authorization: `Bearer ${token}` } })]);
-        setNama(user[0].name);
+        setNama(capitalizeFirstLetter(user[0].name));
       }
     };
 
