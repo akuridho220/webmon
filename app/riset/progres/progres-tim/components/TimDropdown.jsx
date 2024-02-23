@@ -34,7 +34,7 @@ const TimDropdown = ({ onSelect, data }) => {
 
   return (
     <>
-      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 mr-8">
+      <div className="rounded-xl bg-[#d93f57] bg-opacity-50 mr-8 text-sm">
         <Select options={data} value={selectedPetugas} isSearchable={true} placeholder="Pilih Berdasarkan Tim" onChange={handleSelect} styles={customStyles} instanceId={useId()} />
       </div>
     </>
