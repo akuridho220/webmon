@@ -1,3 +1,4 @@
+'use client';
 import React, {useId, useState} from "react";
 import Select from "react-select";
 

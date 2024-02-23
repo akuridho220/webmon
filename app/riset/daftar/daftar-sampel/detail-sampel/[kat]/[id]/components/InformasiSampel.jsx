@@ -5,7 +5,7 @@ import { motion as Motion } from 'framer-motion';
 import { useModal } from './Modal';
 import * as Icon from 'react-feather';
 
-const InformasiSampel = ({ data }) => {
+const InformasiSampel = ({ onClose, data }) => {
   const { handleCloseModal } = useModal();
 
   const pos = `https://www.google.com/maps?q=${data.lat},${data.long}&hl=es;z=14&output=embed`;

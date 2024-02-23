@@ -57,8 +57,9 @@ const TableDetail = ({ data }) => {
   return (
     <>
       <BasicTable columns={columns} data={data} />
-      <div className="w-[90%] bg-primary-900/95"></div>
-      {showModal && <Informasi data={dataModal} />}
+      <div className="w-[100%] bg-primary-900/95"></div>
+      {showModal && <Informasi data={dataModal} onClose={() => setShowModal(false)}/>}
+      {/* {showModal && <Modal onClose={() => setShowModal(false)} data={dataModal} />} */}
     </>
   );
 };

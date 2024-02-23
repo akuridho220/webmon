@@ -1,3 +1,4 @@
+'use client';
 import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
