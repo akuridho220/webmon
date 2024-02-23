@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
 import Axios from 'axios';
@@ -64,11 +64,11 @@ const Box = () => {
           title: 'Success',
           text: 'Password berhasil diubah',
           icon: 'success',
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     router.push('/login');
-        //   }
-        // });
+          // }).then((result) => {
+          //   if (result.isConfirmed) {
+          //     router.push('/login');
+          //   }
+          // });
         });
         router.push('/login');
       } else {
@@ -160,4 +160,9 @@ const Box = () => {
   );
 };
 
-export default Box;
+const SuspendedBox = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Box />
+  </Suspense>
+);
+export default SuspendedBox;

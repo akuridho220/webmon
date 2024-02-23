@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import * as Icon from 'react-feather';
@@ -53,4 +53,11 @@ const BreadCrumbs = () => {
     </div>
   );
 };
-export default BreadCrumbs;
+
+const SuspendedBreadCrumbs = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <BreadCrumbs />
+  </Suspense>
+);
+
+export default SuspendedBreadCrumbs;
