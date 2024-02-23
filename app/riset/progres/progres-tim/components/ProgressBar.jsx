@@ -2,13 +2,17 @@
 import { useEffect, useState } from 'react';
 
 const ProgressBar = ({ detail, done, max }) => {
-  let dataProgress;
-  if (max == 0) {
-    dataProgress = 0;
-  } else {
-    dataProgress = Math.round((done / max) * 100);
-  }
-  const [progress, setProgress] = useState(dataProgress);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let dataProgress;
+    if (max === 0) {
+      dataProgress = 0;
+    } else {
+      dataProgress = Math.round((done / max) * 100);
+    }
+    setProgress(dataProgress);
+  }, [done, max]);
+  
 
   let color1, color2, colorText;
 
@@ -43,7 +47,7 @@ const ProgressBar = ({ detail, done, max }) => {
         </div>
       )}
       <div className="flex h-2 mb-4 overflow-hidden bg-red-100">
-        <div style={{ width: `${progress}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${color2}`}></div>
+        <div style={{ width: `${progress}%`, transition: 'width 0.5s ease-in-out' }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${color2}`}></div>
       </div>
     </div>
   );
