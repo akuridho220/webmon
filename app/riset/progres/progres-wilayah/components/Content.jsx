@@ -18,10 +18,10 @@ const Export = () => {
 const Content = ({ data, listKab, listKec, listDesa }) => {
   const [filteredData, setFilteredData] = useState(data);
   const handleSelect = ({selected_id}) => {
-    const len = selected_id.length();
-    const id_kab = '';
-    const id_kec = '';
-    const id_kel = '';
+    let len = selected_id.length();
+    let id_kab = '';
+    let id_kec = '';
+    let id_kel = '';
     if(len == 2){
       id_kab = selected_id;
       setFilteredData(data.filter((item) => item.id_kab === id_kab ));

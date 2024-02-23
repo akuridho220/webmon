@@ -85,8 +85,12 @@ const TableDetailProgres = ({data}) => {
             header: "Nomor Rumah Tangga",
         },
         {
-            accessorKey: "nama_tim",
-            header: "Tim Pencacah",
+          accessorKey: "nim_pencacah",
+          header: "NIM",
+        },
+        {
+            accessorKey: "nama_pencacah",
+            header: "Pencacah",
         },
         {
           accessorKey: "nama_krt",
