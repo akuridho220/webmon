@@ -6,16 +6,21 @@ import ProgressBar from './ProgressBar';
 import * as Icon from 'react-feather';
 import HandleExport from '@/app/components/HandleExport';
 
-const dataToExport = [
-  { id: 1, name: 'John', age: 30 },
-  { id: 2, name: 'Jane', age: 25 },
-  { id: 3, name: 'Doe', age: 40 },
-];
-
 const Content = ({ data, listKab, listKec, listDesa }) => {
   const [filteredData, setFilteredData] = useState(data);
   const [done, setDone] = useState(0);
   const [max, setMax] = useState(0);
+
+  const dataToExport = filteredData.map((item) => {
+    return {
+      'Blok Sensus': item.id_bs,
+      Kode_ruta: item.kode_ruta,
+      'Tim Pencacah': item.nama_tim,
+      'Sampel Selesai': item.jumlah_sampel_selesai,
+      'Jumlah Sampel': item.jumlah_sampel,
+      Progress: `${Math.round((item.jumlah_sampel_selesai / item.jumlah_sampel) * 100)}%`,
+    };
+  });
 
   useEffect(() => {
     countProgres(filteredData);
@@ -36,13 +41,10 @@ const Content = ({ data, listKab, listKec, listDesa }) => {
     setMax(totalJumlahSampel);
   };
 
-  console.log(done, max);
-
   const handleSelect = (selected_id) => {
     let id_kab = '';
     let id_kec = '';
     let id_kel = '';
-    console.log(selected_id);
     if (selected_id && selected_id.length == 2) {
       id_kab = selected_id;
       dataFilter = data.filter((item) => item.id_kab == id_kab);
@@ -62,15 +64,15 @@ const Content = ({ data, listKab, listKec, listDesa }) => {
   };
 
   const handleExport = () => {
-    HandleExport(dataToExport, 'Progres-Tim');
+    HandleExport(dataToExport, 'Progres-Wilayah');
   };
 
   return (
     <>
       <div className="bg-primary-900/95 w-[90%] mt-8 px-6 rounded-xl overflow-hidden">
-        <div className="block md:flex justify-between mb-4 pt-6">
-          <div className="w-[90%] md:w-fit  justify-start">
-            <WilayahSelect listKab={listKab} listKec={listKec} listDesa={listDesa} onSelect={handleSelect} />
+        <div className="block lg:flex jjustify-between mb-4 pt-6">
+          <div className="w-[90%] md:w-fit justify-start">
+            <WilayahSelect listKab={listKab} listKec={listKec} listDesa={listDesa} onSelect={handleSelect} className="w-full" />
           </div>
           <div onClick={handleExport} className="mt-3 md:mt-0 flex items-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
