@@ -51,6 +51,10 @@ const SelectTabel = ({ dataBs, dataKec, dataDesa, dataKab, dataAll }) => {
       Jumlah_genz_dewasa: element.jml_genz_dewasa,
       lat: element.lat,
       long: element.long,
+      Tanggal_listing: element.tgl_listing,
+      Tanggal_Periksa: element.tgl_periksa,
+      Catatan_BS: element.catatan_bs,
+      Catatan_Ruta: element.catatan_ruta,
     }));
   }
 

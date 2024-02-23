@@ -33,6 +33,7 @@ export default async function DetailSampel({ params, searchParams }) {
     return data;
   };
 
+  const dataDetail = await getDataDetail();
   return (
     <ModalProvider>
       <Layout className="w-full min-h-screen overflow-x-hidden">
@@ -41,9 +42,9 @@ export default async function DetailSampel({ params, searchParams }) {
           <div className="flex flex-col pt-4">
             <div className="text-white flex justify-between items-center">
               <BreadCrumbs />
-              <Header />
+              <Header data={dataDetail} />
             </div>
-            <Table data={await getDataDetail()} />
+            <Table data={dataDetail} />
           </div>
         </div>
       </Layout>

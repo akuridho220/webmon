@@ -104,10 +104,40 @@ const InformasiListing = ({ onClose, data }) => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Jumlah Gen Z Dewasa</h1>
+              <h1 className="text-black font-bold">Tanggal Listing</h1>
             </div>
             <div className="flex-1">
-              <h1 className="text-black font-base">{data.jml_genz_dewasa}</h1>
+              <h1 className="text-black font-base">{data.tgl_listing ?? '-'}</h1>
+            </div>
+          </div>
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Tanggal Periksa</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.tgl_periksa ?? '-'}</h1>
+            </div>
+          </div>
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Catatan BS</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.catatan_bs || '-'}</h1>
+            </div>
+          </div>
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Catatan Ruta</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.catatan_ruta || '-'}</h1>
             </div>
           </div>
 
@@ -134,7 +164,7 @@ const InformasiListing = ({ onClose, data }) => {
           </div> */}
 
           <div className="flex py-6 relative overflow-hidden">
-            <iframe src={pos} width="900" height="450" style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src={pos} className="w-full" height={500} style={{ border: '0' }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
