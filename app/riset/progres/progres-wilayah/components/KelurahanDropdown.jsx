@@ -1,17 +1,14 @@
-import React, {useId} from "react";
+"use client";
+import React, {useId, useState} from "react";
 import Select from "react-select";
 
 const KelurahanDropdown = ({ dataListDesa, onSelect }) => {
-  const options = [
-    { value: "Kelurahan/Desa A", label: "Kelurahan/Desa A" },
-    { value: "Kelurahan/Desa B", label: "Kelurahan/Desa B" },
-    { value: "Kelurahan/Desa C", label: "Kelurahan/Desa C" },
-    { value: "Kelurahan/Desa D", label: "Kelurahan/Desa D" },
-    { value: "Kelurahan/Desa E", label: "Kelurahan/Desa E" },
-  ];
 
+  const [wilayah, setWilayah] = useState(null);
   const handleSelect = (selectedOption) => {
     onSelect(selectedOption.value);
+    setWilayah(selectedOption);
+    //console.log(selectedOption.value);
   };
 
   const customStyles = {
@@ -40,6 +37,7 @@ const KelurahanDropdown = ({ dataListDesa, onSelect }) => {
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: "2rem" }}>
         <Select
           options={dataListDesa}
+          value={wilayah}
           isSearchable={true}
           placeholder="Pilih Kelurahan/Desa"
           onChange={handleSelect}

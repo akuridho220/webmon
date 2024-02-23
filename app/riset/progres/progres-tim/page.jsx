@@ -13,8 +13,8 @@ const getListTim = async () => {
   const newData = data.map((item) => {
     return {
       ...item,
-      label: `${item.nama_tim}`,
-      value: `${item.id_tim}`,
+      label: `TIM ${item.nama_tim}`,
+      value: `${item.nama_tim}`,
     };
   });
   return newData;

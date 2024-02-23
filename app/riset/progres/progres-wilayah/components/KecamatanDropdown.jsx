@@ -1,17 +1,12 @@
-import React, {useId} from "react";
+import React, {useId, useState} from "react";
 import Select from "react-select";
 
 const KecamatanDropdown = ({ dataListKec, onSelect }) => {
-  const options = [
-    { value: "Kecamatan A", label: "Kecamatan A" },
-    { value: "Kecamatan B", label: "Kecamatan B" },
-    { value: "Kecamatan C", label: "Kecamatan C" },
-    { value: "Kecamatan D", label: "Kecamatan D" },
-    { value: "Kecamatan E", label: "Kecamatan E" },
-  ];
-
+  const [wilayah, setWilayah] = useState(null);
   const handleSelect = (selectedOption) => {
     onSelect(selectedOption.value);
+    setWilayah(selectedOption);
+    //console.log(selectedOption.value);
   };
 
   const customStyles = {
@@ -40,6 +35,7 @@ const KecamatanDropdown = ({ dataListKec, onSelect }) => {
       <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: "2rem" }}>
         <Select
           options={dataListKec}
+          value={wilayah}
           isSearchable={true}
           placeholder="Pilih Kecamatan"
           onChange={handleSelect}

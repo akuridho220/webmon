@@ -10,13 +10,13 @@ const WilayahSelect = ({ onSelect, listKab, listKec, listDesa }) => {
   const [desa, setDesa] = useState(listDesa);
 
   const handleKabupatenSelect = (selectedKab) => {
-    setKec(listKec.filter((item) => item.id_kab === selectedKab));
-    setDesa(listDesa.filter((item) => item.id_kab === selectedKab));
+    setKec(listKec.filter((item) => item.id_kab == selectedKab));
+    setDesa(listDesa.filter((item) => item.id_kab == selectedKab));
 
     onSelect(selectedKab);
   };
   const handleKecamatanSelect = (selectedKec) => {
-    setDesa(desa.filter((item) => item.id_kec === selectedKec ));
+    setDesa(listDesa.filter((item) => item.id_kab == selectedKec.substring(0,2) && item.id_kec == selectedKec.substring(2,5)));
 
     onSelect(selectedKec);
   };

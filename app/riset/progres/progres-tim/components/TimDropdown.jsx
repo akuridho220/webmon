@@ -1,6 +1,15 @@
+"use client";
 import React, { useId, useState } from 'react';
 import Select from 'react-select';
 
+
+const options = [
+  { value: "Tim A", label: "Tim A" },
+  { value: "Tim B", label: "Tim B" },
+  { value: "Tim C", label: "Tim C" },
+  { value: "Tim D", label: "Tim D" },
+  { value: "Tim E", label: "Tim E" },
+];
 const TimDropdown = ({ onSelect, data }) => {
   const [selectedPetugas, setSelectedPetugas] = useState(null);
 
@@ -15,20 +24,22 @@ const TimDropdown = ({ onSelect, data }) => {
 
   const customStyles = {
     control: (provided) => ({
-      ...provided,
-      borderRadius: '0.5rem',
-      color: '#000',
-      minWidth: '20rem',
+        ...provided,
+        borderRadius: "0.5rem",
+        color: "#000",
+        minWidth: "15rem",
     }),
     input: (provided) => ({
-      ...provided,
-      color: '#000',
+        ...provided,
+        color: "#000",
     }),
     option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.isSelected ? 'rgba(217, 63, 87, 1)' : 'transparent',
-      borderRadius: '0.3rem',
-      color: state.isSelected ? 'white' : 'black',
+        ...provided,
+        backgroundColor: state.isSelected
+            ? "rgba(217, 63, 87, 1)"
+            : "transparent",
+        borderRadius: "0.3rem",
+        color: state.isSelected ? "white" : "black",
     }),
   };
 

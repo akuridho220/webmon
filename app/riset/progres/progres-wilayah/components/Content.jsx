@@ -17,24 +17,25 @@ const Export = () => {
 
 const Content = ({ data, listKab, listKec, listDesa }) => {
   const [filteredData, setFilteredData] = useState(data);
-  const handleSelect = ({selected_id}) => {
-    // let len = selected_id.length();
-    // let id_kab = '';
-    // let id_kec = '';
-    // let id_kel = '';
-    // if(len == 2){
-    //   id_kab = selected_id;
-    //   setFilteredData(data.filter((item) => item.id_kab === id_kab ));
-    // } else if(len == 4){
-    //   id_kab = selected_id.slice(0,2);
-    //   id_kec = selected_id.slice(2,4);
-    //   setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec));
-    // } else if(len == 6){
-    //   id_kab = selected_id.slice(0,2);
-    //   id_kec = selected_id.slice(2,4);
-    //   id_kel = selected_id.slice(4,6);
-    //   setFilteredData(data.filter((item) => item.id_kab === id_kab && item.id_kec === id_kec && item.id_kel === id_kel));
-    // }
+
+  const handleSelect = (selected_id) => {
+    let id_kab = '';
+    let id_kec = '';
+    let id_kel = '';
+    console.log(selected_id);
+    if(selected_id && selected_id.length == 2){
+      id_kab = selected_id;
+      setFilteredData(data.filter((item) => item.id_kab == id_kab ));
+    } else if(selected_id && selected_id.length == 5){
+      id_kab = selected_id.substring(0,2);
+      id_kec = selected_id.substring(2,5);
+      setFilteredData(data.filter((item) => item.id_kab == id_kab && item.id_kec == id_kec));
+    } else if(selected_id && selected_id.length == 8){
+      id_kab = selected_id.substring(0,2);
+      id_kec = selected_id.substring(2,5);
+      id_kel = selected_id.substring(5,8);
+      setFilteredData(data.filter((item) => item.id_kab == id_kab && item.id_kec == id_kec && item.id_kel == id_kel));
+    }
   };
   return (
     <>

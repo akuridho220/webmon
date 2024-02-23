@@ -1,9 +1,12 @@
-import React, { useId } from "react";
+import React, { useId, useState } from "react";
 import Select from "react-select";
 
 const KabupatenDropdown = ({ dataListKab, onSelect }) => {
+  const [wilayah, setWilayah] = useState(null);
   const handleSelect = (selectedOption) => {
     onSelect(selectedOption.value);
+    setWilayah(selectedOption);
+    //console.log(selectedOption.value);
   };
 
   const customStyles = {
@@ -33,6 +36,7 @@ const KabupatenDropdown = ({ dataListKab, onSelect }) => {
         <Select
           options={dataListKab}
           isSearchable={true}
+          value={wilayah}
           placeholder="Pilih Kabupaten"
           onChange={handleSelect}
           styles={customStyles}
