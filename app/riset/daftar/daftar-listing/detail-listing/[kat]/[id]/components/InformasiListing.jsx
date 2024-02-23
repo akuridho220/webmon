@@ -114,16 +114,6 @@ const InformasiListing = ({ onClose, data }) => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
-              <h1 className="text-black font-bold">Tanggal Periksa</h1>
-            </div>
-            <div className="flex-1">
-              <h1 className="text-black font-base">{data.tgl_periksa ?? '-'}</h1>
-            </div>
-          </div>
-          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
-
-          <div className="flex py-2">
-            <div className="w-2/5 ml-4">
               <h1 className="text-black font-bold">Catatan BS</h1>
             </div>
             <div className="flex-1">

@@ -58,10 +58,6 @@ const TableKeseluruhan = ({ data }) => {
       header: 'Tanggal Listing',
     },
     {
-      accessorKey: 'tgl_periksa',
-      header: 'Tanggal Periksa',
-    },
-    {
       accessorKey: 'Catatan BS',
       header: 'Catatan BS',
     },
