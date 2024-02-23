@@ -37,7 +37,7 @@ const ProgressKue = ({ totalSampel, Selesai }) => {
             </div>
             <div className="font-light">
               <p>
-                Kurang: {totalSampel - Selesai} dari total {totalSampel}
+                Kurang {totalSampel - Selesai} dari total {totalSampel}
               </p>
             </div>
             <div className="">

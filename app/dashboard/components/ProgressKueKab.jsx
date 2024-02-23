@@ -36,7 +36,7 @@ const ProgressKueKab = ({ kabupaten, totalSampel, Selesai }) => {
             </div>
             <div className="font-light text-start">
               <p>
-                Kurang: {totalSampel - Selesai} dari total {totalSampel}
+                Kurang {totalSampel - Selesai} dari total {totalSampel}
               </p>
             </div>
             <div className="justify-start flex">
