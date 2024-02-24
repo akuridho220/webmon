@@ -59,7 +59,7 @@ const Container = ({data}) => {
         setMapZoom(17);
         setTooltip(true);
     };
-
+    console.log(data)
     return(
         <div className='w-[90%] my-8 px-6 bg-primary-900/95 rounded-md'>
             <p className="my-4 text-white">

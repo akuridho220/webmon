@@ -1,8 +1,20 @@
 import Modal from 'react-modal';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
+const photo_url = process.env.NEXT_PUBLIC_PHOTO_URL;
 const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
-  console.log(dataPml[0].nim_pml);
+  
+  const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    // Fetch image URL from API
+    fetch(`${photo_url}222112319`)
+      .then(response => response.json())
+      .then(data => setImageUrl(data.imageUrl))
+      .catch(error => console.error('Error fetching image URL:', error));
+  }, []);
+
   return (
     <div>
       <Modal
@@ -25,7 +37,7 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col items-center text-sm md:text-base">
-            <Image src="/img/maskot/1.png" width={120} height={160} alt="foto" />
+            <Image src={`${photo_url}${dataPml[0].nim_pml}`} width={120} height={160} alt="foto" />
             <p className="text-[#d93f57] text-opacity-90 text-center">{dataPml[0].nama}</p>
             <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">PML | {dataPml[0].nim_pml}</p>
           </div>
@@ -34,7 +46,7 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
         <div className="md:flex grid grid-cols-2 gap-4 justify-between">
           {dataPpl.map((ppl) => (
             <div className="flex flex-col items-center w-36 justify-between text-sm md:text-base" key={ppl.nim}>
-              <Image src="/img/maskot/1.png" width={120} height={160} alt="foto" />
+              <Image src={`${photo_url}${ppl.nim}`} width={120} height={160} alt="foto" />
               <p className="text-[#d93f57] text-opacity-90 text-center">{ppl.nama}</p>
               <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">PPL | {ppl.nim}</p>
             </div>
