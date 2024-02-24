@@ -29,7 +29,7 @@ export default function Header({ data }) {
   };
 
   return (
-    <div className="flex w-[100%] justify-between">
+    <div className="flex w-[100%] justify-end">
       <button onClick={Export} className="md:w-fit w-full flex items-center justify-center bg-secondary-800 py-2 px-6  rounded-lg text-white hover:bg-secondary-900">
         <Icon.Download size={18} />
         <p className=" pl-4">Export</p>

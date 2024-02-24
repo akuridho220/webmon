@@ -26,13 +26,6 @@ const TimSelect = ({ data, onSelect, dataTim }) => {
     return data.filter((item) => item.id_tim === tim);
   };
   return (
-    //<TimDropdown onSelect={handleTimSelect} data={dataTim}/>
-    // <div className="mt-4 w-full">
-    //     <p className="font-sm text-white">Monitoring PPL berdasarkan tim</p>
-    //     <div className="w-full md:w-max">
-    //       <TimDropdown onSelect={handleTimSelect} data={dataTim} />
-    //     </div>
-    // </div>
     <div className="md:flex md:flex-row block w-full justify-between items-center">
       <div className="mt-4 w-full">
         <p className="font-sm text-white">Monitoring PPL berdasarkan tim</p>

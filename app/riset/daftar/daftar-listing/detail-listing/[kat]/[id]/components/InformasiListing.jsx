@@ -104,6 +104,17 @@ const InformasiListing = ({ onClose, data }) => {
 
           <div className="flex py-2">
             <div className="w-2/5 ml-4">
+              <h1 className="text-black font-bold">Jumlah Gen Z Dewasa</h1>
+            </div>
+            <div className="flex-1">
+              <h1 className="text-black font-base">{data.jml_genz_dewasa}</h1>
+            </div>
+          </div>
+
+          <hr className="flex py-0.5 border-t border-gray-300 ml-4 mr-4" />
+
+          <div className="flex py-2">
+            <div className="w-2/5 ml-4">
               <h1 className="text-black font-bold">Tanggal Listing</h1>
             </div>
             <div className="flex-1">

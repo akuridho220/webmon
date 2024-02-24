@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import Image from 'next/image';
 
 const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
+  console.log(dataPml[0].nim_pml);
   return (
     <div>
       <Modal
@@ -26,7 +27,7 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
           <div className="flex flex-col items-center text-sm md:text-base">
             <Image src="/img/maskot/1.png" width={120} height={160} alt="foto" />
             <p className="text-[#d93f57] text-opacity-90 text-center">{dataPml[0].nama}</p>
-            <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">PML | {dataPml[0].nim}</p>
+            <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">PML | {dataPml[0].nim_pml}</p>
           </div>
         </div>
 

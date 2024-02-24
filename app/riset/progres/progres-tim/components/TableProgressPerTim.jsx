@@ -6,8 +6,6 @@ import Link from 'next/link';
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
 const TableTim = ({ data }) => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [selectedRow, setSelectedRow] = useState(null);
 
   const columns = [
     {
@@ -50,14 +48,6 @@ const TableTim = ({ data }) => {
     },
   ];
 
-  // const handleDetailButtonClick = (row) => {
-  //   setSelectedRow(row);
-  //   setIsOpen(true);
-  // };
-
-  // const handleCloseDetailModal = () => {
-  //   setIsOpen(false);
-  // };
 
   return (
     <>
