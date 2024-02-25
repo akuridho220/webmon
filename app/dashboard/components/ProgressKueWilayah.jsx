@@ -56,23 +56,10 @@ const ProgressKueWilayah = ({ data }) => {
           <div className=" mx-4 my-4 space-y-4 w-full">
             <p className="font-semibold text-lg md:text-xl">Progress Pencacahan per Wilayah</p>
             <hr className="bg-slate-300 w-full h-[0.12rem] shadow-xl" />
-            <div className="block w-[98%]">
-              <Carousel
-                showArrows={showArrows}
-                showThumbs={false}
-                autoPlay
-                infiniteLoop
-                showIndicators={showArrows}
-                interval={2500}
-                stopOnHover={true}
-                showStatus={false}
-                renderArrowPrev={renderPrevArrow} // Menambahkan renderPrevArrow
-                renderArrowNext={renderNextArrow} // Menambahkan renderNextArrow
-              >
-                {dataWilayah.map((item, index) => (
-                  <ProgressKueKab key={index} kabupaten={item.nama_kab} totalSampel={item.total} Selesai={item.tercacah} />
-                ))}
-              </Carousel>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mx-auto w-[98%]">
+              {dataWilayah.map((item, index) => (
+                <ProgressKueKab key={index} kabupaten={item.nama_kab} totalSampel={item.total} Selesai={item.tercacah} />
+              ))}
             </div>
           </div>
         </div>

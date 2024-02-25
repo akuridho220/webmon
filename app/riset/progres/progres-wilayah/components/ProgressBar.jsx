@@ -36,7 +36,7 @@ const ProgressBar = ({ detail, done, max }) => {
         <div id="detail" className="flex mb-2 items-center justify-between">
           <div>
             <span className={`text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full ${colorText} ${color1}`}>
-              {done} Selesai dari {max} Sampel
+              Kurang {max - done} dari {max} Sampel
             </span>
           </div>
           <div className="text-right">

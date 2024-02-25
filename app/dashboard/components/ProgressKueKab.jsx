@@ -27,7 +27,7 @@ const ProgressKueKab = ({ kabupaten, totalSampel, Selesai }) => {
 
   return (
     <>
-      <div className="w-full mx-auto bg-white rounded-xl text-hitam-100 shadow-md pb-4 overflow-hidden">
+      <div className="w-full mx-auto bg-putih-200 rounded-xl text-hitam-100 shadow-md pb-4 overflow-hidden">
         <div className="font-semibold text-base flex w-[98%] mx-auto items-center overflow-hidden">
           <div className=" mx-4 my-4 space-y-4 w-full">
             <p className="font-semibold text-lg md:text-xl">{kabupaten}</p>
@@ -38,13 +38,6 @@ const ProgressKueKab = ({ kabupaten, totalSampel, Selesai }) => {
               <p>
                 Kurang {totalSampel - Selesai} dari total {totalSampel}
               </p>
-            </div>
-            <div className="justify-start flex">
-              <Link href="/riset/progres/progres-wilayah">
-                <Button className="hover:border-secondary-700 hover:bg-transparent hover:border-spacing-4 hover:text-secondary-700 bg-secondary-700 text-white transition-all" variant="ghost">
-                  Lihat Detail
-                </Button>
-              </Link>
             </div>
           </div>
         </div>

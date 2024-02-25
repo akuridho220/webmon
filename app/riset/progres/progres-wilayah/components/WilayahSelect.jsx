@@ -25,13 +25,13 @@ const WilayahSelect = ({ onSelect, listKab, listKec, listDesa }) => {
   return (
     <>
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row md:items-center">
-        <div className="mr-4 mb-3 lg:mb-0 w-8 sm:w-[100px] md:w-[310px]">
+        <div className="mr-4 mb-3 lg:mb-0 w-full">
           <KabupatenDropdown onSelect={handleKabupatenSelect} dataListKab={listKab} />
         </div>
-        <div className="mr-4 mb-3 lg:mb-0 w-8 sm:w-[100px] md:w-[310px]">
+        <div className="mr-4 mb-3 lg:mb-0 w-full">
           <KecamatanDropdown onSelect={handleKecamatanSelect} dataListKec={kec} />
         </div>
-        <div className="mr-4 mb-3 lg:mb-0 w-8 sm:w-[100px] md:w-[310px]">
+        <div className="mr-4 mb-3 lg:mb-0 w-full">
           <KelurahanDropdown onSelect={handleKelurahanSelect} dataListDesa={desa} />
         </div>
       </div>

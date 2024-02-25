@@ -15,7 +15,6 @@ const KelurahanDropdown = ({ dataListDesa, onSelect }) => {
       ...provided,
       borderRadius: '0.5rem',
       color: '#000',
-      minWidth: '20rem',
     }),
     input: (provided) => ({
       ...provided,
@@ -31,8 +30,8 @@ const KelurahanDropdown = ({ dataListDesa, onSelect }) => {
 
   return (
     <>
-      <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: '2rem' }}>
-        <Select options={dataListDesa} value={wilayah} isSearchable={true} placeholder="Pilih Kelurahan/Desa" onChange={handleSelect} styles={customStyles} instanceId={useId()} />
+      <div className="w-full rounded-xl bg-[#d93f57] bg-opacity-50">
+        <Select options={dataListDesa} value={wilayah} isSearchable={true} placeholder="Pilih Kelurahan/Desa" onChange={handleSelect} styles={customStyles} instanceId={useId()} className="w-full" />
       </div>
     </>
   );

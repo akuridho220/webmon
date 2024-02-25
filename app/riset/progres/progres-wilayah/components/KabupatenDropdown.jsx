@@ -14,7 +14,6 @@ const KabupatenDropdown = ({ dataListKab, onSelect }) => {
       ...provided,
       borderRadius: '0.5rem',
       color: '#000',
-      minWidth: '20rem',
     }),
     input: (provided) => ({
       ...provided,
@@ -30,8 +29,8 @@ const KabupatenDropdown = ({ dataListKab, onSelect }) => {
 
   return (
     <>
-      <div className="rounded-xl bg-[#d93f57] bg-opacity-50" style={{ marginRight: '2rem' }}>
-        <Select options={dataListKab} isSearchable={true} value={wilayah} placeholder="Pilih Kabupaten" onChange={handleSelect} styles={customStyles} instanceId={useId()} />
+      <div className="w-full rounded-xl bg-[#d93f57] bg-opacity-50">
+        <Select options={dataListKab} isSearchable={true} value={wilayah} placeholder="Pilih Kabupaten" onChange={handleSelect} styles={customStyles} instanceId={useId()} className="w-full" />
       </div>
     </>
   );
