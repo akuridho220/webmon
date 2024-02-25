@@ -27,7 +27,7 @@ const Dropdown = () => {
 
   return (
     <div className="relative">
-      <button className={currentPath.startsWith('/riset/') ? 'underline underline-offset-8 flex flex-row' : 'hover:underline hover:underline-offset-8 transition-all  flex flex-row'} onClick={toggleDropdown}>
+      <button className={currentPath.startsWith('/riset/') ? 'underline underline-offset-8 flex flex-row items-center' : 'hover:underline hover:underline-offset-8 transition-all  flex flex-row items-center'} onClick={toggleDropdown}>
         <span>Riset</span>
         <div>{chevron ? <Icon.ChevronDown /> : <Icon.ChevronUp />}</div>
       </button>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PasswordInput from './PasswordInput';
 import Image from 'next/image';
 import Swal from 'sweetalert2';
@@ -12,6 +12,20 @@ const Box = () => {
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
   const router = useRouter();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await authService.IsAuthenticated();
+        if (result !== false) {
+          router.push('/dashboard');
+        }
+      } catch (error) {
+        console.error(error); // Handle any errors
+      }
+    };
+    fetchData();
+  }, [router]); // Run once on component mount
+
   const handleLogin = async (e) => {
     e.preventDefault();
 

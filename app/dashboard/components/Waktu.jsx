@@ -60,7 +60,7 @@ const Waktu = ({ mulai, selesai, kegiatan, StartDate, EndDate }) => {
   return (
     <div className=" bg-white w-full shadow-md rounded-md py-2 px-4 space-y-4 md:space-y-3 items-center ">
       <div className=" text-sm md:text-base md:flex block justify-between items-center space-y-4 md:space-y-0">
-        <div className="  block md:flex md:space-x-8 space-y-4 md:space-y-0">
+        <div className="  block lg:flex lg:space-x-8 space-y-4 lg:space-y-0">
           <div className="text-primary-900 flex font-semibold space-x-2">
             <Icon.Calendar className="text-hitam-100" />
             <p>Mulai : </p>
