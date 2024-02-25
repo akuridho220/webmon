@@ -34,7 +34,7 @@ const Dropdown = () => {
 
       {isOpen && (
         <div className="absolute mt-2 -left-10 py-2 w-52 bg-putih-200 rounded-lg shadow-xl z-10">
-          <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys}>
+          <Accordion selectedKeys={selectedKeys} onSelectionChange={setSelectedKeys} className="text-sm md:text-base">
             <AccordionItem key="1" aria-label="Accordion 1" title="Daftar" className="ml-2">
               <ul className="block space-y-4">
                 <li className={currentPath.startsWith('/riset/daftar/daftar-listing') ? 'bg-primary-700 text-white rounded-md px-4 py-2' : 'hover:bg-primary-700 hover:text-white transition-all rounded-md px-4 py-2'}>
