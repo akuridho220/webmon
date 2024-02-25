@@ -70,11 +70,11 @@ const Content = ({ data, listKab, listKec, listDesa }) => {
   return (
     <>
       <div className="bg-primary-900/95 w-[90%] mt-8 px-6 rounded-xl overflow-hidden">
-        <div className=" w-full block md:flex jjustify-between mb-4 pt-6">
+        <div className=" w-full block lg:flex jjustify-between mb-4 pt-6">
           <div className="w-full justify-start">
             <WilayahSelect listKab={listKab} listKec={listKec} listDesa={listDesa} onSelect={handleSelect} className="w-full" />
           </div>
-          <div onClick={handleExport} className="mt-3 md:mt-0 flex items-center md:justify-end justify-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
+          <div onClick={handleExport} className="mt-3 md:mt-0 flex items-center lg:justify-end justify-center bg-secondary-800 py-2 px-4 rounded-lg text-white hover:bg-secondary-900">
             <Icon.Download size={18} />
             <button className="pl-4 text-sm md:text-base">Export</button>
           </div>
