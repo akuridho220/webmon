@@ -73,7 +73,7 @@ const Waktu = ({ mulai, selesai, kegiatan, StartDate, EndDate }) => {
           </div>
         </div>
         <div className="flex justify-self-end ">
-          <div className="flex w-full text-center md:w-fit font-semibold space-x-2 px-4 py-2 bg-primary-800 hover:bg-primary-900 text-white rounded-md">
+          <div className="flex w-full text-center justify-center md:w-fit font-semibold space-x-2 px-4 py-2 bg-primary-800  text-white rounded-md">
             <p>Kegiatan: {kegiatan} </p>
           </div>
         </div>
@@ -82,7 +82,7 @@ const Waktu = ({ mulai, selesai, kegiatan, StartDate, EndDate }) => {
       <div className="md:flex block justify-between items-center">
         <p className="font-sdr text-2xl text-center md:text-start">{now}</p>
         {countdown.days === 0 ? (
-          <p className="text-sm md:text-base text-slate-100 px-6 py-2 rounded-md font-semibold text-center bg-primary-800 hover:bg-primary-900">Periode Kegiatan Telah Selesai</p>
+          <p className="text-sm md:text-base text-slate-100 px-6 py-2 rounded-md font-semibold text-center bg-primary-800">Periode Kegiatan Telah Selesai</p>
         ) : today >= dayStart ? (
           <div className="flex justify-center md:justify-start">
             <p className="text-primary-900 font-semibold">Tersisa</p>
@@ -90,7 +90,7 @@ const Waktu = ({ mulai, selesai, kegiatan, StartDate, EndDate }) => {
             <Icon.ArrowDown className="text-primary-900 block md:hidden" />
           </div>
         ) : (
-          <p className="text-sm md:text-base text-slate-100 px-6 py-2 rounded-md font-semibold text-center bg-primary-800 hover:bg-primary-900">Periode Kegiatan Belum dimulai</p>
+          <p className="text-sm md:text-base text-slate-100 px-6 py-2 rounded-md font-semibold text-center bg-primary-800">Periode Kegiatan Belum dimulai</p>
         )}
         {countdown.days > 0 && today >= dayStart && (
           <div className="max-md:w-full flex flex-wrap space-x-4 md:justify-start justify-center items-center">

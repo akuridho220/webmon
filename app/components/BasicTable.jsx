@@ -59,7 +59,7 @@ function BasicTable({ data, columns }) {
               </div>
             </div> */}
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-200 text-sm font-medium text-gray-700 uppercase tracking-wider">
+              <thead className="bg-gray-200 md:text-sm text-xs font-medium text-gray-700 uppercase tracking-wider">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
@@ -73,11 +73,11 @@ function BasicTable({ data, columns }) {
                   </tr>
                 ))}
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-gray-200 md:text-sm text-xs">
                 {table.getRowModel().rows.map((row) => (
                   <tr key={row.id}>
                     {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="px-6 py-3 whitespace-nowrap text-sm text-gray-600 text-center">
+                      <td key={cell.id} className="px-6 py-3 whitespace-nowrap md:text-sm text-gray-600 text-center">
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     ))}

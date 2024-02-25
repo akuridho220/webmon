@@ -3,6 +3,7 @@ import BasicTable from '@/app/components/BasicTable';
 import { useModal } from './Modal';
 import Informasi from './InformasiSampel';
 import React, { useState } from 'react';
+import { Button } from '@nextui-org/react';
 
 const TableDetail = ({ data }) => {
   const { showModal, setShowModal } = useModal();

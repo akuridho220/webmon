@@ -72,7 +72,7 @@ const SelectTabel = ({ dataBs, dataKec, dataKab, dataDesa, dataAll }) => {
             <SelectCat onSelect={handleCategoryChange} />
           </div>
         </div>
-        <div onClick={Export} className="flex items-center bg-secondary-800 py-2 px-4 md:w-fit w-full rounded-lg text-white hover:bg-secondary-900">
+        <div onClick={Export} className="flex items-center justify-center bg-secondary-800 py-2 px-4 md:w-fit w-full rounded-lg text-white hover:bg-secondary-900">
           <Icon.Download size={18} />
           <button className=" pl-4">Export</button>
         </div>
