@@ -21,6 +21,7 @@ export default function Header({ data }) {
       Alamat: item.alamat,
       Lat: item.lat,
       Long: item.long,
+      Status_Cacah: item.status == 2 ? 'Tercacah' : 'Belum Tercacah',
     };
   });
 

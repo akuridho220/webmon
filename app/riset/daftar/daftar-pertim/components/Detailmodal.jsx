@@ -7,14 +7,14 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
   
   const [imageUrl, setImageUrl] = useState('');
 
-  useEffect(() => {
-    // Fetch image URL from API
-    fetch(`${photo_url}222112319`)
-      .then(response => response.json())
-      .then(data => setImageUrl(data.imageUrl))
-      .catch(error => console.error('Error fetching image URL:', error));
-  }, []);
-
+  // useEffect(() => {
+  //   // Fetch image URL from API
+  //   fetch(`${photo_url}222112319`)
+  //     .then(response => response.json())
+  //     .then(data => setImageUrl(data.imageUrl))
+  //     .catch(error => console.error('Error fetching image URL:', error));
+  // }, []);
+  //console.log(photo_url.concat(dataPml[0].nim_pml)[0].status)
   return (
     <div>
       <Modal
@@ -37,7 +37,8 @@ const DetailModal = ({ isOpen, onClose, dataPml, dataPpl }) => {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col items-center text-sm md:text-base">
-            <Image src={`${photo_url}${dataPml[0].nim_pml}`} width={120} height={160} alt="foto" />
+            <Image src={photo_url.concat(dataPml[0].nim_pml).status != 404 ? `${photo_url}${dataPml[0].nim_pml}` : "/img/maskot/1.png"} width={120} height={160} alt="foto" />
+            {/* <Image src={"/img/maskot/1.png"} width={120} height={160} alt="foto" /> */}
             <p className="text-[#d93f57] text-opacity-90 text-center">{dataPml[0].nama}</p>
             <p className="bg-[#d93f57] bg-opacity-20 rounded-xl text-center p-2">PML | {dataPml[0].nim_pml}</p>
           </div>

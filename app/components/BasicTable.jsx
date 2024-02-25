@@ -26,7 +26,7 @@ function BasicTable({ data, columns }) {
       <div className="-my-2 sm:-mx-6 overflow-x-auto ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6">
           <div className="flex bg-gray-100 rounded-t-lg">
-            <div className="flex items-center text-sm p-4 mr-[55%]">
+            <div className="flex items-center text-sm p-4 md:mr-[55%] mr-auto">
               <p className="">Show</p>
               <select id="filterSize" className="p-2 border bg-white rounded-lg mx-2" onChange={(event) => table.setPageSize(parseInt(event.target.value))}>
                 <option value="10">10</option>
@@ -38,7 +38,7 @@ function BasicTable({ data, columns }) {
             </div>
             <div className="flex items-center text-sm p-4">
               <p className="px-2">Search:</p>
-              <input type="text" className="p-2 border rounded" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
+              <input type="text" className="p-2 border rounded md:w-full w-[75%]" value={filtering} onChange={(e) => setFiltering(e.target.value)} />
             </div>
           </div>
           <div className="shadow overflow-hidden border-b border-gray-200 rounded-b-lg">
