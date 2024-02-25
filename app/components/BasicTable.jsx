@@ -2,6 +2,7 @@
 import { getCoreRowModel, useReactTable, flexRender, getPaginationRowModel, getSortedRowModel, getFilteredRowModel } from '@tanstack/react-table';
 import { useState } from 'react';
 import * as Icon from 'react-feather';
+import { cn } from '@nextui-org/react';
 
 function BasicTable({ data, columns }) {
   const [sorting, setSorting] = useState([]);
@@ -63,7 +64,10 @@ function BasicTable({ data, columns }) {
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
-                      <th key={header.id} scope="col" className="px-6 py-3 cursor-pointer text-center" onClick={header.column.getToggleSortingHandler()}>
+                      <th key={header.id} scope="col" 
+                      //className="px-6 py-3 cursor-pointer text-center" 
+                      onClick={header.column.getToggleSortingHandler()}
+                      className={cn(header.column.columnDef.meta?.className, "px-6 py-3 cursor-pointer text-center") }>
                         <div className="flex items-center justify-center">
                           {flexRender(header.column.columnDef.header, header.getContext())}
                           {{ asc: <Icon.ChevronUp size={16} />, desc: <Icon.ChevronDown size={16} /> }[header.column.getIsSorted() ?? '      ']}
@@ -77,7 +81,9 @@ function BasicTable({ data, columns }) {
                 {table.getRowModel().rows.map((row) => (
                   <tr key={row.id}>
                     {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="px-6 py-3 whitespace-nowrap md:text-sm text-gray-600 text-center">
+                      <td key={cell.id} 
+                      //className="px-6 py-3 whitespace-nowrap md:text-sm text-gray-600 text-center"
+                      className={cn(cell.column.columnDef.meta?.className, "md:px-6 md:py-3 p-1 whitespace-nowrap md:text-sm text-gray-600 text-center")}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     ))}

@@ -55,15 +55,18 @@ const TableKeseluruhan = ({ data }) => {
     },
     {
       accessorKey: 'tgl_listing',
-      header: 'Tanggal Listing',
+      header: '',
+      meta: { className: "hidden sm:block" },
     },
     {
       accessorKey: 'Catatan BS',
-      header: 'Catatan BS',
+      header: '',
+      meta: { className: "hidden sm:block" },
     },
     {
       accessorKey: 'Catatan Ruta',
-      header: 'Catatan Ruta',
+      header: '',
+      meta: { className: "hidden sm:block" },
     },
   ];
 
