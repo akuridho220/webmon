@@ -48,7 +48,7 @@ const MapComponent = ({ petugas, position, zoom, radius, toolTip }) => {
             <br />
             Lokus: {p.lokus}
             <br />
-            ID Tim: {p.id_tim}
+            Nama Tim: {p.nama_tim}
             <br />
             Posisi: {p.lat}, {p.long}
             <br />
