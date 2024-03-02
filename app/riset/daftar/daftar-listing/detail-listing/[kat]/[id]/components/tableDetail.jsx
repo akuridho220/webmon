@@ -12,10 +12,10 @@ const TableDetail = ({ data }) => {
       accessorKey: 'kode_ruta',
       header: 'Kode Rumah Tangga',
     },
-    {
-      accessorKey: 'id_bs',
-      header: 'Blok Sensus',
-    },
+    // {
+    //   accessorKey: 'id_bs',
+    //   header: 'Blok Sensus',
+    // },
     {
       accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
