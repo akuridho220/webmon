@@ -54,7 +54,7 @@ const MapComponent = ({ petugas, position, zoom, radius, toolTip }) => {
             <br />
             Akurasi: {p.akurasi} meter
             <br />
-            diperbarui pada {p.time_created}
+            diperbarui pada {`${p.time_created.toLocaleString()}`}
           </Popup>
         </Marker>
       ))}
