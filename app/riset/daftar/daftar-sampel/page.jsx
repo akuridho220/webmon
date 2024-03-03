@@ -27,7 +27,7 @@ const getDataKec = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/kec`), fetchData(`${apiURL}riset/daftar/listing/kec`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.nama_kec === listingItem.nama_kecamatan);
 
     return {
       ...sampelItem,
@@ -42,7 +42,7 @@ const getDataKab = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/kab`), fetchData(`${apiURL}riset/daftar/listing/kab`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.nama_kab === listingItem.nama_kabupaten);
 
     return {
       ...sampelItem,
@@ -92,8 +92,7 @@ export default async function DaftarSampel() {
   const dataAll = getDataAll();
 
   const [bs, kec, desa, kab, all] = await Promise.all([dataBs, dataKec, dataDesa, dataKab, dataAll]);
-  console.log(kec);
-  console.log(kab);
+
   return (
     <Layout className="w-full min-h-screen overflow-x-hidden">
       <PageTitle judul={judul} />
