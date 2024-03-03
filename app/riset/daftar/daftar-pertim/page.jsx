@@ -17,7 +17,7 @@ const getDataSampel = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/tim/sampel`), getDataListing()]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.id_bs === listingItem.id_bs);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.id_tim === listingItem.id_tim);
 
     return {
       ...sampelItem,
