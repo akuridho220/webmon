@@ -34,10 +34,10 @@ const TableTim = ({ data }) => {
   };
 
   const columns = [
-    {
-      accessorKey: 'id_bs',
-      header: 'Blok Sensus',
-    },
+    // {
+    //   accessorKey: 'id_bs',
+    //   header: 'Blok Sensus',
+    // },
     {
       accessorKey: 'nama_tim',
       header: 'Tim Pencacah',
