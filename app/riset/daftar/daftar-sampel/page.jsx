@@ -27,7 +27,7 @@ const getDataKec = async () => {
   const [dataSampel, dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/sampel/kec`), fetchData(`${apiURL}riset/daftar/listing/kec`)]);
 
   const mergedData = dataSampel.map((sampelItem) => {
-    const matchingListing = dataListing.find((listingItem) => sampelItem.nama_kec === listingItem.nama_kecamatan);
+    const matchingListing = dataListing.find((listingItem) => sampelItem.nama_kec === listingItem.nama_kec);
 
     return {
       ...sampelItem,
@@ -92,7 +92,7 @@ export default async function DaftarSampel() {
   const dataAll = getDataAll();
 
   const [bs, kec, desa, kab, all] = await Promise.all([dataBs, dataKec, dataDesa, dataKab, dataAll]);
-
+  console.log(kec)
   return (
     <Layout className="w-full min-h-screen overflow-x-hidden">
       <PageTitle judul={judul} />
