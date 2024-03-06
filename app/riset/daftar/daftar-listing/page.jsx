@@ -43,14 +43,22 @@ const getDataDesa = async () => {
 };
 
 const getDataKab = async () => {
-  const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`)]);
-  // const modifiedData = dataListing.map(item => ({
-  //   ...item,
-  //   kode_kab_full: `${item.id_prov}${item.id_kab}`,
-  // }));
+  const [dataListing, listingSelesai] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`), fetchData(`${apiURL}progres/listing/kab`)]);
 
-  // return modifiedData;
-  return dataListing;
+  //const [dataListing] = await Promise.all([fetchData(`${apiURL}riset/daftar/listing/kab`)]);
+
+
+  const mergedData = dataListing.map((sampelItem) => {
+    const matchingListing = listingSelesai.find((listingItem) => sampelItem.id_kab === listingItem.id_kab);
+
+    return {
+      ...sampelItem,
+      jumlah_listing_selesai: matchingListing ? matchingListing.jumlah_listing_selesai : 0,
+    };
+  });
+
+  return mergedData;
+  //return dataListing;
 };
 
 const getDataAll = async () => {

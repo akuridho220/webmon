@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import ProgresBar from './ProgresBar';
 
 const { default: BasicTable } = require('@/app/components/BasicTable');
 
@@ -13,6 +14,16 @@ const TableKabupaten = ({ data }) => {
     {
       accessorKey: 'jumlah_listing',
       header: 'Jumlah Terlisting',
+    },
+    {
+      accessorKey: 'progres',
+      header: 'Progress',
+      cell: ({ cell }) => (
+        <>
+          {Math.round((cell.row.original.jumlah_listing_selesai / cell.row.original.jumlah_listing) * 100)}%
+          <ProgresBar done={cell.row.original.jumlah_listing_selesai} max={cell.row.original.jumlah_listing} />
+        </>
+      ),
     },
     {
       accessorKey: 'aksi',

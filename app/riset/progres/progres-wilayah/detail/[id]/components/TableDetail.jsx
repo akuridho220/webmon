@@ -9,14 +9,14 @@ const TableDetailProgres = ({ data }) => {
       accessorKey: 'kode_ruta',
       header: 'Nomor Rumah Tangga',
     },
-    {
-      accessorKey: 'nim_pencacah',
-      header: 'NIM Pencacah',
-    },
-    {
-      accessorKey: 'nama_pencacah',
-      header: 'Nama Pencacah',
-    },
+    // {
+    //   accessorKey: 'nim_pencacah',
+    //   header: 'NIM Pencacah',
+    // },
+    // {
+    //   accessorKey: 'nama_pencacah',
+    //   header: 'Nama Pencacah',
+    // },
     {
       accessorKey: 'nama_krt',
       header: 'Nama KRT',
