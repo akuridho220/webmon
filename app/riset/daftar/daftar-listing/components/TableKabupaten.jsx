@@ -20,8 +20,8 @@ const TableKabupaten = ({ data }) => {
       header: 'Progress',
       cell: ({ cell }) => (
         <>
-          {Math.round((cell.row.original.jumlah_listing_selesai / cell.row.original.jumlah_listing) * 100)}%
-          <ProgresBar done={cell.row.original.jumlah_listing_selesai} max={cell.row.original.jumlah_listing} />
+          {Math.round((cell.row.original.jumlah_listing_done / cell.row.original.jumlah_listing_all) * 100)}%
+          <ProgresBar done={cell.row.original.jumlah_listing_done} max={cell.row.original.jumlah_listing_all} />
         </>
       ),
     },
