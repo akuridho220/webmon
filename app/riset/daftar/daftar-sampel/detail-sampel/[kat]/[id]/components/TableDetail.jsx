@@ -37,7 +37,7 @@ const TableDetail = ({ data }) => {
       cell: ({ row }) => {
         return (
           <div>
-            {row.original.status == 2 ? (
+            {row.original.status_cacah == 2 ? (
               <button disabled className="text-green-900 bg-green-200/70 px-4 py-2 rounded-lg">
                 Tercacah
               </button>
